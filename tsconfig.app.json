@@ -1,0 +1,22 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "exclude": ["src/**/__tests__/*"],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@assets/*": ["assets/*"],
+      "@views/*": ["views/*"],
+      "@comments/*": ["comments/*"]
+    },
+    "resolveJsonModule": true /* Enable importing .json files. */,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "strict": true /* Enable all strict type-checking options. */,
+    "noImplicitAny": true,
+    "noUnusedLocals": true /* Enable error reporting when local variables aren't read. */,
+    "noUnusedParameters": true
+  }
+}
