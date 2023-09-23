@@ -6,10 +6,7 @@
     "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@assets/*": ["assets/*"],
-      "@views/*": ["views/*"],
-      "@comments/*": ["comments/*"]
+      "@/*": ["./src/*"]
     },
     "resolveJsonModule": true /* Enable importing .json files. */,
     "isolatedModules": true,
