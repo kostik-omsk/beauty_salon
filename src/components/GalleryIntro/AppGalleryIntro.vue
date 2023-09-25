@@ -10,6 +10,10 @@
 import { gsap } from 'gsap'
 import { onMounted } from 'vue'
 import useImageUrl from '@/composable/getImgUrl'
+
+interface PhotoBoxElement extends HTMLElement {
+  tl: gsap.core.Timeline
+}
 export default {
   name: 'AppGallery',
   setup() {
@@ -89,11 +93,12 @@ export default {
     ]
 
     onMounted(() => {
-      const box = document.querySelectorAll('.photoBox ')
-      let amountPhotos = 12
-      for (var i = 0; i < amountPhotos; i++) {
-        let column = photeBoxes[i].column
-        gsap.set(box[i], {
+      const box = document.querySelectorAll('.photoBox ') as NodeListOf<PhotoBoxElement>
+
+      Array.from(box).forEach((el, i) => {
+        const column = photeBoxes[i].column
+
+        gsap.set(el, {
           backgroundImage: `url(${useImageUrl(photeBoxes[i].name).value})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -106,10 +111,10 @@ export default {
           zIndex: 1
         })
 
-        box[i].tl = gsap
+        el.tl = gsap
           .timeline({ paused: true, repeat: -1 })
           .fromTo(
-            box[i],
+            el,
             { y: [-575, 800, 800][column], rotation: -0.05 },
             {
               duration: [40, 35, 26][column],
@@ -119,7 +124,7 @@ export default {
             }
           )
           .progress((i % 4) / 4)
-      }
+      })
 
       function playBoxes() {
         for (let i = 0; i < box.length; i++) {
@@ -134,7 +139,7 @@ export default {
         }
       }
 
-      let _tl = gsap
+      gsap
         .timeline({ onStart: playBoxes })
         .set('.gallery', { perspective: 800 })
         .set('.photoBox', { opacity: 1 })
