@@ -31,16 +31,33 @@ import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
   &__block {
     top: 35%;
     position: absolute;
-    background: #ffffffb5;
+    background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 15px;
     z-index: 100;
+
+    @media (max-width: 767.98px) {
+      font-size: 1.5rem;
+      right: 0;
+      left: 0;
+      border-radius: 0px;
+    }
+    @media (max-width: 1400px) {
+      box-shadow: 0 0 3px #00000095;
+    }
+
     .block-title {
       font-weight: 700;
       font-size: 2.4rem;
+
       @media (max-width: 767.98px) {
         font-size: 1.5rem;
       }
+
+      @media only screen and (max-width: 576px) {
+        font-size: 1.4rem;
+      }
+
       @media (min-width: 767.98px) and (max-width: 1200px) {
         font-size: 1.6rem;
       }
@@ -48,6 +65,9 @@ import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
 
     .block-text {
       font-size: 1.3rem;
+      @media only screen and (max-width: 576px) {
+        font-size: 1.1rem;
+      }
     }
 
     .block-icons {
