@@ -110,7 +110,7 @@ export default {
       height: 40px;
       width: 50px;
       display: grid;
-      align-content: space-around;
+      align-content: space-evenly;
       position: relative;
       overflow: hidden;
       span {
