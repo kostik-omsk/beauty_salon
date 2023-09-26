@@ -99,7 +99,7 @@ export default {
         const column = photeBoxes[i].column
 
         gsap.set(el, {
-          backgroundImage: `url(${useImageUrl(photeBoxes[i].name).value})`,
+          backgroundImage: `url(src/assets/img/gallery/${photeBoxes[i].name})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           overflow: 'hidden',
