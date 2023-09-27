@@ -16,10 +16,6 @@ interface PhotoBoxElement extends HTMLElement {
   tl: gsap.core.Timeline
 }
 
-function resolveImagePath(imageName: string) {
-  return `src/assets/img/gallery/${imageName}`
-}
-
 export default {
   name: 'AppGallery',
   setup() {
@@ -30,7 +26,7 @@ export default {
         const column = photeBoxes[i].column
 
         gsap.set(el, {
-          backgroundImage: `url(${resolveImagePath(photeBoxes[i].name)})`,
+          backgroundImage: `url(${photeBoxes[i].name})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           overflow: 'hidden',
