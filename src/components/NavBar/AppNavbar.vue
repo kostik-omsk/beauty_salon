@@ -43,6 +43,8 @@ export default {
     onMounted(() => {
       aniMenu
         .set('#app', { height: '90%', overflow: 'hidden' })
+        .set('body', { overflow: 'hidden' })
+        .set('html', { overflow: 'hidden' })
         .to('#app', {
           scale: 0.88,
           x: '380px',
@@ -83,7 +85,7 @@ export default {
       </div>
       <div class="tel">
         <a href="tel:+79133851386">
-          <i class="bi bi-telephone"></i>
+          <i class="bi bi-telephone me-2"></i>
           <strong>+7 (913) 385-13-86</strong>
         </a>
       </div>
@@ -150,13 +152,14 @@ export default {
 
   .tel {
     a {
-      display: flex;
       font-size: 22px;
-      color: $myprimary;
-      strong {
+      strong,
+      i {
         font-weight: 800;
+        color: $myprimary;
       }
     }
+
     @media (max-width: 996px) {
       display: none;
     }
