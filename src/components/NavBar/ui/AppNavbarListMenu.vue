@@ -43,10 +43,11 @@ export default {
   z-index: -1;
   top: 0;
   left: 0;
-  bottom: 0;
+  height: 100%;
   padding: 84px 40px;
   min-width: 375px;
-  overflow: hidden;
+  transform: none;
+  overflow: auto;
 
   .close-menu {
     position: absolute;
