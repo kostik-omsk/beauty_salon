@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
+// import { computed } from 'vue'
 </script>
 
 <template>
@@ -21,7 +22,7 @@ import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
 </template>
 
 <style lang="scss">
-@import '../assets/var.scss';
+@import '@/assets/var.scss';
 
 .intro {
   min-height: calc(100vh - 92px);
