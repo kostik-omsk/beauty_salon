@@ -8,8 +8,7 @@
 
 <script lang="ts">
 import { gsap } from 'gsap'
-import { onMounted } from 'vue'
-import useImageUrl from '@/composable/getImgUrl'
+import { computed, onMounted } from 'vue'
 import { photeBoxes } from './dataGallery'
 
 interface PhotoBoxElement extends HTMLElement {
@@ -19,10 +18,32 @@ interface PhotoBoxElement extends HTMLElement {
 export default {
   name: 'AppGallery',
   setup() {
-    onMounted(() => {
-      const box = document.querySelectorAll('.photoBox ') as NodeListOf<PhotoBoxElement>
+    const isMobile = computed(() => screen.width >= 768 && screen.height >= 425)
 
-      Array.from(box).forEach((el, i) => {
+    onMounted(() => {
+      const box = gsap.utils.toArray('.photoBox') as PhotoBoxElement[]
+
+      function playBoxes() {
+        for (let i = 0; i < box.length; i++) {
+          const tl = box[i].tl
+          tl.play()
+          gsap.to(tl, {
+            duration: 0.4,
+            timeScale: 1,
+            ease: 'sine.in',
+            overwrite: true
+          })
+        }
+      }
+
+      function pauseBoxes() {
+        for (let i = 0; i < box.length; i++) {
+          const tl = box[i].tl
+          tl.pause()
+        }
+      }
+
+      box.forEach((el, i) => {
         const column = photeBoxes[i].column
 
         gsap.set(el, {
@@ -53,26 +74,18 @@ export default {
           .progress((i % 4) / 4)
       })
 
-      function playBoxes() {
-        for (let i = 0; i < box.length; i++) {
-          const tl = box[i].tl
-          tl.play()
-          gsap.to(tl, {
-            duration: 0.4,
-            timeScale: 1,
-            ease: 'sine.in',
-            overwrite: true
-          })
-        }
+      const timelineOptions = {
+        onStart: isMobile.value ? playBoxes : undefined,
+        onComplete: isMobile.value ? undefined : pauseBoxes
       }
 
       gsap
-        .timeline({ onStart: playBoxes })
+        .timeline(timelineOptions)
         .set('.gallery', { perspective: 800 })
         .set('.photoBox', { opacity: 1 })
         .fromTo('.gallery', { autoAlpha: 0 }, { duration: 0.6, ease: 'power2.inOut', autoAlpha: 1 }, 0.2)
     })
-    return { photeBoxes, useImageUrl: useImageUrl }
+    return { photeBoxes }
   }
 }
 </script>
@@ -83,8 +96,18 @@ div {
   height: 100%;
   position: absolute;
 }
+
+.gallery__img {
+  height: 100%;
+  display: block;
+  @media only screen and (max-width: 768px) {
+    object-fit: cover;
+  }
+  @media only screen and (max-width: 576px) {
+  }
+}
 .photoBox {
-  will-change: transform, opacity;
+  will-change: transform;
 }
 .galleryBoxes {
   will-change: transform;
@@ -97,6 +120,10 @@ div {
 
   @media (max-width: 1400px) {
     transform: translate(-55%, 0%) rotate(10deg) rotateY(-15deg) rotateX(14deg);
+  }
+
+  @media only screen and (max-width: 768px) {
+    transform: translate(-48%, 0%) rotate(0deg) rotateY(0deg) rotateX(0deg);
   }
 }
 </style>
