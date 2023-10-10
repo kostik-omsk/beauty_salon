@@ -48,6 +48,7 @@ export default {
   min-width: 375px;
   transform: none;
   overflow: auto;
+  will-change: transform;
 
   .close-menu {
     position: absolute;
