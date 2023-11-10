@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
-// import { computed } from 'vue'
 </script>
 
 <template>
@@ -19,6 +18,9 @@ import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
     </div>
     <AppGalleryIntro />
   </section>
+  <section class="services">
+    <div class="container"></div>
+  </section>
 </template>
 
 <style lang="scss">
@@ -28,6 +30,10 @@ import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
   min-height: calc(100vh - 92px);
   position: relative;
   overflow: hidden;
+
+  @media screen and (max-height: 800px), screen and (min-height: 1001px) {
+    min-height: 750px;
+  }
 
   &__block {
     top: 35%;
@@ -95,5 +101,8 @@ import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
       object-fit: cover;
     }
   }
+}
+
+.services {
 }
 </style>
