@@ -96,10 +96,14 @@ export default {
   </div>
 </template>
 <style lang="scss" scoped>
-@import '../../assets/var.scss';
+@import '@/assets/var.scss';
 .my-navbar {
-  padding: 5px 20px;
+  position: relative;
+  padding: 5px 20px 0px;
   margin: 0 auto;
+  border-bottom: 2px solid $myprimary;
+  box-shadow: 0 1rem 2rem -0.8rem $mygreen;
+  z-index: 5;
 
   nav {
     display: flex;
@@ -108,6 +112,7 @@ export default {
   }
   .menu-burger {
     cursor: pointer;
+
     #nav-icon {
       height: 40px;
       width: 50px;
@@ -115,6 +120,7 @@ export default {
       align-content: space-evenly;
       position: relative;
       overflow: hidden;
+
       span {
         position: relative;
         display: block;
@@ -123,6 +129,7 @@ export default {
         border-radius: 3px;
         background: $myprimary;
       }
+
       &::after {
         content: '';
         position: absolute;
@@ -135,6 +142,7 @@ export default {
         transition: all 0.5s ease-out;
         transform: translate(-27px, -15px) rotate(45deg);
       }
+
       &:hover::after {
         transform: translate(70px, -5px) rotate(45deg);
       }
