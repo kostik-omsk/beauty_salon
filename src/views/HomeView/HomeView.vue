@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
+import CardServicesVue from './ui/CardServices.vue'
+import { listServices } from '@/views/HomeView/data/listServices'
 </script>
 
 <template>
@@ -19,7 +21,14 @@ import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
     <AppGalleryIntro />
   </section>
   <section class="services">
-    <div class="container"></div>
+    <div class="section__header">
+      <div class="container"><h2 class="py-3">Наши услуги</h2></div>
+    </div>
+    <div class="container">
+      <div class="services__list">
+        <CardServicesVue v-for="service in listServices" :key="service.id" :service="service" />
+      </div>
+    </div>
   </section>
 </template>
 
@@ -27,7 +36,7 @@ import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
 @import '@/assets/var.scss';
 
 .intro {
-  min-height: calc(100vh - 92px);
+  min-height: calc(100vh - 87px);
   position: relative;
   overflow: hidden;
 
@@ -49,6 +58,7 @@ import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
       left: 0;
       border-radius: 0px;
     }
+
     @media (max-width: 1400px) {
       box-shadow: 0 0 3px #00000095;
     }
@@ -72,6 +82,7 @@ import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
 
     .block-text {
       font-size: 1.3rem;
+
       @media only screen and (max-width: 576px) {
         font-size: 1.1rem;
       }
@@ -103,6 +114,19 @@ import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
   }
 }
 
-.services {
+.section__header {
+  position: relative;
+  z-index: 5;
+  color: $secondary;
+  background: initial;
+  background: $myprimary radial-gradient($mygreen 10%, transparent 2%);
+  background-size: 11px 11px;
+  box-shadow: 0 -1rem 2rem -0.8rem $mygreen;
+  margin-bottom: 3rem;
+  h2 {
+    font-weight: 800;
+    // text-decoration: underline solid;
+    text-shadow: 0px 0px 10px #000000;
+  }
 }
 </style>
