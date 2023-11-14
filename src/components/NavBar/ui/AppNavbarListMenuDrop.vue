@@ -54,7 +54,7 @@ export default {
 .submenu-open {
   height: 178px;
   @media (max-width: 500px) {
-    height: 165px;
+    height: 172px;
   } /* Установить высоту блока в 100px, когда isOpen === true */
 }
 .submenu-closed {

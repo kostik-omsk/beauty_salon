@@ -38,6 +38,8 @@ export default {
 </template>
 
 <style lang="scss">
+@import '@/assets/var.scss';
+
 .menu-list {
   position: fixed;
   z-index: -1;
@@ -87,23 +89,29 @@ export default {
   .inner {
     height: auto;
     width: auto;
+
     .menu-container {
       margin-top: 25px;
+
       ul:first-child {
         padding: 0;
       }
+
       ul {
         max-height: 320px;
       }
+
       .item-menu {
         cursor: pointer;
         position: relative;
         color: #fff;
-        font-size: 1.3rem;
+        font-size: 1.45rem;
         letter-spacing: 1px;
         font-weight: 400;
+        text-shadow: 0px 0px 0.8rem #000000;
+
         @media (max-width: 500px) {
-          font-size: 1.2rem;
+          font-size: 1.4rem;
         }
 
         &::after {
@@ -118,6 +126,7 @@ export default {
           border-top: 4px solid #a3dc59;
           padding-bottom: inherit;
         }
+
         &:hover::after {
           transform: scaleX(1);
         }
