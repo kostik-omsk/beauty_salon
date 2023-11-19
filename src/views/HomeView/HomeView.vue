@@ -59,7 +59,6 @@ import CosmeticsVideo from './ui/CosmeticsVideo.vue'
           </p>
           <router-link class="primary-btn mt-3" to="#">Каталог косметики</router-link>
         </div>
-        <!-- <ImagesCosmetics /> -->
         <CosmeticsVideo />
       </div>
     </div>
