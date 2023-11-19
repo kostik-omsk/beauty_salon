@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
-import CardServicesVue from './ui/CardServices.vue'
 import { listServices } from '@/views/HomeView/data/listServices'
+import CardServicesVue from './ui/CardServices.vue'
+import LogoBrands from './ui/LogoBrands.vue'
+import CosmeticsVideo from './ui/CosmeticsVideo.vue'
 </script>
 
 <template>
@@ -22,11 +24,43 @@ import { listServices } from '@/views/HomeView/data/listServices'
   </section>
   <section class="services">
     <div class="section__header">
-      <div class="container"><h2 class="py-3">Наши услуги</h2></div>
+      <div class="container">
+        <h2 class="py-3">Наши услуги</h2>
+      </div>
     </div>
     <div class="container">
       <div class="services__list">
         <CardServicesVue v-for="service in listServices" :key="service.id" :service="service" />
+      </div>
+    </div>
+  </section>
+  <section class="cosmetics">
+    <div class="section__header">
+      <div class="container">
+        <h2 class="py-3">Косметика</h2>
+      </div>
+    </div>
+    <div class="container">
+      <LogoBrands />
+      <h3>У нас вы сможете приобрести косметику по уходу за лицом и телом от различных брендов</h3>
+      <div class="cosmetics__content mt-5">
+        <div class="cosmetics__info">
+          <h4>О важности использования косметики</h4>
+          <p>
+            Косметика для ухода за лицом и телом - это важный элемент в нашей повседневной жизни. Некоторые продукты
+            могут помочь увлажнить кожу, устранить шелушение и защитить ее от воздействия внешней среды, а также
+            устраняют недостатки и проблемы. Кроме того, использование косметики для ухода может уменьшить выраженность
+            морщин и поддерживать здоровый вид кожи.
+          </p>
+          <p>
+            Важно помнить, что при выборе косметических продуктов необходимо учитывать тип кожи, возраст и
+            индивидуальное состояние кожи, чтобы получить максимальный эффект. В общем, приобретение качественной
+            косметики для ухода за лицом и телом - это важный шаг к здоровью и красоте.
+          </p>
+          <router-link class="primary-btn mt-3" to="#">Каталог косметики</router-link>
+        </div>
+        <!-- <ImagesCosmetics /> -->
+        <CosmeticsVideo />
       </div>
     </div>
   </section>
@@ -115,18 +149,24 @@ import { listServices } from '@/views/HomeView/data/listServices'
 }
 
 .section__header {
-  position: relative;
-  z-index: 5;
   color: $secondary;
-  background: initial;
-  background: $myprimary radial-gradient($mygreen 10%, transparent 2%);
-  background-size: 11px 11px;
-  box-shadow: 0 -1rem 2rem -0.8rem $mygreen;
+  background: $myprimary;
   margin-bottom: 3rem;
+
   h2 {
     font-weight: 800;
-    // text-decoration: underline solid;
     text-shadow: 0px 0px 10px #000000;
+  }
+}
+
+.cosmetics__content {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 4rem;
+
+  @media only screen and (max-width: 1024px) {
+    flex-direction: column-reverse;
+    align-items: center;
   }
 }
 </style>

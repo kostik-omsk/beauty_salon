@@ -12,7 +12,7 @@ const { title, description, urlName, path } = props.service as Service
     <div class="service__info">
       <h3 class="service__title">{{ title }}</h3>
       <p class="service__description">{{ description }}</p>
-      <router-link class="service__btn" :to="path">Подробней</router-link>
+      <router-link class="primary-btn" :to="path">Подробней</router-link>
     </div>
   </div>
 </template>
@@ -45,46 +45,6 @@ const { title, description, urlName, path } = props.service as Service
   &__description {
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     margin-bottom: 2rem;
-  }
-
-  &__btn {
-    display: inline-block;
-    position: relative;
-    border: unset;
-    padding: 0.5rem 1.6rem;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: $secondary;
-    background: $myprimary;
-    border-radius: 10px;
-    border: 1px solid $mygreen;
-    transition: all 250ms;
-    overflow: hidden;
-    z-index: 1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    cursor: pointer;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 0;
-      border-radius: 10px;
-      background-color: $mygreen;
-      transition: all 250ms;
-      z-index: -1;
-    }
-    &:hover::before {
-      width: 100%;
-    }
-
-    &:hover {
-      color: $myprimary;
-      border: 1px solid $myprimary;
-    }
   }
 }
 </style>
