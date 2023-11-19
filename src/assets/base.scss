@@ -37,8 +37,7 @@ body {
 
 body {
   position: relative;
-  background: $myprimary radial-gradient($mygreen 10%, transparent 2%);
-  background-size: 11px 11px;
+  background: $myprimary;
   z-index: -10;
   color: $myprimary;
 }
@@ -57,6 +56,9 @@ h3 {
   font-size: $font-size-xl;
 }
 
+p {
+  font-size: $font-size-base;
+}
 a {
   text-decoration: none;
 }
@@ -66,27 +68,44 @@ ul {
 li {
   list-style-type: none !important;
 }
+
 button,
-.btn {
-  background: $secondary;
-  border-radius: 8px;
-  border: 0;
-  padding: 8px 12px;
-  font-weight: 600;
-  cursor: pointer;
+.primary-btn {
   display: inline-block;
-}
-button:hover,
-.btn:hover {
+  position: relative;
+  border: unset;
+  padding: 0.5rem 1.6rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $secondary;
   background: $myprimary;
-  color: $mygreen;
-}
-button:disabled {
-  opacity: 0.5;
-  color: $mygreen;
-  background: $secondary;
-  cursor: not-allowed;
-}
-.paragraph {
-  text-indent: 20px;
+  border-radius: 10px;
+  border: 1px solid $mygreen;
+  transition: all 250ms;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 10px;
+    background-color: $mygreen;
+    transition: all 250ms;
+    z-index: -1;
+  }
+  &:hover::before {
+    width: 100%;
+  }
+
+  &:hover {
+    color: $myprimary;
+    border: 1px solid $myprimary;
+  }
 }
