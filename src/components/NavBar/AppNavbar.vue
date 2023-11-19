@@ -101,8 +101,6 @@ export default {
   position: relative;
   padding: 5px 20px 0px;
   margin: 0 auto;
-  border-bottom: 2px solid $myprimary;
-  box-shadow: 0 1rem 2rem -0.8rem $mygreen;
   z-index: 5;
 
   nav {
@@ -120,6 +118,7 @@ export default {
       align-content: space-evenly;
       position: relative;
       overflow: hidden;
+      background: white;
 
       span {
         position: relative;
