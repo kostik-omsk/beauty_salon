@@ -48,6 +48,7 @@
 
   @media only screen and (max-width: 626px) {
     flex-direction: column;
+    gap: 0px;
   }
   &__info {
     @media only screen and (max-width: 992px) {
@@ -55,6 +56,7 @@
     }
     @media only screen and (max-width: 626px) {
       height: 280px;
+      align-content: space-between;
     }
   }
 

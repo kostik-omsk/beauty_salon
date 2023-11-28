@@ -1,4 +1,6 @@
 /* base styles  */
+@import './var.scss';
+
 * {
   margin: 0;
   padding: 0;
@@ -6,42 +8,56 @@
   font-family: 'Nunito', sans-serif;
   box-sizing: border-box;
 }
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  width: 7px;
+  background-color: $myprimary;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-image: -webkit-gradient(linear, 20% 0%, 75% 95%, from(#046b38), to(#046b38), color-stop(0.5, $mygreen));
+}
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 10%);
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
 html,
 body {
-  font-size: 18px;
-  overflow-x: hidden;
+  font-size: 16px;
   height: 100vh;
 }
+
 body {
   position: relative;
-  background-color: $myprimary;
+  background: $myprimary;
   z-index: -10;
   color: $myprimary;
-  &::-webkit-scrollbar {
-    width: 10px;
-    background-color: #f5f5f5;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: #fff;
-    background-image: -webkit-gradient(linear, 20% 0%, 75% 95%, from(#046b38), to(#046b38), color-stop(0.5, $mygreen));
-  }
-  &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 10%);
-    background-color: #f5f5f5;
-    border-radius: 10px;
-  }
 }
+
 h2,
 h3,
 h4 {
   font-weight: bold;
+}
+
+h2 {
+  font-size: $font-size-xxl;
+}
+
+h3 {
+  font-size: $font-size-xl;
+}
+
+p {
+  font-size: $font-size-base;
 }
 a {
   text-decoration: none;
@@ -52,27 +68,44 @@ ul {
 li {
   list-style-type: none !important;
 }
+
 button,
-.btn {
-  background: $secondary;
-  border-radius: 8px;
-  border: 0;
-  padding: 8px 12px;
-  font-weight: 600;
-  cursor: pointer;
+.primary-btn {
   display: inline-block;
-}
-button:hover,
-.btn:hover {
+  position: relative;
+  border: unset;
+  padding: 0.5rem 1.6rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $secondary;
   background: $myprimary;
-  color: $mygreen;
-}
-button:disabled {
-  opacity: 0.5;
-  color: $mygreen;
-  background: $secondary;
-  cursor: not-allowed;
-}
-.paragraph {
-  text-indent: 20px;
+  border-radius: 10px;
+  border: 1px solid $mygreen;
+  transition: all 250ms;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 10px;
+    background-color: $mygreen;
+    transition: all 250ms;
+    z-index: -1;
+  }
+  &:hover::before {
+    width: 100%;
+  }
+
+  &:hover {
+    color: $myprimary;
+    border: 1px solid $myprimary;
+  }
 }
