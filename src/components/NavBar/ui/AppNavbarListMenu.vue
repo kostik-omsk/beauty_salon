@@ -24,7 +24,7 @@ export default {
     <div class="inner">
       <div class="menu-container">
         <a class="item-menu" href="tel:+79133851386">
-          <i class="bi bi-telephone"></i>
+          <i class="bi bi-telephone me-2"></i>
           <strong>+7 (913) 385-13-86</strong>
         </a>
       </div>
@@ -38,17 +38,20 @@ export default {
 </template>
 
 <style lang="scss">
+@import '@/assets/var.scss';
+
 .menu-list {
-  display: flex;
   position: fixed;
   z-index: -1;
   top: 0;
   left: 0;
-  padding: 84px 40px;
   height: 100%;
-  min-width: 390px;
+  padding: 84px 40px;
+  min-width: 375px;
   transform: none;
   overflow: auto;
+  will-change: transform;
+
   .close-menu {
     position: absolute;
     top: 20px;
@@ -84,25 +87,31 @@ export default {
   }
 
   .inner {
-    margin: auto 0;
-    position: relative;
-    width: 100%;
+    height: auto;
+    width: auto;
+
     .menu-container {
-      margin-bottom: 25px;
+      margin-top: 25px;
+
       ul:first-child {
         padding: 0;
       }
-      .item-menu,
-      strong,
-      i {
+
+      ul {
+        max-height: 320px;
+      }
+
+      .item-menu {
         cursor: pointer;
         position: relative;
         color: #fff;
-        font-size: 1.3rem;
+        font-size: 1.45rem;
         letter-spacing: 1px;
         font-weight: 400;
-        @media (max-height: 500px) {
-          font-size: 18px;
+        text-shadow: 0px 0px 0.8rem #000000;
+
+        @media (max-width: 500px) {
+          font-size: 1.4rem;
         }
 
         &::after {
@@ -117,6 +126,7 @@ export default {
           border-top: 4px solid #a3dc59;
           padding-bottom: inherit;
         }
+
         &:hover::after {
           transform: scaleX(1);
         }

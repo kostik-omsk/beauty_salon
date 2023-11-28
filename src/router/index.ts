@@ -1,5 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '@/views/HomeView/HomeView.vue'
+import ProductsView from '@/views/ProductsView/ProductsView.vue'
+
+const CosmetologyView = () => import('@/views/CosmetologyView/CosmetologyView.vue')
+const MakeupView = () => import('@/views/MakeupView/MakeupView.vue')
+const BodyshapingView = () => import('@/views/BodyshapingView/BodyshapingView.vue')
+const EyelashesView = () => import('@/views/EyelashesView/EyelashesView.vue')
+const EpilationView = () => import('@/views/EpilationView/EpilationView.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,12 +17,34 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      path: '/cosmetology',
+      name: 'cosmetology',
+      component: CosmetologyView
+    },
+    {
+      path: '/makeup',
+      name: 'makeup',
+      component: MakeupView
+    },
+    {
+      path: '/bodyshaping',
+      name: 'bodyshaping',
+      component: BodyshapingView
+    },
+    {
+      path: '/eyelashes',
+      name: 'eyelashes',
+      component: EyelashesView
+    },
+    {
+      path: '/epilation',
+      name: 'epilation',
+      component: EpilationView
+    },
+    {
+      path: '/products',
+      name: 'products',
+      component: ProductsView
     }
   ]
 })

@@ -43,6 +43,8 @@ export default {
     onMounted(() => {
       aniMenu
         .set('#app', { height: '90%', overflow: 'hidden' })
+        .set('body', { overflow: 'hidden' })
+        .set('html', { overflow: 'hidden' })
         .to('#app', {
           scale: 0.88,
           x: '380px',
@@ -76,14 +78,14 @@ export default {
         </div>
       </div>
       <div class="logo">
-        <router-link :to="{ name: 'home' }">
+        <router-link to="/">
           <img src="@/assets/svg/logo.svg" alt="logo" height="50" />
           <h5>салон красоты</h5>
         </router-link>
       </div>
       <div class="tel">
         <a href="tel:+79133851386">
-          <i class="bi bi-telephone"></i>
+          <i class="bi bi-telephone me-2"></i>
           <strong>+7 (913) 385-13-86</strong>
         </a>
       </div>
@@ -94,10 +96,12 @@ export default {
   </div>
 </template>
 <style lang="scss" scoped>
-@import '../../assets/var.scss';
+@import '@/assets/var.scss';
 .my-navbar {
-  padding: 5px 20px;
+  position: relative;
+  padding: 5px 20px 0px;
   margin: 0 auto;
+  z-index: 5;
 
   nav {
     display: flex;
@@ -106,6 +110,7 @@ export default {
   }
   .menu-burger {
     cursor: pointer;
+
     #nav-icon {
       height: 40px;
       width: 50px;
@@ -113,6 +118,8 @@ export default {
       align-content: space-evenly;
       position: relative;
       overflow: hidden;
+      background: white;
+
       span {
         position: relative;
         display: block;
@@ -121,6 +128,7 @@ export default {
         border-radius: 3px;
         background: $myprimary;
       }
+
       &::after {
         content: '';
         position: absolute;
@@ -133,6 +141,7 @@ export default {
         transition: all 0.5s ease-out;
         transform: translate(-27px, -15px) rotate(45deg);
       }
+
       &:hover::after {
         transform: translate(70px, -5px) rotate(45deg);
       }
@@ -150,13 +159,14 @@ export default {
 
   .tel {
     a {
-      display: flex;
       font-size: 22px;
-      color: $myprimary;
-      strong {
+      strong,
+      i {
         font-weight: 800;
+        color: $myprimary;
       }
     }
+
     @media (max-width: 996px) {
       display: none;
     }
