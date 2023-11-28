@@ -57,7 +57,7 @@ import CosmeticsVideo from './ui/CosmeticsVideo.vue'
             индивидуальное состояние кожи, чтобы получить максимальный эффект. В общем, приобретение качественной
             косметики для ухода за лицом и телом - это важный шаг к здоровью и красоте.
           </p>
-          <router-link class="primary-btn mt-3" to="#">Каталог косметики</router-link>
+          <router-link class="primary-btn mt-3" to="/products">Каталог косметики</router-link>
         </div>
         <CosmeticsVideo />
       </div>
