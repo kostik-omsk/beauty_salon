@@ -2,7 +2,6 @@
   <div class="wrapper">
     <video loop muted autoplay class="video">
       <source :src="`${urlVideo}`" type="video/mp4" />
-      <source src="video/plane.webm" type="video/webm" />
     </video>
   </div>
 </template>
