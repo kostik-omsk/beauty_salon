@@ -107,6 +107,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    min-height: 82px;
   }
   .menu-burger {
     cursor: pointer;
@@ -149,6 +150,9 @@ export default {
   }
 
   .logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
     a {
       display: flex;
       flex-direction: column;
