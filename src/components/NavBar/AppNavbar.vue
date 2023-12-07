@@ -78,7 +78,7 @@ export default {
         </div>
       </div>
       <div class="logo">
-        <router-link :to="{ name: 'home' }">
+        <router-link to="/">
           <img src="@/assets/svg/logo.svg" alt="logo" height="50" />
           <h5>салон красоты</h5>
         </router-link>

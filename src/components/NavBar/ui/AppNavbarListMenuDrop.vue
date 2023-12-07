@@ -6,6 +6,7 @@ import { useListMenu } from '@/stores/ListMenu'
 export default {
   name: 'AppNavbarListMenuDrop',
   props: ['menu'],
+
   setup(props) {
     const menuStore = useListMenu()
     const { isOpen } = storeToRefs(menuStore)
@@ -41,7 +42,7 @@ export default {
   </li>
   <template v-else>
     <li>
-      <span class="item-menu" @click="close">{{ menu.title }}</span>
+      <router-link :to="menu.name" class="item-menu" @click="close">{{ menu.title }}</router-link>
     </li>
   </template>
 </template>
