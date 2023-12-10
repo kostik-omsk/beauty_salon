@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export const useListMenu = defineStore('listMenuStore', {
   state: () => ({
     listMenu: [
-      { title: 'Главная', name: '/' },
+      { title: 'Главная', name: 'home' },
       {
         title: 'Услуги',
         name: 'services',

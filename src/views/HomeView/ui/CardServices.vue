@@ -12,7 +12,7 @@ const { title, description, urlName, path } = props.service as Service
     <div class="service__info">
       <h3 class="service__title">{{ title }}</h3>
       <p class="service__description">{{ description }}</p>
-      <router-link class="primary-btn" :to="path">Подробней</router-link>
+      <router-link class="primary-btn" :to="{ name: path }">Подробней</router-link>
     </div>
   </div>
 </template>
