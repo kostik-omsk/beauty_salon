@@ -18,7 +18,7 @@ const { title, description, urlName, path } = props.service as Service
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/var.scss';
+@import '@/assets/style/var.scss';
 .service {
   position: relative;
   display: flex;
