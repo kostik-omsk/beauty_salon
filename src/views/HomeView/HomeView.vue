@@ -66,7 +66,7 @@ import CosmeticsVideo from './ui/CosmeticsVideo.vue'
 </template>
 
 <style lang="scss">
-@import '@/assets/var.scss';
+@import '@/assets/style/var.scss';
 
 .intro {
   min-height: calc(100vh - 87px);

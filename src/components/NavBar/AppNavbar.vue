@@ -96,7 +96,7 @@ export default {
   </div>
 </template>
 <style lang="scss" scoped>
-@import '@/assets/var.scss';
+@import '@/assets/style/var.scss';
 .my-navbar {
   position: relative;
   padding: 5px 20px 0px;
