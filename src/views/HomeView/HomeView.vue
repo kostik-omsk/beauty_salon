@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { useServicesStore } from '@/stores/ListServices'
 import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
-import { listServices } from '@/views/HomeView/data/listServices'
 import CardServicesVue from './ui/CardServices.vue'
 import LogoBrands from './ui/LogoBrands.vue'
 import CosmeticsVideo from './ui/CosmeticsVideo.vue'
+
+const ListServices = useServicesStore()
+const { listServices } = storeToRefs(ListServices)
 </script>
 
 <template>

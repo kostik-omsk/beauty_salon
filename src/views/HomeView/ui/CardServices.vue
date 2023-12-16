@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import type { Service } from '../data/listServices'
 const props = defineProps(['service'])
-const { title, description, urlName, path } = props.service as Service
+const { id, title, description, urlName } = props.service
 </script>
 
 <template>
@@ -12,7 +11,7 @@ const { title, description, urlName, path } = props.service as Service
     <div class="service__info">
       <h3 class="service__title">{{ title }}</h3>
       <p class="service__description">{{ description }}</p>
-      <router-link class="primary-btn" :to="{ name: path }">Подробней</router-link>
+      <router-link class="primary-btn" :to="{ name: id }">Подробней</router-link>
     </div>
   </div>
 </template>
