@@ -7,7 +7,7 @@ const MakeupView = () => import('@/views/MakeupView/MakeupView.vue')
 const BodyshapingView = () => import('@/views/BodyshapingView/BodyshapingView.vue')
 const EyelashesView = () => import('@/views/EyelashesView/EyelashesView.vue')
 const EpilationView = () => import('@/views/EpilationView/EpilationView.vue')
-const ServicesView = () => import('@/views/ServicesView/ServicesViev.vue')
+const ServicesView = () => import('@/views/ServicesView/ServicesView.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
