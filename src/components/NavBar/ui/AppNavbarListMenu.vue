@@ -38,7 +38,7 @@ export default {
 </template>
 
 <style lang="scss">
-@import '@/assets/var.scss';
+@import '@/assets/style/var.scss';
 
 .menu-list {
   position: fixed;

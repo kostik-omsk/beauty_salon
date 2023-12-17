@@ -42,7 +42,7 @@ export default {
   </li>
   <template v-else>
     <li>
-      <router-link :to="menu.name" class="item-menu" @click="close">{{ menu.title }}</router-link>
+      <router-link :to="{ name: menu.name }" class="item-menu" @click="close">{{ menu.title }}</router-link>
     </li>
   </template>
 </template>

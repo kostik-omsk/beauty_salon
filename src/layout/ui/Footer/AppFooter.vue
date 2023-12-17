@@ -35,7 +35,7 @@
   </footer>
 </template>
 <style lang="scss" scoped>
-@import '@/assets/var.scss';
+@import '@/assets/style/var.scss';
 .footer {
   color: $mygreen;
   background: $myprimary;
