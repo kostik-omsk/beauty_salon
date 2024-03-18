@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import type { Service } from '../data/listServices'
 const props = defineProps(['service'])
-const { title, description, urlName, path } = props.service as Service
+const { id, title, description, urlName } = props.service
 </script>
 
 <template>
@@ -12,13 +11,13 @@ const { title, description, urlName, path } = props.service as Service
     <div class="service__info">
       <h3 class="service__title">{{ title }}</h3>
       <p class="service__description">{{ description }}</p>
-      <router-link class="primary-btn" :to="path">Подробней</router-link>
+      <router-link class="service__details-btn" :to="{ name: id }">Подробней</router-link>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/var.scss';
+@import '@/assets/style/var.scss';
 .service {
   position: relative;
   display: flex;
@@ -45,6 +44,19 @@ const { title, description, urlName, path } = props.service as Service
   &__description {
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     margin-bottom: 2rem;
+  }
+
+  &__details-btn {
+    position: absolute;
+    bottom: 0;
+    color: $myprimary;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    opacity: 0.7;
+    transition: all 0.4s;
+    &:hover {
+      color: $mygreen-dark;
+      opacity: 1;
+    }
   }
 }
 </style>

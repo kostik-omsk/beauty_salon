@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { useServicesStore } from '@/stores/ListServices'
 import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
-import { listServices } from '@/views/HomeView/data/listServices'
 import CardServicesVue from './ui/CardServices.vue'
 import LogoBrands from './ui/LogoBrands.vue'
 import CosmeticsVideo from './ui/CosmeticsVideo.vue'
+
+const ListServices = useServicesStore()
+const { listServices } = storeToRefs(ListServices)
 </script>
 
 <template>
@@ -57,7 +61,7 @@ import CosmeticsVideo from './ui/CosmeticsVideo.vue'
             индивидуальное состояние кожи, чтобы получить максимальный эффект. В общем, приобретение качественной
             косметики для ухода за лицом и телом - это важный шаг к здоровью и красоте.
           </p>
-          <router-link class="primary-btn mt-3" to="/products">Каталог косметики</router-link>
+          <router-link class="primary-btn mt-3" to="#">Каталог косметики</router-link>
         </div>
         <CosmeticsVideo />
       </div>
@@ -66,7 +70,7 @@ import CosmeticsVideo from './ui/CosmeticsVideo.vue'
 </template>
 
 <style lang="scss">
-@import '@/assets/var.scss';
+@import '@/assets/style/var.scss';
 
 .intro {
   min-height: calc(100vh - 87px);
@@ -82,11 +86,10 @@ import CosmeticsVideo from './ui/CosmeticsVideo.vue'
     position: absolute;
     background: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 1rem;
     z-index: 100;
 
     @media (max-width: 767.98px) {
-      font-size: 1.5rem;
       right: 0;
       left: 0;
       border-radius: 0px;
@@ -97,27 +100,15 @@ import CosmeticsVideo from './ui/CosmeticsVideo.vue'
     }
 
     .block-title {
-      font-weight: 700;
-      font-size: 2.4rem;
-
-      @media (max-width: 767.98px) {
-        font-size: 1.5rem;
-      }
-
-      @media only screen and (max-width: 576px) {
-        font-size: 1.4rem;
-      }
-
-      @media (min-width: 767.98px) and (max-width: 1200px) {
-        font-size: 1.6rem;
-      }
+      font-weight: 800;
+      font-size: $font-size-xxxl;
     }
 
     .block-text {
-      font-size: 1.3rem;
+      font-size: $font-size-lg;
 
       @media only screen and (max-width: 576px) {
-        font-size: 1.1rem;
+        font-size: 1.25rem;
       }
     }
 
@@ -136,6 +127,7 @@ import CosmeticsVideo from './ui/CosmeticsVideo.vue'
       }
     }
   }
+
   &__image {
     height: 100%;
 
