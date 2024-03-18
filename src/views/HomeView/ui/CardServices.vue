@@ -11,7 +11,7 @@ const { id, title, description, urlName } = props.service
     <div class="service__info">
       <h3 class="service__title">{{ title }}</h3>
       <p class="service__description">{{ description }}</p>
-      <router-link class="primary-btn" :to="{ name: id }">Подробней</router-link>
+      <router-link class="service__details-btn" :to="{ name: id }">Подробней</router-link>
     </div>
   </div>
 </template>
@@ -44,6 +44,19 @@ const { id, title, description, urlName } = props.service
   &__description {
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     margin-bottom: 2rem;
+  }
+
+  &__details-btn {
+    position: absolute;
+    bottom: 0;
+    color: $myprimary;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    opacity: 0.7;
+    transition: all 0.4s;
+    &:hover {
+      color: $mygreen-dark;
+      opacity: 1;
+    }
   }
 }
 </style>
