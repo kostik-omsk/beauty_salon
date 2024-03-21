@@ -1,12 +1,12 @@
 <template>
-  <div class="container-lg mt-4">
+  <div class="container-lg mb-5">
     <Breadcrumb />
     <div class="services" :class="{ 'services-sidebar-off': isServices }">
       <aside v-if="showSidebar" class="menu-scroll">
         <Sidebar />
       </aside>
       <template v-if="isServices">
-        <ServiceСategories />
+        <ServiceСategories :services="listServices" />
       </template>
       <template v-else>
         <router-view v-slot="{ Component }">
@@ -22,10 +22,15 @@
 <script lang="ts" setup>
 import { useRoute } from 'vue-router'
 import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useServicesStore } from '@/stores/ListServices'
 
 import Sidebar from '@/components/Sidebar/AppSidebar.vue'
 import Breadcrumb from '@/components/Breadcrumb/AppBreadcrumb.vue'
 import ServiceСategories from '@/components/ServiceСategories/AppServiceСategories.vue'
+
+const ListServices = useServicesStore()
+const { listServices } = storeToRefs(ListServices)
 
 const route = useRoute()
 
@@ -34,6 +39,7 @@ const isDesktop = ref(window.innerWidth >= 1024)
 const isServices = computed(() => {
   return route.name === 'services'
 })
+
 const showSidebar = computed(() => {
   return !isServices.value && isDesktop.value
 })

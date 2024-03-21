@@ -1,5 +1,5 @@
 <template>
-  <div class="categories mb-5">
+  <div class="categories" :style="{ justifyContent: dynamicJustifyContent }">
     <template v-for="{ id, title, urlName } in listServices" :key="id">
       <router-link class="categories__link" :to="{ name: id }">
         <div class="categories__img">
@@ -12,10 +12,16 @@
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import { useServicesStore } from '@/stores/ListServices'
-const ListServices = useServicesStore()
-const { listServices } = storeToRefs(ListServices)
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+const route = useRoute()
+const props = defineProps(['services'])
+const listServices = props.services
+const dynamicJustifyContent = ref('center')
+
+if (route.name !== 'services') {
+  dynamicJustifyContent.value = 'start'
+}
 </script>
 
 <style lang="scss" scoped>
@@ -23,7 +29,7 @@ const { listServices } = storeToRefs(ListServices)
 .categories {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+
   align-items: center;
   gap: 2rem;
 
