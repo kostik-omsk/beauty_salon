@@ -63,7 +63,25 @@ const router = createRouter({
           component: EpilationView,
           meta: {
             breadcrumb: 'Эпиляция'
-          }
+          },
+          children: [
+            {
+              path: 'waxsugar',
+              name: 'Wax/Sugar',
+              component: EpilationView,
+              meta: {
+                breadcrumb: 'Воск / Сахар'
+              }
+            },
+            {
+              path: 'laser',
+              name: 'Laser',
+              component: EpilationView,
+              meta: {
+                breadcrumb: 'Лазер'
+              }
+            }
+          ]
         }
       ]
     },

@@ -12,7 +12,14 @@ export const useListMenu = defineStore('listMenuStore', {
           { title: 'Перманентный макияж', name: 'makeup' },
           { title: 'Коррекция фигуры', name: 'bodyshaping' },
           { title: 'Наращивание ресниц', name: 'eyelashes' },
-          { title: 'Эпиляция', name: 'epilation' }
+          {
+            title: 'Эпиляция',
+            name: 'epilation',
+            subMenuService: [
+              { title: 'Воск/Сахар', name: 'Wax/Sugar' },
+              { title: 'Лазер', name: 'Laser' }
+            ]
+          }
         ]
       },
       { title: 'Товары', name: 'products' }
@@ -24,7 +31,7 @@ export const useListMenu = defineStore('listMenuStore', {
     getShow(): boolean {
       return this.show
     },
-    getMenuServices(): { title: string; name: string }[] {
+    getMenuServices(): { title: string; name: string; subMenuService?: { title: string; name: string }[] }[] {
       const services = this.listMenu.find((item) => item.name === 'services')
 
       if (services && services.subMenu) {
