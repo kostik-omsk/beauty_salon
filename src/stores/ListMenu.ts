@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-export const useListMenu = defineStore('listMenuStore', {
+export const useListMenuStore = defineStore('listMenu', {
   state: () => ({
     listMenu: [
       { title: 'Главная', name: 'home' },
@@ -17,7 +17,8 @@ export const useListMenu = defineStore('listMenuStore', {
             name: 'epilation',
             subMenuService: [
               { title: 'Воск/Сахар', name: 'Wax/Sugar' },
-              { title: 'Лазер', name: 'Laser' }
+              { title: 'Лазер', name: 'Laser' },
+              { title: 'Электра', name: 'Electra' }
             ]
           }
         ]

@@ -1,6 +1,6 @@
 <script lang="ts">
 import { storeToRefs } from 'pinia'
-import { useListMenu } from '@/stores/ListMenu'
+import { useListMenuStore } from '@/stores/ListMenu'
 import AppNavbarListMenuDrop from './AppNavbarListMenuDrop.vue'
 
 export default {
@@ -8,7 +8,7 @@ export default {
   components: { AppNavbarListMenuDrop },
   emits: ['closeMenu'],
   setup() {
-    const menuStore = useListMenu()
+    const menuStore = useListMenuStore()
     const { listMenu, show } = storeToRefs(menuStore)
     const closeMenuMobile = () => {
       show.value = false

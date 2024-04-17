@@ -30,9 +30,9 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import { useListMenu } from '@/stores/ListMenu'
+import { useListMenuStore } from '@/stores/ListMenu'
 
-const menuStore = useListMenu()
+const menuStore = useListMenuStore()
 const { getMenuServices } = storeToRefs(menuStore)
 const menu = getMenuServices
 
