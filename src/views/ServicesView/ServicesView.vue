@@ -11,7 +11,7 @@
       <template v-else>
         <router-view v-slot="{ Component }">
           <transition name="service">
-            <component :is="Component" />
+            <ServiceView :is="Component" />
           </transition>
         </router-view>
       </template>
@@ -28,6 +28,7 @@ import { useServicesStore } from '@/stores/ListServices'
 import Sidebar from '@/components/Sidebar/AppSidebar.vue'
 import Breadcrumb from '@/components/Breadcrumb/AppBreadcrumb.vue'
 import ServiceСategories from '@/components/ServiceСategories/AppServiceСategories.vue'
+import ServiceView from '../ServiceView/ServiceView.vue'
 
 const ListServices = useServicesStore()
 const { listServices } = storeToRefs(ListServices)
