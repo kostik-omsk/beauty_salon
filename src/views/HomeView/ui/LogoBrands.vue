@@ -6,12 +6,12 @@
 
 <script setup lang="ts">
 const CosmeticsImg = [
-  new URL('@/assets/logo/city.svg', import.meta.url),
-  new URL('@/assets/logo/evasion.svg', import.meta.url),
-  new URL('@/assets/logo/gigi.svg', import.meta.url),
-  new URL('@/assets/logo/Isov.svg', import.meta.url),
-  new URL('@/assets/logo/storyderm.svg', import.meta.url),
-  new URL('@/assets/logo/uton.svg', import.meta.url)
+  'assets/logo/city.svg',
+  'assets/logo/evasion.svg',
+  'assets/logo/gigi.svg',
+  'assets/logo/Isov.svg',
+  'assets/logo/storyderm.svg',
+  'assets/logo/uton.svg'
 ]
 </script>
 
