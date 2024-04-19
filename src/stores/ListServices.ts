@@ -14,53 +14,53 @@ export const useServicesStore = defineStore('Services', {
       {
         id: 'cosmetology',
         title: 'Косметология',
-        urlName: 'assets/img/card/cosmetology.webp',
+        urlName: '/assets/img/card/cosmetology.webp',
         description:
           'В салоне Chloe предоставлен широкий спектр косметологических услуг для лица и тела, из самых современных, эффективных и безопасных способов решить целый комплекс проблем. Это, в первую очередь, возрастные изменения кожи, гиперпигментация, акне и пост-акне.'
       },
       {
         id: 'makeup',
         title: 'Перманентный макияж',
-        urlName: 'assets/img/card/makeup.webp',
+        urlName: '/assets/img/card/makeup.webp',
         description:
           'Мы поможем быть привлекательной в любое время года и в любое время дня и ночи. Подчёркнем ваши достоинства и корректируем недостатки, плюс индивидуальный подход придаст лицу большую выразительность.'
       },
       {
         id: 'bodyshaping',
         title: 'Коррекция фигуры',
-        urlName: 'assets/img/card/body_shaping.webp',
+        urlName: '/assets/img/card/body_shaping.webp',
         description:
           'Самые эффективные аппаратные процедуры для коррекции фигуры. Комплексное решение проблем. Видимые проявления целлюлита и жировых отложений, потеря тонуса и дряблость кожи и мышц, потеря четких контуров тела – это все поддается коррекции.'
       },
       {
         id: 'eyelashes',
         title: 'Наращивание ресниц',
-        urlName: 'assets/img/card/eyelashes.webp',
+        urlName: '/assets/img/card/eyelashes.webp',
         description: `Благодаря многолетнему опыту мы знаем как правильно выбрать ресницы по форме глаз и как подобрать нужный эффект, добиваясь завораживающего взгляда.  Так же у нас доступно ЛАМИНИРОВАНИЕ своих ресниц для создания повседневного макияжа и БОТОКС для укрепления, ускорение роста и защиты от внешних воздействий.`
       },
       {
         id: 'epilation',
         title: 'Эпиляция',
-        urlName: 'assets/img/card/epilation.webp',
+        urlName: '/assets/img/card/epilation.webp',
         description:
           'У нас доступны самые распространённые методы эпиляции Воск / Сахар / Лазер / Электра, какой из перечисленных методов эпиляции выбрать — решать вам, а мы качественно выполним свою работу по любому из перечисленных видов данной услуги.',
         subMenuService: [
           {
             id: 'Wax/Sugar',
             title: 'Воск / Сахар',
-            urlName: 'assets/img/card/wax.webp',
+            urlName: '/assets/img/card/wax.webp',
             description: 'описание востк то се туда сюда'
           },
           {
             id: 'Laser',
             title: 'Лазер',
-            urlName: 'assets/img/card/wax.webp',
+            urlName: '/assets/img/card/wax.webp',
             description: 'описание востк то се туда сюда'
           },
           {
             id: 'Electra',
             title: 'Электра',
-            urlName: 'assets/img/card/wax.webp',
+            urlName: '/assets/img/card/wax.webp',
             description: 'описание востк то се туда сюда'
           }
         ]
@@ -88,5 +88,4 @@ export const useServicesStore = defineStore('Services', {
       return findServiceRecursive(state.listServices, id)
     }
   }
-  // actions: {}
 })
