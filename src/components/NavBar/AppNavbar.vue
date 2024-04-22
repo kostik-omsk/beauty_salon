@@ -3,14 +3,14 @@ import { storeToRefs } from 'pinia'
 import { gsap } from 'gsap'
 import { onMounted, watch } from 'vue'
 import AppNavbarListMenu from './ui/AppNavbarListMenu.vue'
-import { useListMenu } from '@/stores/ListMenu'
+import { useListMenuStore } from '@/stores/ListMenu'
 
 export default {
   name: 'AppNavbar',
   components: { AppNavbarListMenu },
   setup() {
     //pinia.register
-    const menuStore = useListMenu()
+    const menuStore = useListMenuStore()
     const { listMenu, show, getShow } = storeToRefs(menuStore)
     //animation menu
     let aniMenu = gsap.timeline({
