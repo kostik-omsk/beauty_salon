@@ -1,15 +1,13 @@
 <template>
   <div class="wrapper">
     <video loop muted autoplay class="video">
-      <source :src="`${urlVideo}`" type="video/mp4" />
-      <source src="video/plane.webm" type="video/webm" />
+      <source src="/assets/cosmetic_video.mp4" type="video/mp4" />
+      <source src="/assets/cosmetic_video.webm" type="video/webm" />
     </video>
   </div>
 </template>
 
-<script setup lang="ts">
-const urlVideo = new URL('@/assets/cosmetic_video.mp4', import.meta.url)
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 .wrapper {
