@@ -15,9 +15,9 @@ watch(route, () => {
 </script>
 
 <template>
-  <section class="service">
+  <div class="service__content">
     <p>{{ service }}</p>
-  </section>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

@@ -5,7 +5,7 @@
         <div class="categories__img">
           <img :src="urlName" :alt="title" />
         </div>
-        <p class="categories__title">{{ title }}</p>
+        <p class="categories__title mb-2">{{ title }}</p>
       </router-link>
     </template>
   </div>
@@ -29,15 +29,13 @@ if (route.name !== 'services') {
 .categories {
   display: flex;
   flex-wrap: wrap;
-
-  align-items: center;
-  gap: 2rem;
+  align-items: stretch;
+  gap: 1.2rem;
 
   &__link {
     position: relative;
     padding: 5px;
-    min-width: 250px;
-    max-width: 320px;
+    width: 243px;
     border-radius: 25px;
     background-color: $myprimary;
     overflow: hidden;
@@ -77,7 +75,7 @@ if (route.name !== 'services') {
     margin: 0.5rem 0 0 0;
     padding: 0;
     color: $mygreen;
-    font-size: $font-size-md;
+    font-size: $font-size-base;
     font-weight: 700;
   }
 }
