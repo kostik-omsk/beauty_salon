@@ -10,9 +10,7 @@
       </template>
       <template v-else>
         <router-view v-slot="{ Component }">
-          <transition name="service">
-            <ServiceView :is="Component" />
-          </transition>
+          <ServiceView :is="Component" />
         </router-view>
       </template>
     </div>
@@ -73,17 +71,5 @@ onUnmounted(() => {
     grid-template-columns: auto;
     grid-template-areas: 'service';
   }
-}
-
-.service {
-  height: 200vh;
-}
-
-.service-enter-active {
-  transition: opacity 0.5s ease;
-}
-
-.service-enter-from {
-  opacity: 0;
 }
 </style>
