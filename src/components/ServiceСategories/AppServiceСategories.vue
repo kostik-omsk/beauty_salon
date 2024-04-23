@@ -3,7 +3,10 @@
     <template v-for="{ id, title, urlName } in listServices" :key="id">
       <router-link class="categories__link" :to="{ name: id }">
         <div class="categories__img">
-          <img :src="urlName" :alt="title" />
+          <picture>
+            <source :srcset="getImageUrl(urlName, 'webp')" type="image/webp" />
+            <img :src="getImageUrl(urlName, 'png')" :alt="title" />
+          </picture>
         </div>
         <p class="categories__title mb-2">{{ title }}</p>
       </router-link>
@@ -21,6 +24,9 @@ const dynamicJustifyContent = ref('center')
 
 if (route.name !== 'services') {
   dynamicJustifyContent.value = 'start'
+}
+const getImageUrl = (imageName: string, extension: string) => {
+  return `/assets/img/card/${imageName}.${extension}`
 }
 </script>
 
