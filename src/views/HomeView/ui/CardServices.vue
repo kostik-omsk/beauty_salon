@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import getImageUrl from '@/utils/getImagesUrl'
+
 const props = defineProps(['service'])
 const { id, title, description, urlName } = props.service
 </script>
@@ -6,7 +8,10 @@ const { id, title, description, urlName } = props.service
 <template>
   <div class="services__item service">
     <div class="service__img">
-      <img class="img-fluid" :src="urlName" :alt="title" />
+      <picture>
+        <source :srcset="getImageUrl(urlName, 'webp')" type="image/webp" />
+        <img class="img-fluid" :src="getImageUrl(urlName, 'png')" :alt="title" />
+      </picture>
     </div>
     <div class="service__info">
       <h3 class="service__title">{{ title }}</h3>

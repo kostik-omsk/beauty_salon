@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
+import getImageUrl from '@/utils/getImagesUrl'
 const route = useRoute()
 const props = defineProps(['services'])
 const listServices = props.services
@@ -24,9 +25,6 @@ const dynamicJustifyContent = ref('center')
 
 if (route.name !== 'services') {
   dynamicJustifyContent.value = 'start'
-}
-const getImageUrl = (imageName: string, extension: string) => {
-  return `/assets/img/card/${imageName}.${extension}`
 }
 </script>
 
