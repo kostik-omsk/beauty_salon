@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useServicesStore } from '@/stores/ListServices'
 
-import { ref, watch } from 'vue'
+import getImageUrl from '@/utils/getImagesUrl'
+import AppPriceList from './ui/AppPriceList.vue'
+import AppInfoList from './ui/AppInfoList.vue'
+
 const route = useRoute()
 const services = useServicesStore()
 const { getServiceById } = services
@@ -15,9 +19,40 @@ watch(route, () => {
 </script>
 
 <template>
-  <div class="service__content">
-    <p>{{ service }}</p>
+  <div class="service__content" v-if="service">
+    <div class="service__info">
+      <div class="service__img">
+        <picture>
+          <source :srcset="getImageUrl(service.urlName, 'webp')" type="image/webp" />
+          <img class="img-fluid" :src="getImageUrl(service.urlName, 'png')" :alt="service.title" />
+        </picture>
+      </div>
+      <p class="service__description">{{ service.description }}</p>
+    </div>
+    <div class="clear"></div>
+    <AppPriceList v-if="service.priceList" :priceList="service.priceList" :title="service.title" />
+    <AppInfoList v-if="service.preparation" :list="service.preparation" title="Подготовка" />
+    <AppInfoList v-if="service.contraindications" :list="service.contraindications" title="Противопоказания" />
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '@/assets/style/var.scss';
+
+.service__img {
+  float: left;
+  width: 250px;
+  margin-right: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  @media screen and (max-width: 576px) {
+    float: none;
+    margin: 0 auto 1rem;
+  }
+}
+
+.service__description {
+  margin-top: 0;
+  font-size: $font-size-base;
+}
+</style>
