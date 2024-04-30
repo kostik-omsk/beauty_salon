@@ -62,6 +62,7 @@ p {
 a {
   text-decoration: none;
 }
+
 ul {
   margin: 0;
   padding: 0;
@@ -106,4 +107,8 @@ button,
     color: $myprimary;
     border: 1px solid $myprimary;
   }
+}
+
+.clear {
+  clear: both;
 }
