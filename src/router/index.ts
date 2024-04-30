@@ -76,7 +76,7 @@ const router = createRouter({
               name: 'Laser',
               component: AppServiceInfo,
               meta: {
-                breadcrumb: 'Лазер'
+                breadcrumb: 'Лазер / Элос'
               },
               props: true
             },
@@ -85,7 +85,7 @@ const router = createRouter({
               name: 'Electra',
               component: AppServiceInfo,
               meta: {
-                breadcrumb: 'Электра'
+                breadcrumb: 'Электроэпиляция'
               },
               props: true
             }
