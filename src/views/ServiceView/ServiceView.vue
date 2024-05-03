@@ -1,9 +1,9 @@
 <template>
   <section class="service">
     <h3 class="service__title mb-4">{{ titleView }}</h3>
-    <div class="service__content" v-if="currentService">
-      <ServiceСategories :services="currentService" />
-    </div>
+    <template v-if="currentService">
+      <ServiceСategories :services="currentService" :key="serviceKey" />
+    </template>
     <template v-else>
       <router-view v-slot="{ Component }">
         <AppServiceInfo :is="Component" />
@@ -20,15 +20,17 @@ import ServiceСategories from '@/components/ServiceСategories/AppServiceСateg
 import AppServiceInfo from '@/components/ServiceInfo/AppServiceInfo.vue'
 
 const ListServices = useServicesStore()
-const { getServiceById } = ListServices
+const { subMenuServiceData } = ListServices
 const route = useRoute()
 
 let titleView = ref(route.meta.breadcrumb)
-let currentService = ref(getServiceById(route.name as string)?.subMenuService)
+const currentService = ref(subMenuServiceData(route.name as string))
+const serviceKey = ref(0)
 
 watch(route, () => {
   titleView.value = route.meta.breadcrumb
-  currentService.value = getServiceById(route.name as string)?.subMenuService
+  currentService.value = subMenuServiceData(route.name as string)
+  serviceKey.value++
 })
 </script>
 
