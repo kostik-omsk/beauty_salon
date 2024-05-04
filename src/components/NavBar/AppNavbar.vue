@@ -42,7 +42,7 @@ export default {
     })
     onMounted(() => {
       aniMenu
-        .set('#app', { height: '90%', overflow: 'hidden' })
+        .set('#app', { height: '90%', overflow: 'hidden', borderRadius: '1rem ' })
         .set('body', { overflow: 'hidden' })
         .set('html', { overflow: 'hidden' })
         .to('#app', {

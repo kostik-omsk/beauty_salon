@@ -68,7 +68,6 @@ ul {
   padding: 0;
 }
 
-button,
 .primary-btn {
   display: inline-block;
   position: relative;
@@ -107,8 +106,4 @@ button,
     color: $myprimary;
     border: 1px solid $myprimary;
   }
-}
-
-.clear {
-  clear: both;
 }

@@ -56,8 +56,8 @@ export default {
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #fff;
     opacity: 0.8;
@@ -72,6 +72,7 @@ export default {
       background-color: #3c3c3c;
       left: 50%;
       top: 50%;
+      transition: 0.3s ease-out;
     }
     &:after {
       transform: translate(-50%, -50%) rotate(45deg);
@@ -79,10 +80,13 @@ export default {
     &:before {
       transform: translate(-50%, -50%) rotate(-45deg);
     }
-    &:hover,
-    &:focus {
-      transform: scale(1.1);
-      opacity: 1;
+
+    &:hover::after,
+    &:hover::before {
+      background-color: $mygreen-dark;
+    }
+    &:hover {
+      box-shadow: 0 0 0.5rem $mygreen;
     }
   }
 
