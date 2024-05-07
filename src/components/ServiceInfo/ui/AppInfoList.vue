@@ -22,7 +22,7 @@ const { list, title } = defineProps(['list', 'title'])
 @import '@/assets/style/var.scss';
 @import '@/assets/style/mixins.scss';
 .info {
-  flex: 0 0 48%;
+  position: relative;
   padding: 1.5rem;
   overflow: hidden;
   border-radius: 1rem;
@@ -31,8 +31,10 @@ const { list, title } = defineProps(['list', 'title'])
   &__title {
     font-size: $font-size-base;
   }
+
   &__list {
     margin-left: 1.2rem;
+    z-index: 2;
   }
 
   &__item {
