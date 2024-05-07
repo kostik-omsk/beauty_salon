@@ -28,7 +28,34 @@ const router = createRouter({
           component: ServiceView,
           meta: {
             breadcrumb: 'Косметология'
-          }
+          },
+          children: [
+            {
+              path: 'rejuvenation',
+              name: 'rejuvenation',
+              component: AppServiceInfo,
+              meta: {
+                breadcrumb: 'Омоложение'
+              },
+              props: true
+            },
+            {
+              path: 'therapy',
+              name: 'therapy',
+              component: AppServiceInfo,
+              meta: {
+                breadcrumb: 'Проблемы кожи'
+              }
+            },
+            {
+              path: 'cleaning',
+              name: 'cleaning',
+              component: AppServiceInfo,
+              meta: {
+                breadcrumb: 'Чистка лица'
+              }
+            }
+          ]
         },
         {
           path: 'makeup',
