@@ -29,22 +29,35 @@ watch(route, () => {
       </div>
       <p class="service__description">{{ service.description }}</p>
     </div>
-    <div class="clear"></div>
     <AppPriceList v-if="service.priceList" :priceList="service.priceList" :title="service.title" />
-    <AppInfoList v-if="service.preparation" :list="service.preparation" title="Подготовка" />
-    <AppInfoList v-if="service.contraindications" :list="service.contraindications" title="Противопоказания" />
+    <div class="service__list-info mt-5">
+      <AppInfoList v-if="service.preparation" :list="service.preparation" title="Подготовка" />
+      <AppInfoList v-if="service.contraindications" :list="service.contraindications" title="Противопоказания*" />
+      <AppInfoList
+        v-if="service.recommendations"
+        :list="service.recommendations"
+        title="Рекомендации после процедуры"
+      />
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import '@/assets/style/var.scss';
-
+@import '@/assets/style/mixins.scss';
+.service__info {
+  padding: 1.5rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  @include boxShadow;
+}
 .service__img {
   float: left;
   width: 250px;
   margin-right: 1rem;
   border-radius: 1rem;
   overflow: hidden;
+
   @media screen and (max-width: 576px) {
     float: none;
     margin: 0 auto 1rem;
@@ -54,5 +67,12 @@ watch(route, () => {
 .service__description {
   margin-top: 0;
   font-size: $font-size-base;
+}
+
+.service__list-info {
+  display: flex;
+  flex-direction: column;
+  // flex-wrap: wrap;
+  gap: 2rem;
 }
 </style>
