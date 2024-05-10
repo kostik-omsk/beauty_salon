@@ -46,6 +46,10 @@ const matchedCrumbs = computed(() => {
   }
 }
 
+.breadcrumb__item {
+  list-style: none;
+}
+
 .breadcrumb__link {
   color: black;
   transition: color 0.3s;

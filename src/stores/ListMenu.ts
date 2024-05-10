@@ -8,7 +8,15 @@ export const useListMenuStore = defineStore('listMenu', {
         title: 'Услуги',
         name: 'services',
         subMenu: [
-          { title: 'Косметология', name: 'cosmetology' },
+          {
+            title: 'Косметология',
+            name: 'cosmetology',
+            subMenuService: [
+              { title: 'Омоложение', name: 'rejuvenation' },
+              { title: 'Проблемы кожи', name: 'therapy' },
+              { title: 'Чистка лица', name: 'cleaning' }
+            ]
+          },
           { title: 'Перманентный макияж', name: 'makeup' },
           { title: 'Коррекция фигуры', name: 'bodyshaping' },
           { title: 'Наращивание ресниц', name: 'eyelashes' },
@@ -16,9 +24,9 @@ export const useListMenuStore = defineStore('listMenu', {
             title: 'Эпиляция',
             name: 'epilation',
             subMenuService: [
-              { title: 'Воск/Сахар', name: 'Wax/Sugar' },
-              { title: 'Лазер', name: 'Laser' },
-              { title: 'Электра', name: 'Electra' }
+              { title: 'Воск / Сахар', name: 'Wax/Sugar' },
+              { title: 'Лазер / Элос', name: 'Laser' },
+              { title: 'Электроэпиляция', name: 'Electra' }
             ]
           }
         ]

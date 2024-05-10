@@ -3,7 +3,10 @@
     <template v-for="{ id, title, urlName } in listServices" :key="id">
       <router-link class="categories__link" :to="{ name: id }">
         <div class="categories__img">
-          <img :src="urlName" :alt="title" />
+          <picture>
+            <source :srcset="getImageUrl(urlName, 'webp')" type="image/webp" />
+            <img :src="getImageUrl(urlName, 'png')" :alt="title" />
+          </picture>
         </div>
         <p class="categories__title mb-2">{{ title }}</p>
       </router-link>
@@ -14,6 +17,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
+import getImageUrl from '@/utils/getImagesUrl'
 const route = useRoute()
 const props = defineProps(['services'])
 const listServices = props.services

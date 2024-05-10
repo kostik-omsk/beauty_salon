@@ -28,7 +28,34 @@ const router = createRouter({
           component: ServiceView,
           meta: {
             breadcrumb: 'Косметология'
-          }
+          },
+          children: [
+            {
+              path: 'rejuvenation',
+              name: 'rejuvenation',
+              component: AppServiceInfo,
+              meta: {
+                breadcrumb: 'Омоложение'
+              },
+              props: true
+            },
+            {
+              path: 'therapy',
+              name: 'therapy',
+              component: AppServiceInfo,
+              meta: {
+                breadcrumb: 'Проблемы кожи'
+              }
+            },
+            {
+              path: 'cleaning',
+              name: 'cleaning',
+              component: AppServiceInfo,
+              meta: {
+                breadcrumb: 'Чистка лица'
+              }
+            }
+          ]
         },
         {
           path: 'makeup',
@@ -76,7 +103,7 @@ const router = createRouter({
               name: 'Laser',
               component: AppServiceInfo,
               meta: {
-                breadcrumb: 'Лазер'
+                breadcrumb: 'Лазер / Элос'
               },
               props: true
             },
@@ -85,7 +112,7 @@ const router = createRouter({
               name: 'Electra',
               component: AppServiceInfo,
               meta: {
-                breadcrumb: 'Электра'
+                breadcrumb: 'Электроэпиляция'
               },
               props: true
             }

@@ -59,7 +59,7 @@ function isActiveLink(name: string) {
   &:hover {
     border-left: 3px solid $mygreen;
     background-color: $myprimary;
-
+    border-radius: 0 1rem 1rem 0;
     .sidebar__link {
       color: $secondary;
     }
@@ -68,6 +68,7 @@ function isActiveLink(name: string) {
   &.sidebar__link-active {
     border-left: 3px solid $mygreen;
     background-color: $myprimary;
+    border-radius: 0 1rem 1rem 0;
 
     .sidebar__link {
       color: $mygreen;
