@@ -80,7 +80,7 @@ const { listServices } = storeToRefs(ListServices)
 
 <style lang="scss">
 @import '@/assets/style/var.scss';
-
+@import '@/assets/style/mixins.scss';
 .intro {
   min-height: calc(100vh - 87px);
   position: relative;
@@ -129,7 +129,7 @@ const { listServices } = storeToRefs(ListServices)
       a {
         font-size: 2rem;
         color: $myprimary;
-        transition: all 0.3s ease;
+        @include myTransitionAll;
         &:hover {
           .my-icon svg {
             fill: #0077ff;

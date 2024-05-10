@@ -35,7 +35,7 @@ const matchedCrumbs = computed(() => {
 
 <style lang="scss" scoped>
 @import '@/assets/style/var.scss';
-
+@import '@/assets/style/mixins.scss';
 .breadcrumb__list {
   display: flex;
 
@@ -52,7 +52,7 @@ const matchedCrumbs = computed(() => {
 
 .breadcrumb__link {
   color: black;
-  transition: color 0.3s;
+  @include myTransitionAll;
   &:hover {
     color: $mygreen-dark;
   }

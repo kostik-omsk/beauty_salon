@@ -45,7 +45,7 @@ function isActiveLink(name: string) {
 
 <style scoped lang="scss">
 @import '@/assets/style/var.scss';
-
+@import '@/assets/style/mixins.scss';
 .sidebar {
   position: sticky;
   top: 1rem;
@@ -54,12 +54,13 @@ function isActiveLink(name: string) {
 .sidebar__item {
   padding-left: 0.8rem;
   border-left: 3px solid rgba(0, 0, 0, 0);
-
+  border-radius: 0 1rem 1rem 0;
+  @include myTransitionAll;
   cursor: pointer;
   &:hover {
     border-left: 3px solid $mygreen;
     background-color: $myprimary;
-    border-radius: 0 1rem 1rem 0;
+
     .sidebar__link {
       color: $secondary;
     }

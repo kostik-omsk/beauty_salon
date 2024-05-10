@@ -39,7 +39,7 @@ export default {
 
 <style lang="scss">
 @import '@/assets/style/var.scss';
-
+@import '@/assets/style/mixins.scss';
 .menu-list {
   position: fixed;
   z-index: -1;
@@ -61,7 +61,7 @@ export default {
     border-radius: 50%;
     background-color: #fff;
     opacity: 0.8;
-    transition: 0.3s ease-out;
+    @include myTransitionAll;
     &:before,
     &:after {
       content: '';
@@ -72,7 +72,7 @@ export default {
       background-color: #3c3c3c;
       left: 50%;
       top: 50%;
-      transition: 0.3s ease-out;
+      @include myTransitionAll;
     }
     &:after {
       transform: translate(-50%, -50%) rotate(45deg);

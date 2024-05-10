@@ -22,6 +22,7 @@ const handleClose = () => {
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/style/mixins.scss';
 .fade-enter-active {
   animation: bounce-in 0.3s;
 }
@@ -38,7 +39,7 @@ const handleClose = () => {
 }
 
 .fade-animation {
-  transition: all 0.3s ease;
+  @include myTransitionAll;
   opacity: 1;
   will-change: transform;
 }

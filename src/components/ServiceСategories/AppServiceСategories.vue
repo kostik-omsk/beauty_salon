@@ -30,6 +30,7 @@ if (route.name !== 'services') {
 
 <style lang="scss" scoped>
 @import '@/assets/style/var.scss';
+@import '@/assets/style/mixins.scss';
 .categories {
   display: flex;
   flex-wrap: wrap;
@@ -45,7 +46,7 @@ if (route.name !== 'services') {
     overflow: hidden;
     box-sizing: border-box;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
-    transition: all 0.4s ease;
+    @include myTransitionAll;
 
     &:hover {
       background: $mygreen;
@@ -70,7 +71,7 @@ if (route.name !== 'services') {
     img {
       width: 100%;
       height: 100%;
-      transition: all 0.4s ease;
+      @include myTransitionAll;
     }
   }
 

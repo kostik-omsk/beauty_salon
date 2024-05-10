@@ -47,10 +47,11 @@ export default {
   </template>
 </template>
 <style lang="scss" scoped>
+@import '@/assets/style/mixins.scss';
 .sub-menu {
   padding-left: 20px;
   overflow: hidden;
-  transition: height 0.3s ease;
+  @include myTransitionAll;
 }
 .submenu-open {
   height: 178px;
