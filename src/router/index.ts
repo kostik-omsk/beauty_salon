@@ -2,12 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView/HomeView.vue'
 import ProductsView from '@/views/ProductsView/ProductsView.vue'
 
-const CosmetologyView = () => import('@/views/CosmetologyView/CosmetologyView.vue')
-const MakeupView = () => import('@/views/MakeupView/MakeupView.vue')
-const BodyshapingView = () => import('@/views/BodyshapingView/BodyshapingView.vue')
-const EyelashesView = () => import('@/views/EyelashesView/EyelashesView.vue')
-const EpilationView = () => import('@/views/EpilationView/EpilationView.vue')
 const ServicesView = () => import('@/views/ServicesView/ServicesView.vue')
+const ServiceView = () => import('@/views/ServiceView/ServiceView.vue')
+const AppServiceInfo = () => import('@/components/ServiceInfo/AppServiceInfo.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,15 +25,42 @@ const router = createRouter({
         {
           path: 'cosmetology',
           name: 'cosmetology',
-          component: CosmetologyView,
+          component: ServiceView,
           meta: {
             breadcrumb: 'Косметология'
-          }
+          },
+          children: [
+            {
+              path: 'rejuvenation',
+              name: 'rejuvenation',
+              component: AppServiceInfo,
+              meta: {
+                breadcrumb: 'Омоложение'
+              },
+              props: true
+            },
+            {
+              path: 'therapy',
+              name: 'therapy',
+              component: AppServiceInfo,
+              meta: {
+                breadcrumb: 'Проблемы кожи'
+              }
+            },
+            {
+              path: 'cleaning',
+              name: 'cleaning',
+              component: AppServiceInfo,
+              meta: {
+                breadcrumb: 'Чистка лица'
+              }
+            }
+          ]
         },
         {
           path: 'makeup',
           name: 'makeup',
-          component: MakeupView,
+          component: ServiceView,
           meta: {
             breadcrumb: 'Перманентный макияж'
           }
@@ -44,7 +68,7 @@ const router = createRouter({
         {
           path: 'bodyshaping',
           name: 'bodyshaping',
-          component: BodyshapingView,
+          component: ServiceView,
           meta: {
             breadcrumb: 'Коррекция фигуры'
           }
@@ -52,7 +76,7 @@ const router = createRouter({
         {
           path: 'eyelashes',
           name: 'eyelashes',
-          component: EyelashesView,
+          component: ServiceView,
           meta: {
             breadcrumb: 'Наращивание ресниц'
           }
@@ -60,17 +84,47 @@ const router = createRouter({
         {
           path: 'epilation',
           name: 'epilation',
-          component: EpilationView,
+          component: ServiceView,
           meta: {
             breadcrumb: 'Эпиляция'
-          }
+          },
+          children: [
+            {
+              path: 'waxsugar',
+              name: 'Wax/Sugar',
+              component: AppServiceInfo,
+              meta: {
+                breadcrumb: 'Воск / Сахар'
+              },
+              props: true
+            },
+            {
+              path: 'laser',
+              name: 'Laser',
+              component: AppServiceInfo,
+              meta: {
+                breadcrumb: 'Лазер / Элос'
+              },
+              props: true
+            },
+            {
+              path: 'electra',
+              name: 'Electra',
+              component: AppServiceInfo,
+              meta: {
+                breadcrumb: 'Электроэпиляция'
+              },
+              props: true
+            }
+          ]
         }
       ]
     },
     {
-      path: '/products',
+      path: '/products/:id?',
       name: 'products',
-      component: ProductsView
+      component: ProductsView,
+      props: true
     }
   ]
 })

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import getImageUrl from '@/utils/getImagesUrl'
+
 const props = defineProps(['service'])
 const { id, title, description, urlName } = props.service
 </script>
@@ -6,7 +8,10 @@ const { id, title, description, urlName } = props.service
 <template>
   <div class="services__item service">
     <div class="service__img">
-      <img class="img-fluid" :src="urlName" :alt="title" />
+      <picture>
+        <source :srcset="getImageUrl(urlName, 'webp')" type="image/webp" />
+        <img class="img-fluid" :src="getImageUrl(urlName, 'png')" :alt="title" />
+      </picture>
     </div>
     <div class="service__info">
       <h3 class="service__title">{{ title }}</h3>
@@ -18,6 +23,7 @@ const { id, title, description, urlName } = props.service
 
 <style lang="scss" scoped>
 @import '@/assets/style/var.scss';
+@import '@/assets/style/mixins.scss';
 .service {
   position: relative;
   display: flex;
@@ -52,7 +58,7 @@ const { id, title, description, urlName } = props.service
     color: $myprimary;
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     opacity: 0.7;
-    transition: all 0.4s;
+    @include myTransitionAll;
     &:hover {
       color: $mygreen-dark;
       opacity: 1;

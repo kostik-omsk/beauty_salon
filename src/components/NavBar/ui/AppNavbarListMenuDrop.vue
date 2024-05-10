@@ -1,14 +1,14 @@
 <script lang="ts">
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useListMenu } from '@/stores/ListMenu'
+import { useListMenuStore } from '@/stores/ListMenu'
 
 export default {
   name: 'AppNavbarListMenuDrop',
   props: ['menu'],
 
   setup(props) {
-    const menuStore = useListMenu()
+    const menuStore = useListMenuStore()
     const { isOpen } = storeToRefs(menuStore)
 
     const isFolder = computed(() => {
@@ -47,10 +47,11 @@ export default {
   </template>
 </template>
 <style lang="scss" scoped>
+@import '@/assets/style/mixins.scss';
 .sub-menu {
   padding-left: 20px;
   overflow: hidden;
-  transition: height 0.3s ease;
+  @include myTransitionAll;
 }
 .submenu-open {
   height: 178px;

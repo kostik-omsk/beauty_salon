@@ -1,43 +1,52 @@
 <template>
-  <div class="categories mb-5">
+  <div class="categories" :style="{ justifyContent: dynamicJustifyContent }">
     <template v-for="{ id, title, urlName } in listServices" :key="id">
       <router-link class="categories__link" :to="{ name: id }">
         <div class="categories__img">
-          <img :src="urlName" :alt="title" />
+          <picture>
+            <source :srcset="getImageUrl(urlName, 'webp')" type="image/webp" />
+            <img :src="getImageUrl(urlName, 'png')" :alt="title" />
+          </picture>
         </div>
-        <p class="categories__title">{{ title }}</p>
+        <p class="categories__title mb-2">{{ title }}</p>
       </router-link>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import { useServicesStore } from '@/stores/ListServices'
-const ListServices = useServicesStore()
-const { listServices } = storeToRefs(ListServices)
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+import getImageUrl from '@/utils/getImagesUrl'
+const route = useRoute()
+const props = defineProps(['services'])
+const listServices = props.services
+const dynamicJustifyContent = ref('center')
+
+if (route.name !== 'services') {
+  dynamicJustifyContent.value = 'start'
+}
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/style/var.scss';
+@import '@/assets/style/mixins.scss';
 .categories {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
+  align-items: stretch;
+  gap: 1.2rem;
 
   &__link {
     position: relative;
     padding: 5px;
-    min-width: 250px;
-    max-width: 320px;
+    width: 243px;
     border-radius: 25px;
     background-color: $myprimary;
     overflow: hidden;
     box-sizing: border-box;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
-    transition: all 0.4s ease;
+    @include myTransitionAll;
 
     &:hover {
       background: $mygreen;
@@ -62,7 +71,7 @@ const { listServices } = storeToRefs(ListServices)
     img {
       width: 100%;
       height: 100%;
-      transition: all 0.4s ease;
+      @include myTransitionAll;
     }
   }
 
@@ -71,7 +80,7 @@ const { listServices } = storeToRefs(ListServices)
     margin: 0.5rem 0 0 0;
     padding: 0;
     color: $mygreen;
-    font-size: $font-size-md;
+    font-size: $font-size-base;
     font-weight: 700;
   }
 }

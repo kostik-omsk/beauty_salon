@@ -3,14 +3,14 @@ import { storeToRefs } from 'pinia'
 import { gsap } from 'gsap'
 import { onMounted, watch } from 'vue'
 import AppNavbarListMenu from './ui/AppNavbarListMenu.vue'
-import { useListMenu } from '@/stores/ListMenu'
+import { useListMenuStore } from '@/stores/ListMenu'
 
 export default {
   name: 'AppNavbar',
   components: { AppNavbarListMenu },
   setup() {
     //pinia.register
-    const menuStore = useListMenu()
+    const menuStore = useListMenuStore()
     const { listMenu, show, getShow } = storeToRefs(menuStore)
     //animation menu
     let aniMenu = gsap.timeline({
@@ -42,7 +42,7 @@ export default {
     })
     onMounted(() => {
       aniMenu
-        .set('#app', { height: '90%', overflow: 'hidden' })
+        .set('#app', { height: '90%', overflow: 'hidden', borderRadius: '1rem ' })
         .set('body', { overflow: 'hidden' })
         .set('html', { overflow: 'hidden' })
         .to('#app', {
@@ -97,6 +97,7 @@ export default {
 </template>
 <style lang="scss" scoped>
 @import '@/assets/style/var.scss';
+@import '@/assets/style/mixins.scss';
 .my-navbar {
   position: relative;
   padding: 5px 20px 0px;
@@ -139,7 +140,7 @@ export default {
         height: 150%;
         mix-blend-mode: screen;
         background: $mygreen;
-        transition: all 0.5s ease-out;
+        @include myTransitionAll;
         transform: translate(-27px, -15px) rotate(45deg);
       }
 
@@ -168,6 +169,14 @@ export default {
       i {
         font-weight: 800;
         color: $myprimary;
+        @include myTransitionAll;
+      }
+
+      &:hover {
+        strong,
+        i {
+          color: $mygreen-dark;
+        }
       }
     }
 

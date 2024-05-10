@@ -1,6 +1,6 @@
 <script lang="ts">
 import { storeToRefs } from 'pinia'
-import { useListMenu } from '@/stores/ListMenu'
+import { useListMenuStore } from '@/stores/ListMenu'
 import AppNavbarListMenuDrop from './AppNavbarListMenuDrop.vue'
 
 export default {
@@ -8,7 +8,7 @@ export default {
   components: { AppNavbarListMenuDrop },
   emits: ['closeMenu'],
   setup() {
-    const menuStore = useListMenu()
+    const menuStore = useListMenuStore()
     const { listMenu, show } = storeToRefs(menuStore)
     const closeMenuMobile = () => {
       show.value = false
@@ -39,7 +39,7 @@ export default {
 
 <style lang="scss">
 @import '@/assets/style/var.scss';
-
+@import '@/assets/style/mixins.scss';
 .menu-list {
   position: fixed;
   z-index: -1;
@@ -56,12 +56,12 @@ export default {
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #fff;
     opacity: 0.8;
-    transition: 0.3s ease-out;
+    @include myTransitionAll;
     &:before,
     &:after {
       content: '';
@@ -72,6 +72,7 @@ export default {
       background-color: #3c3c3c;
       left: 50%;
       top: 50%;
+      @include myTransitionAll;
     }
     &:after {
       transform: translate(-50%, -50%) rotate(45deg);
@@ -79,10 +80,13 @@ export default {
     &:before {
       transform: translate(-50%, -50%) rotate(-45deg);
     }
-    &:hover,
-    &:focus {
-      transform: scale(1.1);
-      opacity: 1;
+
+    &:hover::after,
+    &:hover::before {
+      background-color: $mygreen-dark;
+    }
+    &:hover {
+      box-shadow: 0 0 0.5rem $mygreen;
     }
   }
 
