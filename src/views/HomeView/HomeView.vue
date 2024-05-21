@@ -2,6 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { useServicesStore } from '@/stores/ListServices'
 import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
+import AppVKPosts from '@/components/VKPosts/AppVKPosts.vue'
 import CardServicesVue from './ui/CardServices.vue'
 import LogoBrands from './ui/LogoBrands.vue'
 import CosmeticsVideo from './ui/CosmeticsVideo.vue'
@@ -74,6 +75,16 @@ const { listServices } = storeToRefs(ListServices)
         </div>
         <CosmeticsVideo />
       </div>
+    </div>
+  </section>
+  <section class="posts">
+    <div class="section__header">
+      <div class="container">
+        <h2 class="py-3">Блог</h2>
+      </div>
+    </div>
+    <div class="container">
+      <AppVKPosts />
     </div>
   </section>
 </template>
