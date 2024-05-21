@@ -77,13 +77,11 @@ const { listServices } = storeToRefs(ListServices)
       </div>
     </div>
   </section>
-  <section class="posts">
-    <div class="section__header">
-      <div class="container">
-        <h2 class="py-3">Блог</h2>
-      </div>
+  <section class="posts container">
+    <div class="section__header full-width">
+      <h2 class="py-3">Блог</h2>
     </div>
-    <div class="container">
+    <div class="breakout">
       <AppVKPosts />
     </div>
   </section>
