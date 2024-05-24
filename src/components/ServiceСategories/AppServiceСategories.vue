@@ -16,6 +16,7 @@
 
 <script setup lang="ts">
 import getImageUrl from '@/utils/getImagesUrl'
+
 const props = defineProps(['services'])
 const listServices = props.services
 </script>

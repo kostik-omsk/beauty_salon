@@ -61,6 +61,10 @@ const matchedCrumbs = computed(() => {
   }
 }
 
+.breadcrumb__item {
+  list-style: none;
+}
+
 .breadcrumb__link {
   color: black;
   @include myTransitionAll;

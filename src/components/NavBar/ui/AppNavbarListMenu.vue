@@ -73,6 +73,7 @@ export default {
       left: 50%;
       top: 50%;
       @include myTransitionAll;
+
     }
     &:after {
       transform: translate(-50%, -50%) rotate(45deg);

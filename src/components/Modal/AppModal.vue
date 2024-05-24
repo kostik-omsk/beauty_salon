@@ -31,6 +31,7 @@ const handleClose = () => {
 <style lang="scss" scoped>
 @import '@/assets/style/mixins.scss';
 
+
 .fade-enter-active {
   animation: bounce-in 0.3s;
 }
@@ -76,7 +77,6 @@ const handleClose = () => {
   margin-left: calc(var(--margin-x) * 0.5);
   background-color: #fefefe;
   padding: 35px 20px 20px 20px;
-
   border-radius: 1rem;
 }
 

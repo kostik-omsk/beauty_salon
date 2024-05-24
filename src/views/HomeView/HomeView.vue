@@ -139,6 +139,7 @@ const { listServices } = storeToRefs(ListServices)
         font-size: 2rem;
         color: $myprimary;
         @include myTransitionAll;
+
         &:hover {
           .my-icon svg {
             fill: #0077ff;
