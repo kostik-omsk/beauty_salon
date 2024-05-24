@@ -1301,7 +1301,7 @@ export const useVkPostsStore = defineStore({
   actions: {
     async loadPosts() {
       try {
-        const response = await fetch('ваш_серверный_эндпоинт')
+        const response = await fetch('vkpost.php')
         const data = await response.json()
         this.posts = data.response.items as WallWallpostFull[]
       } catch (error) {
