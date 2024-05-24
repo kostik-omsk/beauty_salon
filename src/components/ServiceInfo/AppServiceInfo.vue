@@ -72,7 +72,6 @@ watch(route, () => {
 .service__list-info {
   display: flex;
   flex-direction: column;
-  // flex-wrap: wrap;
   gap: 2rem;
 }
 </style>

@@ -35,14 +35,29 @@ const matchedCrumbs = computed(() => {
 
 <style lang="scss" scoped>
 @import '@/assets/style/var.scss';
-
+@import '@/assets/style/mixins.scss';
 .breadcrumb__list {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 
-  & li + li::before {
-    color: gray;
-    content: '> ';
-    padding: 0 5px;
+  @media screen and (min-width: 576px) {
+    flex-wrap: nowrap;
+    & li + li::before {
+      color: gray;
+      content: '> ';
+      padding: 0 5px;
+    }
+  }
+}
+
+.breadcrumb__item {
+  list-style: none;
+
+  @media screen and (max-width: 576px) {
+    padding: 0.2rem 1rem;
+    background: $mygreen-300;
+    border-radius: 1rem;
   }
 }
 
@@ -52,9 +67,12 @@ const matchedCrumbs = computed(() => {
 
 .breadcrumb__link {
   color: black;
-  transition: color 0.3s;
-  &:hover {
-    color: $mygreen-dark;
+  @include myTransitionAll;
+
+  @media (hover: hover) {
+    &:hover {
+      color: $mygreen-dark;
+    }
   }
 }
 

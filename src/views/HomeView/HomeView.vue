@@ -2,6 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { useServicesStore } from '@/stores/ListServices'
 import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
+import AppVKPosts from '@/components/VKPosts/AppVKPosts.vue'
 import CardServicesVue from './ui/CardServices.vue'
 import LogoBrands from './ui/LogoBrands.vue'
 import CosmeticsVideo from './ui/CosmeticsVideo.vue'
@@ -76,11 +77,19 @@ const { listServices } = storeToRefs(ListServices)
       </div>
     </div>
   </section>
+  <section class="posts container">
+    <div class="section__header full-width">
+      <h2 class="py-3">Блог</h2>
+    </div>
+    <div class="breakout">
+      <AppVKPosts />
+    </div>
+  </section>
 </template>
 
 <style lang="scss">
 @import '@/assets/style/var.scss';
-
+@import '@/assets/style/mixins.scss';
 .intro {
   min-height: calc(100vh - 87px);
   position: relative;
@@ -129,7 +138,8 @@ const { listServices } = storeToRefs(ListServices)
       a {
         font-size: 2rem;
         color: $myprimary;
-        transition: all 0.3s ease;
+        @include myTransitionAll;
+
         &:hover {
           .my-icon svg {
             fill: #0077ff;

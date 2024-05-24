@@ -97,6 +97,7 @@ export default {
 </template>
 <style lang="scss" scoped>
 @import '@/assets/style/var.scss';
+@import '@/assets/style/mixins.scss';
 .my-navbar {
   position: relative;
   padding: 5px 20px 0px;
@@ -139,7 +140,7 @@ export default {
         height: 150%;
         mix-blend-mode: screen;
         background: $mygreen;
-        transition: all 0.5s ease-out;
+        @include myTransitionAll;
         transform: translate(-27px, -15px) rotate(45deg);
       }
 
@@ -168,6 +169,14 @@ export default {
       i {
         font-weight: 800;
         color: $myprimary;
+        @include myTransitionAll;
+      }
+
+      &:hover {
+        strong,
+        i {
+          color: $mygreen-dark;
+        }
       }
     }
 

@@ -23,6 +23,7 @@ const { id, title, description, urlName } = props.service
 
 <style lang="scss" scoped>
 @import '@/assets/style/var.scss';
+@import '@/assets/style/mixins.scss';
 .service {
   position: relative;
   display: flex;
@@ -57,7 +58,7 @@ const { id, title, description, urlName } = props.service
     color: $myprimary;
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     opacity: 0.7;
-    transition: all 0.4s;
+    @include myTransitionAll;
     &:hover {
       color: $mygreen-dark;
       opacity: 1;
