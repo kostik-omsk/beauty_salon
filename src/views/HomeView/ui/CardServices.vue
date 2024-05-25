@@ -75,6 +75,7 @@ const { id, title, description, urlName } = props.service
     color: $myprimary;
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     opacity: 0.8;
+
     @include myTransitionAll;
 
     &::after {
