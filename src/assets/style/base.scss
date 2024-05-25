@@ -68,6 +68,41 @@ ul {
   padding: 0;
 }
 
+.container {
+  $padding-inlain: clamp(1rem, 0.032rem + 4.131vw, 3.75rem);
+  $content-max-width: 1320px;
+  $breakout-max-width: 1440px;
+  $breakout-size: calc(calc($breakout-max-width - $content-max-width) / 2);
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start] minmax(0, 1fr)
+    [breakout-start] minmax(0, $breakout-size) [content-start] min(100% - ($padding-inlain * 2), $content-max-width)
+    [content-end]
+    minmax(0, $breakout-size) [breakout-end]
+    minmax(0, 1fr) [full-width-end];
+}
+
+.container > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
+  grid-column: content;
+}
+
+.container > .breakout {
+  grid-column: breakout;
+}
+
+.container .full-width {
+  grid-column: full-width;
+  display: grid;
+  grid-template-columns: inherit;
+}
+.container .full-width-window {
+  grid-column: full-width;
+  display: grid;
+  padding: 0 1rem;
+}
+
 .primary-btn {
   display: inline-block;
   position: relative;

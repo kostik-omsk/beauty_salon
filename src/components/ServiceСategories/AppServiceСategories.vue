@@ -1,5 +1,5 @@
 <template>
-  <div class="categories" :style="{ justifyContent: dynamicJustifyContent }">
+  <div class="categories">
     <template v-for="{ id, title, urlName } in listServices" :key="id">
       <router-link class="categories__link" :to="{ name: id }">
         <div class="categories__img">
@@ -15,17 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRoute } from 'vue-router'
 import getImageUrl from '@/utils/getImagesUrl'
-const route = useRoute()
+
 const props = defineProps(['services'])
 const listServices = props.services
-const dynamicJustifyContent = ref('center')
-
-if (route.name !== 'services') {
-  dynamicJustifyContent.value = 'start'
-}
 </script>
 
 <style lang="scss" scoped>
@@ -35,6 +28,7 @@ if (route.name !== 'services') {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
+  justify-content: center;
   gap: 1.2rem;
 
   &__link {
