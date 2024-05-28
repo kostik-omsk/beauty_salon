@@ -64,10 +64,10 @@ const hideSwipeMove = () => {
   showSwipeMove.value = false
 }
 
-// onMounted(async () => {
-//   await postsStore.loadPosts()
-//   posts.value = postsStore.posts // Обновляем локальную реактивную переменную
-// })
+onMounted(async () => {
+  await postsStore.loadPosts()
+  posts.value = postsStore.posts // Обновляем локальную реактивную переменную
+})
 </script>
 
 <template>
