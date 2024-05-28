@@ -1,23 +1,24 @@
+<script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { useServicesStore } from '@/stores/ListServices'
+
+const ListServices = useServicesStore()
+const { listServices } = storeToRefs(ListServices)
+const currentYear = new Date().getFullYear()
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+</script>
 <template>
   <footer class="footer container" id="footer">
-    <div class="full-width-window">
-      <div class="row my-2 footer__info align-items-center">
-        <div class="col-lg-3">
+    <div class="footer__wrapper py-4">
+      <div class="footer__content">
+        <div class="logo">
           <img src="@/assets/svg/logo.svg" alt="logo" height="55" />
-        </div>
-        <div class="col-lg-3">
-          <h4>Тел:</h4>
-          <a class="footer__tel" href="tel:+79133851386">
-            <i class="bi bi-telephone"></i>
-            <strong class="ms-1 text-nowrap">+7 (913) 385-13-86</strong>
-          </a>
-        </div>
-        <div class="col-lg-3">
-          <h4>Адрес:</h4>
-          <span class="text text-nowrap"><i class="bi bi-geo-alt me-1"></i>Кольцово, Технопарковая 1</span>
-        </div>
-        <div class="col-lg-3">
-          <div class="footer__socials float-lg-end">
+          <div class="socials">
             <a href="https://vk.com/dankina_a_s" target="_blank">
               <i class="my-icon">
                 <svg class="icon-vk" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
@@ -32,100 +33,261 @@
             <a href="https://api.whatsapp.com/send?phone=79133851386" target="_blank"><i class="bi bi-whatsapp"></i></a>
           </div>
         </div>
+        <div class="contacts">
+          <div class="contacts__tel">
+            <p class="contacts__subtitle">Тел:</p>
+            <a class="contacts__link" href="tel:+79133851386">
+              <i class="bi bi-telephone"></i>
+              <strong class="ms-1 text-nowrap">+7 (913) 385-13-86</strong>
+            </a>
+          </div>
+          <div class="contacts__address">
+            <p class="contacts__subtitle">Адрес:</p>
+            <strong class="contacts__link"><i class="bi bi-geo-alt me-1"></i>Кольцово, Никольский прос., 13</strong>
+          </div>
+        </div>
+        <div class="map">
+          <iframe
+            class="yandex-map"
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa3b5d4573e3554d77c8e1c3f0daa1427fae8e1b2db52fddbe82754e2ee16c92e&amp;source=constructor"
+            frameborder="0"
+          ></iframe>
+        </div>
+        <div class="navigation">
+          <ul class="navigation__list">
+            <li class="navigation__item" v-for="service in listServices" :key="service.id">
+              <router-link class="navigation__link" :to="{ name: service.id }">{{ service.title }}</router-link>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="mt-2 w-100">
-        <iframe
-          class="yandex-map"
-          src="https://yandex.ru/map-widget/v1/?um=constructor%3A59ab304d48a7c4a9d8164b23ac331167de9a2f6e721908746653bbda01e64970&amp;source=constructor"
-          frameborder="1"
-        ></iframe>
-      </div>
+    </div>
+    <div class="footer__line"></div>
+    <div class="footer__copyright">
+      <p class="footer__copyright-text">© «Chloe» {{ currentYear }}</p>
+      <button class="footer__copyright-up" @click="scrollToTop">Наверх ↥</button>
     </div>
   </footer>
 </template>
 <style lang="scss" scoped>
 @import '@/assets/style/var.scss';
+@import '@/assets/style/mixins.scss';
 .footer {
   color: $mygreen;
   background: $myprimary;
 
-  @media only screen and (max-width: 992px) {
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: auto;
+    gap: 0.8rem 2rem;
+    grid-template-areas:
+      'logo contacts contacts'
+      'map map map'
+      'navigation navigation navigation';
+
+    @media only screen and (max-width: 895px) {
+      gap: 1.5rem;
+      grid-template-areas:
+        'logo logo logo'
+        'contacts contacts contacts'
+        'map map map'
+        'navigation navigation navigation';
+    }
+  }
+
+  .logo {
+    grid-area: logo;
     display: flex;
-    gap: 20px;
-  }
-
-  @media only screen and (max-width: 626px) {
     flex-direction: column;
-    gap: 0px;
-  }
-  &__info {
-    @media only screen and (max-width: 992px) {
-      max-width: 300px;
-    }
-    @media only screen and (max-width: 626px) {
-      height: 280px;
-      align-content: space-between;
-    }
-  }
+    align-items: flex-start;
+    gap: 1rem;
 
-  &__socials {
-    a {
-      font-size: 32px;
-      color: $mygreen;
-      margin-left: 20px;
+    @media screen and (max-width: 895px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-      &:first-child {
-        margin-left: 0;
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: start;
+    }
+
+    .socials {
+      display: flex;
+      gap: 1.6rem;
+
+      a {
+        font-size: 35px;
+        color: $mygreen;
+
+        &:hover {
+          .my-icon svg {
+            fill: #0077ff;
+          }
+
+          .bi-instagram {
+            background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+              radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+              radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+              radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+              radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+              radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+              radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+              linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+
+          .bi-telegram {
+            color: #0088cc;
+          }
+
+          .bi-whatsapp {
+            color: #25d366;
+          }
+        }
       }
+      .my-icon {
+        .icon-vk {
+          display: inline-block;
+          vertical-align: -0.19em;
+          width: 38px;
+          height: 38px;
+          fill: $mygreen;
+        }
+      }
+    }
+  }
+
+  .contacts {
+    grid-area: contacts;
+    display: flex;
+    gap: 3rem;
+
+    @media screen and (max-width: 1120px) {
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 1.7rem;
+
+      & > div {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+      }
+    }
+
+    @media screen and (max-width: 895px) {
+      gap: 1rem;
+      margin-top: 0;
+    }
+
+    @media screen and (max-width: 480px) {
+      & > div {
+        flex-direction: column;
+      }
+    }
+
+    &__subtitle {
+      margin-top: 1.6rem;
+      margin-right: 1rem;
+      margin-bottom: 1.2rem;
+      font-size: $font-size-md;
+      text-transform: uppercase;
+
+      @media screen and (max-width: 1120px) {
+        margin: 0;
+      }
+      @media screen and (max-width: 787px) {
+        gap: 0.8rem;
+      }
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      color: $mygreen;
+      font-size: $font-size-md;
+      @include myTransitionAll;
 
       &:hover {
-        .my-icon svg {
-          fill: #0077ff;
-        }
-
-        .bi-instagram {
-          background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
-            radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
-            radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
-            radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
-            radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
-            radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
-            radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
-            linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        .bi-telegram {
-          color: #0088cc;
-        }
-
-        .bi-whatsapp {
-          color: #25d366;
-        }
-      }
-    }
-
-    .my-icon {
-      .icon-vk {
-        display: inline-block;
-        vertical-align: -0.19em;
-        width: 36px;
-        height: 36px;
-        fill: $mygreen;
+        color: #fff;
       }
     }
   }
 
-  &__tel {
+  .map {
+    grid-area: map;
+    .yandex-map {
+      border-radius: 1rem;
+      width: 100%;
+      height: 400px;
+    }
+  }
+
+  .navigation {
+    grid-area: navigation;
+
+    @media screen and (max-width: 1120px) {
+      align-self: center;
+    }
+
+    &__list {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 1rem;
+      list-style: none;
+
+      @media only screen and (max-width: 1120px) {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      @media only screen and (max-width: 645px) {
+        flex-direction: column;
+      }
+    }
+
+    &__link {
+      color: $mygreen;
+      font-size: $font-size-md;
+      @include myTransitionAll;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background: $mygreen;
+  }
+
+  &__copyright {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    color: $mygreen;
+    padding: 0.8rem 0;
+
+    &-text {
+      margin: 0;
+    }
+    &-up {
+      text-decoration: none;
+      background: none;
+      border: none;
+      padding: 0;
+      color: $mygreen;
+      @include myTransitionAll;
+
+      &:hover {
+        color: #fff;
+      }
+    }
   }
-}
-.yandex-map {
-  width: 100%;
-  height: 350px;
 }
 </style>

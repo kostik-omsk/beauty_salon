@@ -24,6 +24,7 @@ const listServices = props.services
 <style lang="scss" scoped>
 @import '@/assets/style/var.scss';
 @import '@/assets/style/mixins.scss';
+
 .categories {
   display: flex;
   flex-wrap: wrap;
