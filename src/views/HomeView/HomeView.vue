@@ -57,9 +57,9 @@ const { listServices } = storeToRefs(ListServices)
     <div class="container">
       <LogoBrands />
       <h3>У нас вы сможете приобрести косметику по уходу за лицом и телом от различных брендов</h3>
-      <div class="cosmetics__content mt-5">
+      <div class="cosmetics__content">
         <div class="cosmetics__info">
-          <h4>О важности использования косметики</h4>
+          <h4 class="cosmetics__title">О важности использования косметики</h4>
           <p>
             Косметика для ухода за лицом и телом - это важный элемент в нашей повседневной жизни. Некоторые продукты
             могут помочь увлажнить кожу, устранить шелушение и защитить ее от воздействия внешней среды, а также
@@ -71,15 +71,19 @@ const { listServices } = storeToRefs(ListServices)
             индивидуальное состояние кожи, чтобы получить максимальный эффект. В общем, приобретение качественной
             косметики для ухода за лицом и телом - это важный шаг к здоровью и красоте.
           </p>
-          <router-link class="primary-btn mt-3" to="#">Каталог косметики</router-link>
+          <router-link class="primary-btn" to="#">Каталог косметики</router-link>
         </div>
-        <CosmeticsVideo />
+        <div class="cosmetics__video">
+          <CosmeticsVideo />
+        </div>
       </div>
     </div>
   </section>
-  <section class="posts container">
-    <div class="section__header full-width">
-      <h2 class="py-3">Блог</h2>
+  <section class="posts">
+    <div class="section__header">
+      <div class="container">
+        <h2 class="py-3">Блог</h2>
+      </div>
     </div>
     <div class="breakout">
       <AppVKPosts />
@@ -110,7 +114,6 @@ const { listServices } = storeToRefs(ListServices)
     @media (max-width: 767.98px) {
       right: 0;
       left: 0;
-      border-radius: 0px;
     }
 
     @media (max-width: 1400px) {
@@ -189,6 +192,22 @@ const { listServices } = storeToRefs(ListServices)
   }
 }
 
+.cosmetics {
+  &__content {
+    display: flex;
+    gap: 2rem;
+    margin: 4rem 0;
+
+    @media only screen and (max-width: 1024px) {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+  &__video {
+    flex: 0 0 32%;
+    max-width: 400px;
+  }
+}
 .section__header {
   color: $secondary;
   background: $myprimary;
@@ -197,17 +216,6 @@ const { listServices } = storeToRefs(ListServices)
   h2 {
     font-weight: 800;
     text-shadow: 0px 0px 10px #000000;
-  }
-}
-
-.cosmetics__content {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 4rem;
-
-  @media only screen and (max-width: 1024px) {
-    flex-direction: column-reverse;
-    align-items: center;
   }
 }
 </style>

@@ -79,8 +79,7 @@ export default {
       </div>
       <div class="logo">
         <router-link to="/">
-          <img src="@/assets/svg/logo.svg" alt="logo" height="50" />
-          <h5>салон красоты</h5>
+          <img src="@/assets/svg/logo.svg" alt="logo" height="55" />
         </router-link>
       </div>
       <div class="tel">

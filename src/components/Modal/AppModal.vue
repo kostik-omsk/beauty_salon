@@ -13,7 +13,7 @@ const handleClose = () => {
       <div class="dialog" v-if="props.isOpen" @click="handleClose">
         <div class="dialog-content fade-animation" @click.stop>
           <button type="button" class="close btn-close" @click="handleClose" aria-label="Закрыть"></button>
-          <h4 v-if="$slots.title">
+          <h4 class="dialog__title" v-if="$slots.title">
             <slot name="title" />
           </h4>
           <p v-if="$slots.content">
@@ -30,7 +30,6 @@ const handleClose = () => {
 
 <style lang="scss" scoped>
 @import '@/assets/style/mixins.scss';
-
 
 .fade-enter-active {
   animation: bounce-in 0.3s;
@@ -78,6 +77,10 @@ const handleClose = () => {
   background-color: #fefefe;
   padding: 35px 20px 20px 20px;
   border-radius: 1rem;
+}
+
+.dialog__title {
+  margin-bottom: 1rem;
 }
 
 .close {

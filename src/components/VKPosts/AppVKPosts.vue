@@ -30,7 +30,7 @@ const handleMouseEnter = (event: Event) => {
     const height = text.offsetHeight
     if (height > 165) {
       block.classList.add('post__text--active')
-      block.style.maxHeight = `${height}px`
+      block.style.height = `${height}px`
     }
   }
 }
@@ -40,7 +40,7 @@ const handleMouseLeave = (event: Event) => {
   const block = target.querySelector('.post__info') as HTMLElement | null
 
   if (block) {
-    block.style.maxHeight = ''
+    block.style.height = ''
   }
 }
 
@@ -72,7 +72,7 @@ const hideSwipeMove = () => {
 
 <template>
   <div class="post">
-    <div class="post__swipe-move" :class="{ hidden: !showSwipeMove }">
+    <div v-if="posts" class="post__swipe-move" :class="{ hidden: !showSwipeMove }">
       <img src="/assets/img/swipe.png" alt="" />
     </div>
     <swiper
@@ -154,10 +154,11 @@ const hideSwipeMove = () => {
   position: relative;
   margin-bottom: 4rem;
   user-select: none;
+
   &__swipe-move {
     position: absolute;
     top: -28px;
-    left: 48%;
+    left: 49%;
     width: 32px;
     height: 32px;
     margin: 0 auto;
@@ -252,10 +253,10 @@ const hideSwipeMove = () => {
 
   &__info {
     position: relative;
-    max-height: 165px;
+    height: 165px;
     overflow: hidden;
     font-size: $font-size-sm;
-    transition: max-height 0.3s ease-in-out;
+    transition: height 0.3s ease-in-out;
 
     &::before {
       top: 0;
@@ -290,8 +291,6 @@ const hideSwipeMove = () => {
   }
 }
 
-.swiper-button-prev {
-}
 .swiper-pagination,
 .swiper-pagination-inner {
   position: relative;
