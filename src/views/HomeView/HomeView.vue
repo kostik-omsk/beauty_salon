@@ -7,6 +7,7 @@ import CardServicesVue from './ui/CardServices.vue'
 import LogoBrands from './ui/LogoBrands.vue'
 import CosmeticsVideo from './ui/CosmeticsVideo.vue'
 import SectionBlock from './ui/SectionBlock.vue'
+import AppForm from '@/components/Form/AppForm.vue'
 
 const ListServices = useServicesStore()
 const { listServices } = storeToRefs(ListServices)
@@ -19,7 +20,7 @@ const { listServices } = storeToRefs(ListServices)
         <h1 class="block-title">Совершенство доступно</h1>
         <div class="block-text block-text-green">
           <i class="bi bi-geo-alt"></i>
-          Кольцово, Технопaрковая 1
+          Кольцово, Никольский проспект 13
         </div>
         <div class="block-icons mt-1">
           <a href="https://vk.com/dankina_a_s" target="_blank">
@@ -46,6 +47,13 @@ const { listServices } = storeToRefs(ListServices)
         <div class="services__list">
           <CardServicesVue v-for="service in listServices" :key="service.id" :service="service" />
         </div>
+      </div>
+    </template>
+  </SectionBlock>
+  <SectionBlock class="form">
+    <template #content>
+      <div class="container">
+        <AppForm class="mb-5" />
       </div>
     </template>
   </SectionBlock>

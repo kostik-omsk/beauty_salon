@@ -75,7 +75,6 @@ export const useServicesStore = defineStore('Services', {
                 name: 'LPG массаж лица',
                 price: '1000',
                 info: 'Это косметологическая процедура, основанная на использовании технологии механического массажа с помощью аппарата LPG. Этот метод также известен как эндермология. В процессе LPG массажа лица специальный аппарат выполняет роликовый массаж и ассистированное всасывание кожи, что позволяет работать на различных уровнях кожи и подкожной жировой ткани.'
-
               },
               {
                 name: 'Миофасциальный массаж лица',
@@ -657,6 +656,15 @@ export const useServicesStore = defineStore('Services', {
     subMenuServiceData: (state) => (id: string) => {
       const service = state.listServices.find((service) => service.id === id)
       return service ? service.subMenuService : null
+    },
+
+    getListServices: (state) => {
+      const listServices = []
+      for (const service of state.listServices) {
+        listServices.push(service.title)
+      }
+
+      return listServices
     }
   }
 })
