@@ -656,6 +656,15 @@ export const useServicesStore = defineStore('Services', {
     subMenuServiceData: (state) => (id: string) => {
       const service = state.listServices.find((service) => service.id === id)
       return service ? service.subMenuService : null
+    },
+
+    getListServices: (state) => {
+      const listServices = []
+      for (const service of state.listServices) {
+        listServices.push(service.title)
+      }
+
+      return listServices
     }
   }
 })

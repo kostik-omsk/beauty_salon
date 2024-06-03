@@ -53,15 +53,19 @@ const { id, title, description, urlName } = props.service
     height: 250px;
     border-radius: 20px;
     overflow: hidden;
+
+    @media only screen and (max-width: 460px) {
+      width: 100%;
+    }
   }
 
   &__title {
-    margin-bottom: 1.5rem;
+    margin-bottom: clamp(0.8rem, 2.5vw, 1.5rem);
   }
 
   &__description {
     font-size: clamp(1rem, 2.5vw, 1.2rem);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 
   &__details-btn {

@@ -6,6 +6,7 @@ import { useServicesStore } from '@/stores/ListServices'
 import getImageUrl from '@/utils/getImagesUrl'
 import AppPriceList from './ui/AppPriceList.vue'
 import AppInfoList from './ui/AppInfoList.vue'
+import AppForm from '../Form/AppForm.vue'
 
 const route = useRoute()
 const services = useServicesStore()
@@ -30,6 +31,7 @@ watch(route, () => {
       <p class="service__description">{{ service.description }}</p>
     </div>
     <AppPriceList v-if="service.priceList" :priceList="service.priceList" :title="service.title" />
+    <AppForm class="mt-5" />
     <div class="service__list-info mt-5">
       <AppInfoList v-if="service.preparation" :list="service.preparation" title="Подготовка" />
       <AppInfoList v-if="service.contraindications" :list="service.contraindications" title="Противопоказания*" />
