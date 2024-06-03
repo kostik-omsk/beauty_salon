@@ -104,7 +104,7 @@ const handleSubmit = async (): Promise<void> => {
 
     const data = await response.json()
 
-    if (data.ok) {
+    if (data.success) {
       showAlert('Сообщение успешно отправлено!', 'success')
     }
   } catch (error) {
