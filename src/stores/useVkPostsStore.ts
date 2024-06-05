@@ -5,9 +5,11 @@ export const useVkPostsStore = defineStore({
   id: 'vkPosts',
   state: () => ({
     posts: [] as WallWallpostFull[],
-    offset: 0, // добавляем offset в state
-    isLoading: false, // флаг для предотвращения множественных запросов
-    hasMore: true // флаг, указывающий на наличие дополнительных постов
+    offset: 0,
+    isLoading: false,
+    hasMore: true,
+    totalLoaded: 0,
+    maxPosts: 50
   }),
   actions: {
     async loadPosts() {
@@ -15,14 +17,25 @@ export const useVkPostsStore = defineStore({
 
       this.isLoading = true
       try {
-        const response = await fetch(`vkpost.php?offset=${this.offset}`)
+        const count = 10
+        const response = await fetch(`vkpost.php?offset=${this.offset}&count=${count}`)
         const data = await response.json()
 
         if (data.response.items.length > 0) {
+          const isFirstLoad = this.posts.length === 10
+          if (isFirstLoad) {
+            this.posts.pop()
+          }
+
           this.posts.push(...(data.response.items as WallWallpostFull[]))
           this.offset += data.response.items.length
+          this.totalLoaded += data.response.items.length
+
+          if (this.totalLoaded >= this.maxPosts) {
+            this.hasMore = false
+          }
         } else {
-          this.hasMore = false // если больше нет постов, устанавливаем флаг в false
+          this.hasMore = false
         }
       } catch (error) {
         console.error('Error loading VK posts:', error)
