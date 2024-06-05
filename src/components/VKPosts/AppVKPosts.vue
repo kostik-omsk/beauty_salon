@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useVkPostsStore } from '@/stores/useVkPostsStore'
-import type { WallWallpostFull } from '@vkontakte/api-schema-typescript'
 
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination, Navigation, Keyboard } from 'swiper/modules'
@@ -12,8 +11,9 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 const Modules = [Pagination, Navigation, Keyboard]
-const postsStore = useVkPostsStore()
-const posts = ref<WallWallpostFull[]>(postsStore.posts)
+const store = useVkPostsStore()
+const { posts, loadPosts, isLoading, hasMore } = store
+
 const isDialogOpen = ref<boolean>(false)
 const typeDialog = ref<'photo' | 'video' | ''>('')
 const urlPhoto = ref<string>('')
@@ -48,7 +48,7 @@ const handleMouseLeave = (event: Event) => {
 }
 
 const openDialog = (postIndex: number, mediaIndex: number, type: string) => {
-  const post = posts.value[postIndex]
+  const post = posts[postIndex]
   const attachment = post?.attachments?.[mediaIndex]
   if (attachment && type === 'photo' && attachment.type === 'photo' && attachment.photo && attachment.photo.sizes) {
     typeDialog.value = type
@@ -72,10 +72,15 @@ const hideSwipeMove = () => {
   showSwipeMove.value = false
 }
 
-onMounted(async () => {
-  await postsStore.loadPosts()
-  posts.value = postsStore.posts // Обновляем локальную реактивную переменную
-})
+const loadMorePosts = () => {
+  if (hasMore && !isLoading) {
+    loadPosts()
+  }
+}
+
+// onMounted(async () => {
+//   await loadPosts()
+// })
 </script>
 
 <template>
@@ -97,6 +102,7 @@ onMounted(async () => {
       }"
       :space-between="50"
       @slideChange="hideSwipeMove"
+      @reachEnd="loadMorePosts"
     >
       <swiper-slide
         class="post__content"
