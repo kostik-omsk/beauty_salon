@@ -22,6 +22,9 @@ const handleClose = () => {
           <div v-if="$slots.foto" class="foto">
             <slot name="foto" />
           </div>
+          <div v-if="$slots.video" class="video">
+            <slot name="video" />
+          </div>
         </div>
       </div>
     </Transition>
