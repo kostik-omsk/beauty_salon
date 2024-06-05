@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useVkPostsStore } from '@/stores/useVkPostsStore'
 
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -78,9 +78,13 @@ const loadMorePosts = () => {
   }
 }
 
-// onMounted(async () => {
-//   await loadPosts()
-// })
+const filteredPosts = computed(() => {
+  return posts.filter((post) => post.attachments && post.attachments.length > 0)
+})
+
+onMounted(async () => {
+  await loadPosts()
+})
 </script>
 
 <template>
@@ -106,7 +110,7 @@ const loadMorePosts = () => {
     >
       <swiper-slide
         class="post__content"
-        v-for="(post, inPost) in posts"
+        v-for="(post, inPost) in filteredPosts"
         :key="post.id"
         @mouseenter="handleMouseEnter($event)"
         @mouseleave="handleMouseLeave($event)"

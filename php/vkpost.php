@@ -4,11 +4,12 @@
 $groupId = '115468427';
 $accessToken = getenv('VK_ACCESS_TOKEN');
 
-// Получаем параметр offset из запроса
+// Получаем параметры offset и count из запроса
 $offset = isset($_GET['offset']) ? intval($_GET['offset']) : 0;
+$count = isset($_GET['count']) ? intval($_GET['count']) : 10; // Устанавливаем значение по умолчанию 10
 
-// Формируем URL запроса к API ВКонтакте с учетом offset
-$apiUrl = "https://api.vk.com/method/wall.get?owner_id=-$groupId&access_token=$accessToken&v=5.131&count=20&offset=$offset";
+// Формируем URL запроса к API ВКонтакте с учетом offset и count
+$apiUrl = "https://api.vk.com/method/wall.get?owner_id=-$groupId&access_token=$accessToken&v=5.131&count=$count&offset=$offset";
 
 $response = file_get_contents($apiUrl);
 
