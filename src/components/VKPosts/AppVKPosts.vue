@@ -73,18 +73,18 @@ const hideSwipeMove = () => {
 }
 
 const loadMorePosts = () => {
-  if (hasMore && !isLoading) {
-    loadPosts()
-  }
+  // if (hasMore && !isLoading) {
+  //   loadPosts()
+  // }
 }
 
 const filteredPosts = computed(() => {
   return posts.filter((post) => post.attachments && post.attachments.length > 0)
 })
 
-onMounted(async () => {
-  await loadPosts()
-})
+// onMounted(async () => {
+//   await loadPosts()
+// })
 </script>
 
 <template>
