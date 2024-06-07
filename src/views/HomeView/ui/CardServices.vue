@@ -10,7 +10,7 @@ const { id, title, description, urlName } = props.service
     <div class="service__img">
       <picture>
         <source :srcset="getImageUrl(urlName, 'webp')" type="image/webp" />
-        <img class="img-fluid" :src="getImageUrl(urlName, 'png')" :alt="title" />
+        <img :src="getImageUrl(urlName, 'png')" :alt="title" />
       </picture>
     </div>
     <div class="service__info">
@@ -48,14 +48,26 @@ const { id, title, description, urlName } = props.service
   }
 
   &__img {
-    flex: 0 0 250px;
+    flex-shrink: 0;
     width: 250px;
     height: 250px;
     border-radius: 20px;
     overflow: hidden;
 
-    @media only screen and (max-width: 460px) {
+    @media only screen and (max-width: 992px) {
+      width: 400px;
+      height: 280px;
+    }
+
+    @media only screen and (max-width: 576px) {
       width: 100%;
+      height: 280px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 
