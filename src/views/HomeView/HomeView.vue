@@ -5,7 +5,6 @@ import AppGalleryIntro from '@/components/GalleryIntro/AppGalleryIntro.vue'
 import AppVKPosts from '@/components/VKPosts/AppVKPosts.vue'
 import CardServicesVue from './ui/CardServices.vue'
 import LogoBrands from './ui/LogoBrands.vue'
-import CosmeticsVideo from './ui/CosmeticsVideo.vue'
 import SectionBlock from './ui/SectionBlock.vue'
 import AppForm from '@/components/Form/AppForm.vue'
 
@@ -61,28 +60,14 @@ const { listServices } = storeToRefs(ListServices)
     <template #title>Косметика</template>
     <template #content>
       <div class="container">
-        <LogoBrands />
-        <h3>У нас вы сможете приобрести косметику по уходу за лицом и телом от различных брендов</h3>
-        <div class="cosmetics__content">
-          <div class="cosmetics__info">
-            <h4 class="cosmetics__title">О важности использования косметики</h4>
-            <p>
-              Косметика для ухода за лицом и телом - это важный элемент в нашей повседневной жизни. Некоторые продукты
-              могут помочь увлажнить кожу, устранить шелушение и защитить ее от воздействия внешней среды, а также
-              устраняют недостатки и проблемы. Кроме того, использование косметики для ухода может уменьшить
-              выраженность морщин и поддерживать здоровый вид кожи.
-            </p>
-            <p>
-              Важно помнить, что при выборе косметических продуктов необходимо учитывать тип кожи, возраст и
-              индивидуальное состояние кожи, чтобы получить максимальный эффект. В общем, приобретение качественной
-              косметики для ухода за лицом и телом - это важный шаг к здоровью и красоте.
-            </p>
-            <router-link class="primary-btn" to="#">Каталог косметики</router-link>
-          </div>
-          <div class="cosmetics__video">
-            <CosmeticsVideo />
-          </div>
+        <LogoBrands direction="right" />
+        <div class="cosmetics__info">
+          <h3 class="cosmetics__title">
+            У нас вы можете приобрести профессиональную косметику для ухода за лицом и телом.
+          </h3>
+          <button class="btn primary-btn">Подробнее</button>
         </div>
+        <LogoBrands direction="left" />
       </div>
     </template>
   </SectionBlock>
@@ -201,23 +186,6 @@ const { listServices } = storeToRefs(ListServices)
   }
 }
 
-.cosmetics {
-  &__content {
-    display: flex;
-    gap: 2rem;
-    margin: 4rem 0;
-
-    @media only screen and (max-width: 1024px) {
-      flex-direction: column-reverse;
-      align-items: center;
-    }
-  }
-
-  &__video {
-    flex: 0 0 32%;
-    max-width: 400px;
-  }
-}
 .section__header {
   color: $secondary;
   background: $myprimary;
@@ -226,6 +194,19 @@ const { listServices } = storeToRefs(ListServices)
   h2 {
     font-weight: 800;
     text-shadow: 0px 0px 10px #000000;
+  }
+}
+
+.cosmetics {
+  margin-bottom: 3rem;
+  &__info {
+    margin: 3rem auto;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
   }
 }
 </style>

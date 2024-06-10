@@ -47,7 +47,7 @@ const closeDialog = () => {
 @import '@/assets/style/mixins.scss';
 
 .prices {
-  border: 2px solid #d0d0d0;
+  border: 1px solid #d0d0d0;
   border-radius: 1rem;
   overflow: hidden;
 

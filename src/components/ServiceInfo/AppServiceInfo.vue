@@ -25,7 +25,7 @@ watch(route, () => {
       <div class="service__img">
         <picture>
           <source :srcset="getImageUrl(service.urlName, 'webp')" type="image/webp" />
-          <img class="img-fluid" :src="getImageUrl(service.urlName, 'png')" :alt="service.title" />
+          <img :src="getImageUrl(service.urlName, 'png')" :alt="service.title" />
         </picture>
       </div>
       <p class="service__description">{{ service.description }}</p>
@@ -51,6 +51,7 @@ watch(route, () => {
   padding: 1.5rem;
   overflow: hidden;
   border-radius: 1rem;
+  border: 1px solid #d0d0d0;
   @include boxShadow;
 }
 .service__img {
@@ -62,7 +63,14 @@ watch(route, () => {
 
   @media screen and (max-width: 576px) {
     float: none;
+    width: 300px;
     margin: 0 auto 1rem;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
