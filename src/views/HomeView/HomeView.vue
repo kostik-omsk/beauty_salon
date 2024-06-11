@@ -1,30 +1,16 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import { useServicesStore } from '@/stores/ListServices'
-
 import AppVKPosts from '@/components/VKPosts/AppVKPosts.vue'
-import CardServicesVue from './ui/CardServices.vue'
+
 import LogoBrands from './ui/LogoBrands.vue'
 import SectionBlock from '@/components/SectionBlock/SectionBlock.vue'
-import AppForm from '@/components/Form/AppForm.vue'
+
 import IntroSection from './IntroSection/IntroSection.vue'
-const ListServices = useServicesStore()
-const { listServices } = storeToRefs(ListServices)
+import ServicesSection from './ServicesSection/ServicesSection.vue'
 </script>
 
 <template>
   <IntroSection />
-  <SectionBlock class="services">
-    <template #title>Наши услуги</template>
-    <template #content>
-      <div class="container">
-        <div class="services__list">
-          <CardServicesVue v-for="service in listServices" :key="service.id" :service="service" />
-        </div>
-        <AppForm class="my-5" />
-      </div>
-    </template>
-  </SectionBlock>
+  <ServicesSection />
   <SectionBlock class="cosmetics my-5">
     <template #title>Косметика</template>
     <template #content>
@@ -60,17 +46,6 @@ const { listServices } = storeToRefs(ListServices)
 <style lang="scss">
 @import '@/assets/style/var.scss';
 @import '@/assets/style/mixins.scss';
-
-.section__header {
-  color: $secondary;
-  background: $myprimary;
-  margin-bottom: 3rem;
-
-  h2 {
-    font-weight: 800;
-    text-shadow: 0px 0px 10px #000000;
-  }
-}
 
 .cosmetics {
   margin-bottom: 3rem;
