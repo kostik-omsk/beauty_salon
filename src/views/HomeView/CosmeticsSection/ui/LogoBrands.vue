@@ -1,11 +1,11 @@
 <template>
   <div class="brands__conveyor conveyor">
-    <div :class="['conveyor__group', animationDirectionClass]">
+    <div class="conveyor__group">
       <div class="conveyor__item" v-for="(url, index) in CosmeticsImg" :key="index">
         <img class="img-fluid" :src="`${url}`" alt="logo brand" />
       </div>
     </div>
-    <div :class="['conveyor__group', animationDirectionClass]">
+    <div class="conveyor__group">
       <div class="conveyor__item" v-for="(url, index) in CosmeticsImg" :key="index">
         <img class="img-fluid" :src="`${url}`" alt="logo brand" />
       </div>
@@ -14,16 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
-const props = defineProps({
-  direction: {
-    type: String,
-    default: 'right',
-    validator: (value: string) => ['right', 'left'].includes(value)
-  }
-})
-
 const CosmeticsImg = [
   'assets/logo/city.svg',
   'assets/logo/angi.svg',
@@ -33,15 +23,12 @@ const CosmeticsImg = [
   'assets/logo/gigi.svg',
   'assets/logo/storyderm.svg'
 ]
-
-const animationDirectionClass = computed(() => {
-  return props.direction === 'left' ? 'conveyor__group--reverse' : 'conveyor__group--normal'
-})
 </script>
 
 <style lang="scss" scoped>
 .conveyor {
   display: flex;
+  gap: calc(clamp(5.625rem, 1.702rem + 12.553vw, 13rem) / 4);
   overflow: hidden;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -49,37 +36,28 @@ const animationDirectionClass = computed(() => {
   -webkit-mask-image: linear-gradient(
     to right,
     hsla(0, 0%, 0%, 0),
-    hsl(0, 0%, 0%) 20%,
-    hsl(0, 0%, 0%) 80%,
+    hsl(0, 0%, 0%) 15%,
+    hsl(0, 0%, 0%) 85%,
     hsla(0, 0%, 0%, 0)
   );
-  mask-image: linear-gradient(to right, hsla(0, 0%, 0%, 0), hsl(0, 0%, 0%) 20%, hsl(0, 0%, 0%) 80%, hsla(0, 0%, 0%, 0));
+  mask-image: linear-gradient(to right, hsla(0, 0%, 0%, 0), hsl(0, 0%, 0%) 15%, hsl(0, 0%, 0%) 85%, hsla(0, 0%, 0%, 0));
 
   &__group {
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    gap: calc(clamp(5rem, 1rem + 40vmin, 10rem) / 4);
+    gap: calc(clamp(5.625rem, 1.702rem + 12.553vw, 13rem) / 4);
     min-width: 100%;
+    animation-name: scroll-x;
     animation-duration: 30s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
-  &__group--normal {
-    animation-name: scroll-x;
-  }
-
-  &__group--reverse {
-    animation-name: scroll-x-reverse;
-  }
-
   &__item {
     display: grid;
     place-items: center;
-    width: clamp(5rem, 1rem + 40vmin, 10rem);
-    aspect-ratio: 16 / 9;
+    width: clamp(5.625rem, 1.702rem + 12.553vw, 13rem);
   }
 
   @keyframes scroll-x {
@@ -88,17 +66,7 @@ const animationDirectionClass = computed(() => {
     }
 
     to {
-      transform: translate(-100%);
-    }
-  }
-
-  @keyframes scroll-x-reverse {
-    0% {
-      transform: translate(-100%);
-    }
-
-    to {
-      transform: translate(0);
+      transform: translate(calc(-100% - clamp(5.625rem, 1.702rem + 12.553vw, 13rem) / 4));
     }
   }
 }
