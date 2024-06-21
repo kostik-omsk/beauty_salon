@@ -322,6 +322,7 @@ const handleSubmit = async (): Promise<void> => {
   }
 
   &__select {
+    height: 53px;
     font-size: 100%;
     padding: 0.8em;
     outline: none;
