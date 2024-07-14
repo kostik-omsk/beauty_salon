@@ -21,7 +21,7 @@ import LogoBrands from './ui/LogoBrands.vue'
             <h3 class="cosmetics__title">
               У нас вы можете приобрести профессиональную косметику для ухода за лицом и телом.
             </h3>
-            <button class="btn primary-btn">Подробнее</button>
+            <router-link to="сosmetics" class="btn primary-btn">Подробнее</router-link>
           </div>
           <LogoBrands />
         </div>
