@@ -201,18 +201,16 @@ const handleSubmit = async (): Promise<void> => {
 @import '@/assets/style/mixins.scss';
 
 .contact {
-  // margin-top: 3rem;
   padding: clamp(1rem, -0.866rem + 5.97vw, 2rem);
-  background: $myprimary;
   overflow: hidden;
   border-radius: 1rem;
   @include boxShadow;
+  @include myBorder;
 
   &__title {
-    color: $secondary;
+    color: $myprimary;
     font-size: $font-size-xxxl;
     margin-bottom: 1rem;
-    text-shadow: 0px 0px 5px #000000;
 
     @media screen and (max-width: 768px) {
       text-align: center;
@@ -221,10 +219,9 @@ const handleSubmit = async (): Promise<void> => {
   }
 
   &__subtitle {
-    color: $secondary;
+    color: $myprimary;
     font-size: $font-size-lg;
     margin-bottom: 2rem;
-    text-shadow: 0px 0px 5px #000000;
 
     @media screen and (max-width: 768px) {
       font-size: $font-size-md;
@@ -233,8 +230,8 @@ const handleSubmit = async (): Promise<void> => {
   }
 
   &__link {
-    color: $mygreen;
-    text-decoration: solid underline $mygreen;
+    color: $mygreen-dark;
+    text-decoration: solid underline $mygreen-dark;
   }
 }
 
@@ -270,7 +267,7 @@ const handleSubmit = async (): Promise<void> => {
       margin: 0em;
       margin-left: 1.3em;
       padding: 0.3em 0.5em;
-      background-color: $myprimary;
+      background-color: white;
     }
 
     & :is(input:focus, input:valid) ~ label {
@@ -278,7 +275,7 @@ const handleSubmit = async (): Promise<void> => {
       margin: 0em;
       margin-left: 1.3em;
       padding: 0.3em 0.5em;
-      background-color: $myprimary;
+      background-color: white;
     }
 
     & :is(input:focus) {
@@ -290,11 +287,11 @@ const handleSubmit = async (): Promise<void> => {
     font-size: 100%;
     padding: 0.8em;
     outline: none;
-    border: 2px solid $secondary;
+    border: 2px solid $myprimary;
     background-color: transparent;
     border-radius: 20px;
     width: 100%;
-    color: $secondary;
+    color: $myprimary;
 
     @media screen and (max-width: 768px) {
       width: 100%;
@@ -310,7 +307,7 @@ const handleSubmit = async (): Promise<void> => {
     margin-left: 0.5em;
     pointer-events: none;
     transition: all 0.3s ease;
-    color: $secondary;
+    color: $myprimary;
 
     @media screen and (max-width: 576px) {
       top: 4px;
@@ -322,14 +319,14 @@ const handleSubmit = async (): Promise<void> => {
   }
 
   &__select {
+    height: 53px;
     font-size: 100%;
     padding: 0.8em;
     outline: none;
-    border: 2px solid $secondary;
-    background-color: $myprimary;
+    border: 2px solid $myprimary;
     border-radius: 20px;
     width: 100%;
-    color: $secondary;
+    color: $myprimary;
     cursor: pointer;
 
     @media screen and (max-width: 768px) {
@@ -341,17 +338,17 @@ const handleSubmit = async (): Promise<void> => {
   }
 
   input:-webkit-autofill {
-    color: $secondary;
-    -webkit-box-shadow: 0 0 0px 1000px $myprimary inset;
-    -webkit-text-fill-color: $secondary;
-    box-shadow: 0 0 0px 1000px $myprimary inset;
+    color: $myprimary;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: $myprimary;
+    box-shadow: 0 0 0px 1000px white inset;
   }
 
   input:autofill {
-    color: $secondary;
-    -webkit-box-shadow: 0 0 0px 1000px $myprimary inset;
-    -webkit-text-fill-color: $secondary;
-    box-shadow: 0 0 0px 1000px $myprimary inset;
+    color: $myprimary;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: $myprimary;
+    box-shadow: 0 0 0px 1000px white inset;
   }
 
   input:-internal-autofill-selected {
@@ -407,7 +404,7 @@ const handleSubmit = async (): Promise<void> => {
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: $secondary;
+    border: 1px solid $myprimary;
     border-radius: 4px;
     transition: background-color 0.3s;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -439,7 +436,7 @@ const handleSubmit = async (): Promise<void> => {
   }
 
   &__text {
-    color: $secondary;
+    color: $myprimary;
   }
 }
 
@@ -485,6 +482,6 @@ const handleSubmit = async (): Promise<void> => {
 
 .fields__input--valid,
 .fields__select--valid {
-  border-color: $mygreen;
+  border-color: $myprimary;
 }
 </style>

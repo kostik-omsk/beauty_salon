@@ -5,3 +5,7 @@
 @mixin myTransitionAll() {
   transition: all 0.3s ease;
 }
+
+@mixin myBorder() {
+  border: 1px dashed #d0d0d0;
+}

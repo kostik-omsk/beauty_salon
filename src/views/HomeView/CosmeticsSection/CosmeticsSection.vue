@@ -21,7 +21,7 @@ import LogoBrands from './ui/LogoBrands.vue'
             <h3 class="cosmetics__title">
               У нас вы можете приобрести профессиональную косметику для ухода за лицом и телом.
             </h3>
-            <button class="btn primary-btn">Подробнее</button>
+            <router-link to="сosmetics" class="btn primary-btn">Подробнее</router-link>
           </div>
           <LogoBrands />
         </div>
@@ -51,30 +51,34 @@ import LogoBrands from './ui/LogoBrands.vue'
       position: absolute;
       z-index: 1;
       will-change: auto;
+
       img {
-        width: 5vw;
+        width: 7rem;
         max-width: 60px;
+        filter: drop-shadow(0px 0px 1rem rgba(0, 0, 0, 0.2));
 
         @media screen and (max-width: 768px) {
-          width: 6vw;
+          width: 3rem;
         }
 
-        @media screen and (max-width: 576px) {
-          width: 9vw;
+        @media screen and (max-width: 425px) {
+          width: 2rem;
         }
       }
     }
 
     &__img-left {
+      top: 10%;
       left: -8vw;
       animation: move 10s ease-in-out infinite;
       @media screen and (max-width: 768px) {
         left: 5vw;
-        top: 65%;
+        top: 70%;
       }
 
-      @media screen and (max-width: 576px) {
+      @media screen and (max-width: 425px) {
         left: 9vw;
+        top: 77%;
       }
     }
 
@@ -85,9 +89,9 @@ import LogoBrands from './ui/LogoBrands.vue'
         right: 5vw;
         top: 50%;
       }
-      @media screen and (max-width: 576px) {
+      @media screen and (max-width: 425px) {
         right: 9vw;
-        top: 60%;
+        top: 65%;
       }
     }
 

@@ -1,5 +1,5 @@
 <template>
-  <div>ProductsView {{ $route.params.id }}</div>
+  <div>CosmeticsView</div>
 </template>
 
 <script lang="ts" setup></script>

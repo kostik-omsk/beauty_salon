@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView/HomeView.vue'
-import ProductsView from '@/views/ProductsView/ProductsView.vue'
+import CosmeticsView from '@/views/CosmeticsView/CosmeticsView.vue'
 
 const ServicesView = () => import('@/views/ServicesView/ServicesView.vue')
 const ServiceView = () => import('@/views/ServiceView/ServiceView.vue')
@@ -121,9 +121,9 @@ const router = createRouter({
       ]
     },
     {
-      path: '/products/:id?',
-      name: 'products',
-      component: ProductsView,
+      path: '/сosmetics',
+      name: 'сosmetics',
+      component: CosmeticsView,
       props: true
     }
   ]

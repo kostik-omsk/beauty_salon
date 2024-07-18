@@ -36,8 +36,8 @@ onBeforeUnmount(() => {
   <div class="service__info info" @click="toggleList">
     <div class="info__header">
       <h4 class="info__title">{{ title }}:</h4>
-      <button class="info__btn">
-        <i class="info__arrow bi bi-chevron-down" :class="{ rotate: isOpenList }"></i>
+      <button class="info__btn" :class="{ rotate: isOpenList }">
+        <i class="info__arrow bi bi-chevron-down"></i>
       </button>
     </div>
     <div class="info__body" ref="dropdownList">
@@ -59,8 +59,9 @@ onBeforeUnmount(() => {
   padding: 1.5rem;
   overflow: hidden;
   border-radius: 1rem;
-  border: 1px solid #d0d0d0;
   @include boxShadow;
+  @include myBorder;
+
   cursor: pointer;
 
   &__header {
@@ -85,15 +86,17 @@ onBeforeUnmount(() => {
     border: none;
     background: $myprimary;
     color: $mygreen;
-  }
-
-  &__arrow {
     transition: transform 0.5s ease;
-    font-size: $font-size-base;
 
     &.rotate {
       transform: rotate(180deg);
     }
+  }
+
+  &__arrow {
+    margin-top: 4px;
+
+    font-size: $font-size-base;
   }
 
   &__list {
