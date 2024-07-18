@@ -20,6 +20,10 @@ const urlPhoto = ref<string>('')
 const urlVideo = ref<string>('')
 const showSwipeMove = ref<boolean>(true)
 
+const filteredPosts = computed(() => {
+  return posts.filter((post) => post.attachments && post.attachments.length > 0)
+})
+
 const getData = (data: number) => {
   return new Date(data * 1000).toLocaleDateString()
 }
@@ -48,7 +52,7 @@ const handleMouseLeave = (event: Event) => {
 }
 
 const openDialog = (postIndex: number, mediaIndex: number, type: string) => {
-  const post = posts[postIndex]
+  const post = filteredPosts.value[postIndex]
   const attachment = post?.attachments?.[mediaIndex]
   if (attachment && type === 'photo' && attachment.type === 'photo' && attachment.photo && attachment.photo.sizes) {
     typeDialog.value = type
@@ -77,10 +81,6 @@ const loadMorePosts = () => {
     loadPosts()
   }
 }
-
-const filteredPosts = computed(() => {
-  return posts.filter((post) => post.attachments && post.attachments.length > 0)
-})
 
 const formattedText = (text: string): string => {
   let newText = text.replace(/\n/g, '<br />')
