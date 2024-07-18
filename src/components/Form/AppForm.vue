@@ -266,16 +266,16 @@ const handleSubmit = async (): Promise<void> => {
       transform: translateY(-50%) scale(0.9);
       margin: 0em;
       margin-left: 1.3em;
-      padding: 0.3em 0.5em;
-      background-color: white;
+      padding: 0 0.5em;
+      background-color: #f9faff;
     }
 
     & :is(input:focus, input:valid) ~ label {
       transform: translateY(-50%) scale(0.9);
       margin: 0em;
       margin-left: 1.3em;
-      padding: 0.3em 0.5em;
-      background-color: white;
+      padding: 0 0.5em;
+      background-color: #f9faff;
     }
 
     & :is(input:focus) {
@@ -327,6 +327,7 @@ const handleSubmit = async (): Promise<void> => {
     border-radius: 20px;
     width: 100%;
     color: $myprimary;
+    background-color: #f9faff;
     cursor: pointer;
 
     @media screen and (max-width: 768px) {
@@ -339,16 +340,16 @@ const handleSubmit = async (): Promise<void> => {
 
   input:-webkit-autofill {
     color: $myprimary;
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-box-shadow: 0 0 0px 1000px #f9faff inset;
     -webkit-text-fill-color: $myprimary;
-    box-shadow: 0 0 0px 1000px white inset;
+    box-shadow: 0 0 0px 1000px #f9faff inset;
   }
 
   input:autofill {
     color: $myprimary;
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-box-shadow: 0 0 0px 1000px #f9faff inset;
     -webkit-text-fill-color: $myprimary;
-    box-shadow: 0 0 0px 1000px white inset;
+    box-shadow: 0 0 0px 1000px #f9faff inset;
   }
 
   input:-internal-autofill-selected {
