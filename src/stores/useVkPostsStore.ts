@@ -147,6 +147,264 @@ export const useVkPostsStore = defineStore({
         },
         comments: {
           can_post: 1,
+          count: 0,
+          groups_can_post: true
+        },
+        marked_as_ads: 0,
+        hash: 'NKVeX_XNfKR4oiOqWQ',
+        type: 'post',
+        attachments: [
+          {
+            type: 'photo',
+            photo: {
+              album_id: -7,
+              date: 1721228943,
+              id: 457239620,
+              owner_id: -115468427,
+              access_key: '83cb0b75278abdaa86',
+              post_id: 522,
+              sizes: [
+                {
+                  height: 75,
+                  type: 's',
+                  width: 41,
+                  url: 'https://sun9-1.userapi.com/s/v1/ig2/ipHcimYGdYiTrnjEZ-tXtdJRjrH7P5rsUyDoYmoSIbmGw8XIKVGRRmQ-c9sNOe4W0hzy47f_0qocaBsgIIGZuhm8.jpg?quality=95&as=32x58,48x87,72x131,108x196,160x291,240x436,360x654,480x872,540x981,640x1163,720x1308,1080x1962,1280x2326,1409x2560&from=bu&cs=41x75'
+                },
+                {
+                  height: 130,
+                  type: 'm',
+                  width: 72,
+                  url: 'https://sun9-1.userapi.com/s/v1/ig2/ipHcimYGdYiTrnjEZ-tXtdJRjrH7P5rsUyDoYmoSIbmGw8XIKVGRRmQ-c9sNOe4W0hzy47f_0qocaBsgIIGZuhm8.jpg?quality=95&as=32x58,48x87,72x131,108x196,160x291,240x436,360x654,480x872,540x981,640x1163,720x1308,1080x1962,1280x2326,1409x2560&from=bu&cs=72x130'
+                },
+                {
+                  height: 604,
+                  type: 'x',
+                  width: 332,
+                  url: 'https://sun9-1.userapi.com/s/v1/ig2/ipHcimYGdYiTrnjEZ-tXtdJRjrH7P5rsUyDoYmoSIbmGw8XIKVGRRmQ-c9sNOe4W0hzy47f_0qocaBsgIIGZuhm8.jpg?quality=95&as=32x58,48x87,72x131,108x196,160x291,240x436,360x654,480x872,540x981,640x1163,720x1308,1080x1962,1280x2326,1409x2560&from=bu&cs=332x604'
+                },
+                {
+                  height: 807,
+                  type: 'y',
+                  width: 444,
+                  url: 'https://sun9-1.userapi.com/s/v1/ig2/ipHcimYGdYiTrnjEZ-tXtdJRjrH7P5rsUyDoYmoSIbmGw8XIKVGRRmQ-c9sNOe4W0hzy47f_0qocaBsgIIGZuhm8.jpg?quality=95&as=32x58,48x87,72x131,108x196,160x291,240x436,360x654,480x872,540x981,640x1163,720x1308,1080x1962,1280x2326,1409x2560&from=bu&cs=444x807'
+                },
+                {
+                  height: 1080,
+                  type: 'z',
+                  width: 594,
+                  url: 'https://sun9-1.userapi.com/s/v1/ig2/ipHcimYGdYiTrnjEZ-tXtdJRjrH7P5rsUyDoYmoSIbmGw8XIKVGRRmQ-c9sNOe4W0hzy47f_0qocaBsgIIGZuhm8.jpg?quality=95&as=32x58,48x87,72x131,108x196,160x291,240x436,360x654,480x872,540x981,640x1163,720x1308,1080x1962,1280x2326,1409x2560&from=bu&cs=594x1080'
+                },
+                {
+                  height: 2160,
+                  type: 'w',
+                  width: 1189,
+                  url: 'https://sun9-1.userapi.com/s/v1/ig2/ipHcimYGdYiTrnjEZ-tXtdJRjrH7P5rsUyDoYmoSIbmGw8XIKVGRRmQ-c9sNOe4W0hzy47f_0qocaBsgIIGZuhm8.jpg?quality=95&as=32x58,48x87,72x131,108x196,160x291,240x436,360x654,480x872,540x981,640x1163,720x1308,1080x1962,1280x2326,1409x2560&from=bu&cs=1189x2160'
+                },
+                {
+                  height: 236,
+                  type: 'o',
+                  width: 130,
+                  url: 'https://sun9-1.userapi.com/s/v1/ig2/ipHcimYGdYiTrnjEZ-tXtdJRjrH7P5rsUyDoYmoSIbmGw8XIKVGRRmQ-c9sNOe4W0hzy47f_0qocaBsgIIGZuhm8.jpg?quality=95&as=32x58,48x87,72x131,108x196,160x291,240x436,360x654,480x872,540x981,640x1163,720x1308,1080x1962,1280x2326,1409x2560&from=bu&cs=130x236'
+                },
+                {
+                  height: 363,
+                  type: 'p',
+                  width: 200,
+                  url: 'https://sun9-1.userapi.com/s/v1/ig2/ipHcimYGdYiTrnjEZ-tXtdJRjrH7P5rsUyDoYmoSIbmGw8XIKVGRRmQ-c9sNOe4W0hzy47f_0qocaBsgIIGZuhm8.jpg?quality=95&as=32x58,48x87,72x131,108x196,160x291,240x436,360x654,480x872,540x981,640x1163,720x1308,1080x1962,1280x2326,1409x2560&from=bu&cs=200x363'
+                },
+                {
+                  height: 581,
+                  type: 'q',
+                  width: 320,
+                  url: 'https://sun9-1.userapi.com/s/v1/ig2/ipHcimYGdYiTrnjEZ-tXtdJRjrH7P5rsUyDoYmoSIbmGw8XIKVGRRmQ-c9sNOe4W0hzy47f_0qocaBsgIIGZuhm8.jpg?quality=95&as=32x58,48x87,72x131,108x196,160x291,240x436,360x654,480x872,540x981,640x1163,720x1308,1080x1962,1280x2326,1409x2560&from=bu&cs=320x581'
+                },
+                {
+                  height: 900,
+                  type: 'r',
+                  width: 510,
+                  url: 'https://sun9-1.userapi.com/s/v1/ig2/ipHcimYGdYiTrnjEZ-tXtdJRjrH7P5rsUyDoYmoSIbmGw8XIKVGRRmQ-c9sNOe4W0hzy47f_0qocaBsgIIGZuhm8.jpg?quality=95&as=32x58,48x87,72x131,108x196,160x291,240x436,360x654,480x872,540x981,640x1163,720x1308,1080x1962,1280x2326,1409x2560&from=bu&cs=510x900'
+                }
+              ],
+              text: '',
+              user_id: 100,
+              web_view_token: 'e06f51ea0b91f885be',
+              has_tags: false,
+              orig_photo: {
+                height: 2560,
+                type: 'base',
+                url: 'https://sun9-1.userapi.com/s/v1/ig2/ipHcimYGdYiTrnjEZ-tXtdJRjrH7P5rsUyDoYmoSIbmGw8XIKVGRRmQ-c9sNOe4W0hzy47f_0qocaBsgIIGZuhm8.jpg?quality=95&as=32x58,48x87,72x131,108x196,160x291,240x436,360x654,480x872,540x981,640x1163,720x1308,1080x1962,1280x2326,1409x2560&from=bu',
+                width: 1409
+              }
+            }
+          }
+        ],
+        date: 1721228943,
+        edited: 1721228972,
+        from_id: -115468427,
+        id: 522,
+        likes: {
+          can_like: 1,
+          count: 3,
+          user_likes: 0,
+          can_publish: 1,
+          repost_disabled: false
+        },
+        owner_id: -115468427,
+        post_source: {
+          platform: 'android',
+          type: 'api'
+        },
+        post_type: 'post',
+        reposts: {
+          count: 1,
+          user_reposted: 0
+        },
+        text: 'Результат 1 сеанса лазерной эпиляции в нашей студии 👍🥳\n#лазерсосудыкольцово\n#удалениесосудовлицотело\n#кольцово #кольцовоновосибирск #кольцовонсо #новосибирск #кольцовоакадемгородок #кольцовоброви #кольцововизажист #кольцовогельлак #кольцоводепиляция #кольцовойога #кольцовокосметика #кольцовокосметолог',
+        views: {
+          count: 158
+        }
+      },
+      {
+        inner_type: 'wall_wallpost',
+        donut: {
+          is_donut: false
+        },
+        comments: {
+          can_post: 1,
+          count: 0,
+          groups_can_post: true
+        },
+        marked_as_ads: 0,
+        hash: 'TdGXs1zQqNZZrwO1yA',
+        type: 'post',
+        attachments: [
+          {
+            type: 'video',
+            video: {
+              response_type: 'full',
+              access_key: 'd315f5e1e4b0814c6d',
+              can_like: 1,
+              can_repost: 1,
+              can_subscribe: 1,
+              can_add: 1,
+              comments: 0,
+              date: 1720773209,
+              description: '',
+              duration: 11,
+              image: [
+                {
+                  url: 'https://i.mycdn.me/getVideoPreview?id=6939510180500&idx=9&type=39&tkn=E5nX-bR0fjISKuc2Mc7GBiSpbJE&fn=vid_s',
+                  width: 130,
+                  height: 96,
+                  with_padding: 1
+                },
+                {
+                  url: 'https://i.mycdn.me/getVideoPreview?id=6939510180500&idx=9&type=39&tkn=E5nX-bR0fjISKuc2Mc7GBiSpbJE&fn=vid_m',
+                  width: 160,
+                  height: 120,
+                  with_padding: 1
+                },
+                {
+                  url: 'https://i.mycdn.me/getVideoPreview?id=6939510180500&idx=9&type=39&tkn=E5nX-bR0fjISKuc2Mc7GBiSpbJE&fn=vid_l',
+                  width: 320,
+                  height: 240,
+                  with_padding: 1
+                },
+                {
+                  url: 'https://i.mycdn.me/getVideoPreview?id=6939510180500&idx=9&type=39&tkn=E5nX-bR0fjISKuc2Mc7GBiSpbJE&fn=vid_x',
+                  width: 800,
+                  height: 450,
+                  with_padding: 1
+                },
+                {
+                  url: 'https://i.mycdn.me/getVideoPreview?id=6939510180500&idx=9&type=39&tkn=E5nX-bR0fjISKuc2Mc7GBiSpbJE&fn=vid_w',
+                  width: 406,
+                  height: 720
+                },
+                {
+                  url: 'https://i.mycdn.me/getVideoPreview?id=6939510180500&idx=9&type=39&tkn=E5nX-bR0fjISKuc2Mc7GBiSpbJE&fn=vid_t',
+                  width: 320,
+                  height: 568
+                },
+                {
+                  url: 'https://i.mycdn.me/getVideoPreview?id=6939510180500&idx=9&type=39&tkn=E5nX-bR0fjISKuc2Mc7GBiSpbJE&fn=vid_u',
+                  width: 720,
+                  height: 1278
+                }
+              ],
+              first_frame: [
+                {
+                  url: 'https://i.mycdn.me/getVideoPreview?id=6939510180500&idx=0&type=39&tkn=MFX4KPHY_DNhgEQrB2jF7txOPXk&fn=vid_f',
+                  width: 228,
+                  height: 405
+                },
+                {
+                  url: 'https://i.mycdn.me/getVideoPreview?id=6939510180500&idx=0&type=39&tkn=MFX4KPHY_DNhgEQrB2jF7txOPXk&fn=vid_md',
+                  width: 152,
+                  height: 270
+                },
+                {
+                  url: 'https://i.mycdn.me/getVideoPreview?id=6939510180500&idx=0&type=39&tkn=MFX4KPHY_DNhgEQrB2jF7txOPXk&fn=vid_d',
+                  width: 76,
+                  height: 135
+                },
+                {
+                  url: 'https://i.mycdn.me/getVideoPreview?id=6939510180500&idx=0&type=39&tkn=MFX4KPHY_DNhgEQrB2jF7txOPXk&fn=vid_sm',
+                  width: 40,
+                  height: 72
+                },
+                {
+                  url: 'https://i.mycdn.me/getVideoPreview?id=6939510180500&idx=0&type=39&tkn=MFX4KPHY_DNhgEQrB2jF7txOPXk&fn=vid_w',
+                  width: 405,
+                  height: 720
+                }
+              ],
+              width: 480,
+              height: 852,
+              id: 456239061,
+              owner_id: -115468427,
+              title: 'Video by Студия эстетики лица и тела "Chloe"',
+              track_code:
+                'video_7d1f0908xuD39UWUBrb24cU4_eWkObRMW3AGe5f7AoDOK_wXrDjwwOz8QJMF3_vkzg-i0ZEPhn9iSzBKk4xj7KIr8jqdCcULJTuLXs1_MSr2',
+              type: 'video',
+              views: 36,
+              local_views: 36,
+              can_dislike: 1
+            }
+          }
+        ],
+        date: 1720773209,
+        from_id: -115468427,
+        id: 519,
+        likes: {
+          can_like: 1,
+          count: 1,
+          user_likes: 0,
+          can_publish: 1,
+          repost_disabled: false
+        },
+        owner_id: -115468427,
+        post_source: {
+          platform: 'android',
+          type: 'api'
+        },
+        post_type: 'post',
+        reposts: {
+          count: 0,
+          user_reposted: 0
+        },
+        text: '',
+        views: {
+          count: 40
+        }
+      },
+      {
+        inner_type: 'wall_wallpost',
+        donut: {
+          is_donut: false
+        },
+        comments: {
+          can_post: 1,
           count: 3,
           groups_can_post: true
         },

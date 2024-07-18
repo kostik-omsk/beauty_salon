@@ -82,6 +82,16 @@ const filteredPosts = computed(() => {
   return posts.filter((post) => post.attachments && post.attachments.length > 0)
 })
 
+const formattedText = (text: string): string => {
+  let newText = text.replace(/\n/g, '<br />')
+
+  if (!newText.includes('#')) return newText
+
+  const index = newText.indexOf('#')
+
+  return newText.substring(0, index).trim()
+}
+
 // onMounted(async () => {
 //   await loadPosts()
 // })
@@ -150,7 +160,7 @@ const filteredPosts = computed(() => {
           </swiper>
         </div>
         <div class="post__info mt-4" v-if="post.text">
-          <p class="post__text">{{ post.text }}</p>
+          <p class="post__text" v-html="formattedText(post.text)"></p>
         </div>
         <p class="post__date mt-3 mb-0" v-if="post.date">{{ getData(post.date) }}</p>
       </swiper-slide>
@@ -227,7 +237,8 @@ const filteredPosts = computed(() => {
     &.full-height {
       height: clamp(31.688rem, 25.353rem + 17.536vw, 36.213rem);
 
-      .post__photo {
+      .post__photo,
+      .post__video-preview {
         height: clamp(31.688rem, 25.353rem + 17.536vw, 36.213rem);
 
         img {
