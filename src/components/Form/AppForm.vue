@@ -203,9 +203,9 @@ const handleSubmit = async (): Promise<void> => {
 .contact {
   padding: clamp(1rem, -0.866rem + 5.97vw, 2rem);
   overflow: hidden;
-  border: 1px solid #d0d0d0;
   border-radius: 1rem;
   @include boxShadow;
+  @include myBorder;
 
   &__title {
     color: $myprimary;

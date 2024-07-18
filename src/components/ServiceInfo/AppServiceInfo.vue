@@ -51,7 +51,7 @@ watch(route, () => {
   padding: 1.5rem;
   overflow: hidden;
   border-radius: 1rem;
-  border: 1px solid #d0d0d0;
+  @include myBorder;
   @include boxShadow;
 }
 .service__img {
