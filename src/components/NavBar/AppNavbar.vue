@@ -1,7 +1,7 @@
 <script lang="ts">
 import { storeToRefs } from 'pinia'
 import { gsap } from 'gsap'
-import { onMounted, watch } from 'vue'
+import { onMounted, provide, watch } from 'vue'
 import AppNavbarListMenu from './ui/AppNavbarListMenu.vue'
 import { useListMenuStore } from '@/stores/ListMenu'
 
@@ -62,6 +62,8 @@ export default {
         })
       }
     })
+
+    provide('aniMenu', aniMenu)
 
     return { showMenu, listMenu, show }
   }

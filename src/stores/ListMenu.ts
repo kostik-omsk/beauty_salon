@@ -31,7 +31,8 @@ export const useListMenuStore = defineStore('listMenu', {
           }
         ]
       },
-      { title: 'Косметика', name: 'сosmetics' }
+      { title: 'Косметика', name: 'сosmetics' },
+      { title: 'Статьи и новости', name: 'home', hash: '#news' }
     ],
     show: false,
     isOpen: false

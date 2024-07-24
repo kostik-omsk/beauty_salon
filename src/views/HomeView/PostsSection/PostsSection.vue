@@ -7,7 +7,7 @@ import AppVKPosts from './ui/VKPosts/AppVKPosts.vue'
   <SectionBlock class="posts">
     <template #title>Статьи и новости</template>
     <template #content>
-      <AppVKPosts />
+      <AppVKPosts id="news" />
     </template>
   </SectionBlock>
 </template>
