@@ -30,7 +30,7 @@ export default {
       </div>
       <div class="menu-container">
         <ul>
-          <AppNavbarListMenuDrop v-for="menu in listMenu" :key="menu.name" :menu="menu" />
+          <AppNavbarListMenuDrop v-for="(menu, index) in listMenu" :key="menu.name + '_' + index" :menu="menu" />
         </ul>
       </div>
     </div>
@@ -73,7 +73,6 @@ export default {
       left: 50%;
       top: 50%;
       @include myTransitionAll;
-
     }
     &:after {
       transform: translate(-50%, -50%) rotate(45deg);

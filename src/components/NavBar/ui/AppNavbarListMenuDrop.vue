@@ -34,6 +34,10 @@ export default {
         aniMenu.reverse().eventCallback('onReverseComplete', () => {
           router.push({ name: props.menu.name, hash: props.menu.hash })
         })
+      } else if (router.currentRoute.value.name !== props.menu.name) {
+        aniMenu.reverse().eventCallback('onReverseComplete', () => {
+          router.push({ name: props.menu.name })
+        })
       }
     }
 
@@ -48,7 +52,7 @@ export default {
     <ul class="sub-menu" :class="submenuStyle">
       <AppNavbarListMenuDrop
         v-for="(dropMenu, index) in menu.subMenu"
-        :key="dropMenu.name + index"
+        :key="dropMenu.name + '_' + index"
         :menu="dropMenu"
         @click="toggle"
       />
