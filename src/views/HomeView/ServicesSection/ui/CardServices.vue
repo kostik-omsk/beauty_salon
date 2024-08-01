@@ -14,21 +14,26 @@ const { id, title, description, urlName } = props.service
       </picture>
     </div>
     <div class="service__info">
-      <h3 class="service__title">{{ title }}</h3>
-      <p class="service__description">{{ description }}</p>
-      <router-link class="service__details-btn" :to="{ name: id }">
-        <p>Подробней</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="4"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-        </svg>
-      </router-link>
+      <div class="service__text">
+        <h3 class="service__title">{{ title }}</h3>
+        <p class="service__description">{{ description }}</p>
+      </div>
+      <div class="service__btn">
+        <router-link class="service__details-btn" :to="{ name: id }">
+          <p>Подробней</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </router-link>
+        <router-link class="btn primary-btn" :to="{ path: '/', hash: '#form' }">Записаться</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -71,6 +76,12 @@ const { id, title, description, urlName } = props.service
     }
   }
 
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   &__title {
     margin-bottom: clamp(0.8rem, 2.5vw, 1.5rem);
   }
@@ -80,8 +91,13 @@ const { id, title, description, urlName } = props.service
     margin-bottom: 2.5rem;
   }
 
+  &__btn {
+    display: flex;
+    gap: 1.5rem;
+  }
+
   &__details-btn {
-    position: absolute;
+    position: relative;
     display: flex;
     font-weight: 600;
     font-size: 20px;
@@ -99,7 +115,7 @@ const { id, title, description, urlName } = props.service
       content: '';
       width: 0;
       left: 0;
-      bottom: -7px;
+      bottom: 3px;
       background: $mygreen-dark;
       height: 2px;
       @include myTransitionAll;

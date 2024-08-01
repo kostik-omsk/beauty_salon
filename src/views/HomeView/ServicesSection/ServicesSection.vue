@@ -2,7 +2,6 @@
 import { storeToRefs } from 'pinia'
 import { useServicesStore } from '@/stores/ListServices'
 
-import AppForm from '@/components/Form/AppForm.vue'
 import SectionBlock from '@/components/SectionBlock/SectionBlock.vue'
 import CardServicesVue from './ui/CardServices.vue'
 
@@ -18,7 +17,6 @@ const { listServices } = storeToRefs(ListServices)
         <div class="services__list">
           <CardServicesVue v-for="service in listServices" :key="service.id" :service="service" />
         </div>
-        <AppForm class="my-5" id="form" />
       </div>
     </template>
   </SectionBlock>
