@@ -8,9 +8,11 @@
 
 <script setup lang="ts">
 import { gsap } from 'gsap'
-import { onMounted } from 'vue'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { onMounted, onUnmounted } from 'vue'
 import { photeBoxes } from './dataGallery'
 
+gsap.registerPlugin(ScrollTrigger)
 interface PhotoBoxElement extends HTMLElement {
   tl: gsap.core.Timeline
 }
@@ -31,12 +33,12 @@ onMounted(() => {
     }
   }
 
-  // function pauseBoxes() {
-  //   for (let i = 0; i < box.length; i++) {
-  //     const tl = box[i].tl
-  //     tl.pause()
-  //   }
-  // }
+  function pauseBoxes() {
+    for (let i = 0; i < box.length; i++) {
+      const tl = box[i].tl
+      tl.pause()
+    }
+  }
 
   box.forEach((el, i) => {
     const column = photeBoxes[i].column
@@ -69,16 +71,25 @@ onMounted(() => {
       .progress((i % 4) / 4)
   })
 
-  const timelineOptions = {
-    onStart: playBoxes
-    // onComplete: pauseBoxes
-  }
+  ScrollTrigger.create({
+    trigger: '.gallery',
+    start: 'top bottom',
+    end: 'bottom top',
+    onEnter: playBoxes,
+    onLeave: pauseBoxes,
+    onEnterBack: playBoxes,
+    onLeaveBack: pauseBoxes
+  })
 
   gsap
-    .timeline(timelineOptions)
+    .timeline()
     .set('.gallery', { perspective: 800 })
     .set('.photoBox', { opacity: 1 })
     .fromTo('.gallery', { autoAlpha: 0 }, { duration: 0.6, ease: 'power2.inOut', autoAlpha: 1 }, 0.2)
+})
+
+onUnmounted(() => {
+  ScrollTrigger.killAll()
 })
 </script>
 

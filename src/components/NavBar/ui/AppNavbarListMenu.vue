@@ -30,7 +30,7 @@ export default {
       </div>
       <div class="menu-container">
         <ul>
-          <AppNavbarListMenuDrop v-for="menu in listMenu" :key="menu.name" :menu="menu" />
+          <AppNavbarListMenuDrop v-for="(menu, index) in listMenu" :key="menu.name + '_' + index" :menu="menu" />
         </ul>
       </div>
     </div>

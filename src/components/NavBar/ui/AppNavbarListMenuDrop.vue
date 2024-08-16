@@ -1,7 +1,8 @@
 <script lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useListMenuStore } from '@/stores/ListMenu'
+import { useRouter } from 'vue-router'
 
 export default {
   name: 'AppNavbarListMenuDrop',
@@ -10,6 +11,8 @@ export default {
   setup(props) {
     const menuStore = useListMenuStore()
     const { isOpen } = storeToRefs(menuStore)
+    const router = useRouter()
+    const aniMenu = inject('aniMenu') as gsap.core.Timeline
 
     const isFolder = computed(() => {
       return props.menu.subMenu !== undefined
@@ -26,6 +29,16 @@ export default {
     }
     const close = () => {
       menuStore.closeMenu()
+
+      if (props.menu.hash) {
+        aniMenu.reverse().eventCallback('onReverseComplete', () => {
+          router.push({ name: props.menu.name, hash: props.menu.hash })
+        })
+      } else if (router.currentRoute.value.name !== props.menu.name) {
+        aniMenu.reverse().eventCallback('onReverseComplete', () => {
+          router.push({ name: props.menu.name })
+        })
+      }
     }
 
     return { isOpen, isFolder, toggle, close, submenuStyle }
@@ -37,7 +50,12 @@ export default {
   <li v-if="isFolder" @click="toggle">
     <span class="item-menu">{{ menu.title }}</span>
     <ul class="sub-menu" :class="submenuStyle">
-      <AppNavbarListMenuDrop v-for="dropMenu in menu.subMenu" :key="dropMenu.name" :menu="dropMenu" @click="toggle" />
+      <AppNavbarListMenuDrop
+        v-for="(dropMenu, index) in menu.subMenu"
+        :key="dropMenu.name + '_' + index"
+        :menu="dropMenu"
+        @click="toggle"
+      />
     </ul>
   </li>
   <template v-else>

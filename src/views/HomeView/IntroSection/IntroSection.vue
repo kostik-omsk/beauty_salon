@@ -7,12 +7,12 @@ import AppGalleryIntro from './ui/GalleryIntro/AppGalleryIntro.vue'
   <SectionBlock class="intro container">
     <template #content>
       <div class="intro__block">
-        <h1 class="block-title">Совершенство доступно</h1>
-        <div class="block-text block-text-green">
+        <h1 class="block-title mb-3">Совершенство доступно</h1>
+        <div class="block-text block-text-green mb-3">
           <i class="bi bi-geo-alt"></i>
           Кольцово, Никольский проспект 13
         </div>
-        <div class="block-icons mt-1">
+        <div class="block-icons mt-1 mb-3">
           <a href="https://vk.com/dankina_a_s" target="_blank">
             <i class="my-icon">
               <svg class="icon-vk" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
@@ -26,6 +26,7 @@ import AppGalleryIntro from './ui/GalleryIntro/AppGalleryIntro.vue'
           <a href="https://www.t.me/chloe_dankina" target="_blank"><i class="bi bi-telegram"></i></a>
           <a href="https://api.whatsapp.com/send?phone=79133851386" target="_blank"><i class="bi bi-whatsapp"></i></a>
         </div>
+        <router-link class="btn primary-btn" :to="{ path: '/', hash: '#form' }">Записаться</router-link>
       </div>
       <AppGalleryIntro />
     </template>
@@ -47,7 +48,6 @@ import AppGalleryIntro from './ui/GalleryIntro/AppGalleryIntro.vue'
   &__block {
     top: 35%;
     position: absolute;
-    background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 1rem;
     z-index: 100;
@@ -59,6 +59,7 @@ import AppGalleryIntro from './ui/GalleryIntro/AppGalleryIntro.vue'
 
     @media (max-width: 1400px) {
       box-shadow: 0 0 3px #00000095;
+      background: rgba(255, 255, 255, 0.8);
     }
 
     .block-title {

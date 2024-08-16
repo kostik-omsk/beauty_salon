@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import SectionBlock from '@/components/SectionBlock/SectionBlock.vue'
-import AppVKPosts from './ui/VKPosts/AppVKPosts.vue'
+import AppForm from '@/components/Form/AppForm.vue'
 </script>
 
 <template>
-  <SectionBlock class="posts">
-    <template #title>Статьи и новости</template>
+  <SectionBlock class="cosmetics my-5">
     <template #content>
-      <AppVKPosts id="news" />
+      <div class="container">
+        <AppForm id="form" />
+      </div>
     </template>
   </SectionBlock>
 </template>
