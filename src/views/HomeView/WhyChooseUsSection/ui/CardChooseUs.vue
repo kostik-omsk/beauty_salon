@@ -65,12 +65,17 @@ defineProps<{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    will-change: transform;
   }
 
   &.img-1 {
     top: 2%;
     left: 0;
     width: 33%;
+
+    & img {
+      transform: translateX(0%) scale(1.25);
+    }
 
     @media (max-width: 768px) {
       top: unset;
@@ -90,6 +95,11 @@ defineProps<{
     top: 2%;
     right: 0;
     width: 36%;
+
+    & img {
+      transform: translateX(-11%) scale(1.25);
+    }
+
     @media (max-width: 768px) {
       top: 0;
       width: 39%;
@@ -107,6 +117,10 @@ defineProps<{
   &.img-3 {
     top: 26%;
     width: 20%;
+
+    & img {
+      transform: translateY(-5%) scale(1.3);
+    }
 
     @media (max-width: 768px) {
       top: 0;
@@ -165,6 +179,10 @@ defineProps<{
     left: 27%;
     width: 31%;
 
+    & img {
+      transform: translateX(15%) scale(1.3);
+    }
+
     @media (max-width: 768px) {
       top: unset;
       bottom: 17%;
@@ -183,6 +201,10 @@ defineProps<{
     top: 46%;
     right: 0;
     width: 36%;
+
+    & img {
+      transform: translateX(-15%) scale(1.3);
+    }
 
     @media (max-width: 768px) {
       top: 0;

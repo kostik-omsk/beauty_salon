@@ -1,42 +1,49 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
-// import { gsap } from 'gsap'
-// import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import SectionBlock from '@/components/SectionBlock/SectionBlock.vue'
 import CardChooseUs from './ui/CardChooseUs.vue'
 
 const chooseUs = [
-  { img: 'img-1', text: 'Профессионализм' },
-  { img: 'img-2', text: 'Индивидуальный подход' },
-  { img: 'img-3', text: 'Опыт' },
-  { img: 'img-4', text: 'Доверие' },
-  { img: 'img-5', text: 'Технологии' },
-  { img: 'img-6', text: 'Большой выбор услуг' },
-  { img: 'img-7', text: 'Комфорт и уют' }
+  { img: 'img-1', text: 'Профессионализм', translateX: '-11%' },
+  { img: 'img-2', text: 'Индивидуальный подход', translateX: '11%' },
+  { img: 'img-3', text: 'Опыт', translateY: '15%' },
+  { img: 'img-4', text: 'Доверие', scale: 1.3 },
+  { img: 'img-5', text: 'Технологии', scale: 1.3 },
+  { img: 'img-6', text: 'Большой выбор услуг', translateX: '-15%' },
+  { img: 'img-7', text: 'Комфорт и уют', translateX: '15%' }
 ]
 
+const createAnimation = (selector: string, properties: object) => {
+  gsap.to(selector, {
+    ...properties,
+    scrollTrigger: {
+      trigger: selector,
+      start: 'top center',
+      scrub: 1,
+      toggleActions: 'play none none reverse'
+    }
+  })
+}
+
 onMounted(() => {
-  // gsap.registerPlugin(ScrollTrigger)
-  // // Основная анимация
-  // gsap.from('.why-choose-us__img__text', {
-  //   scrollTrigger: {
-  //     trigger: '.why-choose-us__wrap',
-  //     start: 'top 80%',
-  //     end: 'bottom 90%',
-  //     scrub: true,
-  //     markers: true
-  //   },
-  //   opacity: 0,
-  //   scale: 0.5,
-  //   duration: 1.5,
-  //   stagger: 0.3
-  // })
+  gsap.registerPlugin(ScrollTrigger)
+
+  chooseUs.forEach(({ img, translateX, translateY, scale }) => {
+    const animationProperties = {
+      translateX,
+      translateY,
+      scale
+    }
+
+    createAnimation(`.${img} img`, animationProperties)
+  })
 })
 
 onUnmounted(() => {
-  // Очищаем все триггеры при уничтожении компонента
-  // ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
 })
 </script>
 
