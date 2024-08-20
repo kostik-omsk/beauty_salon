@@ -1,6 +1,69 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { gsap } from 'gsap'
+import { SplitText } from 'gsap/SplitText'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionBlock from '@/components/SectionBlock/SectionBlock.vue'
 import LogoBrands from './ui/LogoBrands.vue'
+
+gsap.registerPlugin(ScrollTrigger, SplitText)
+
+onMounted(() => {
+  const title = document.querySelector('.cosmetics__title') as HTMLElement
+  const titleSplit = new SplitText(title, { type: 'words, chars' })
+  gsap.set(title, { perspective: 400 })
+
+  const tl = gsap.timeline({
+    onComplete: () => titleSplit.revert()
+  })
+
+  tl.from(titleSplit.chars, {
+    y: 80,
+    rotationX: 180,
+    transformOrigin: '0% 50% -50',
+    scale: 0,
+    opacity: 0,
+    color: '#8FE402',
+    stagger: 0.04,
+    ease: 'Back.easeOut'
+  })
+
+  tl.from(
+    titleSplit.chars,
+    {
+      keyframes: [{ color: '#a3dc59' }, { color: '' }],
+      stagger: 0.04,
+      ease: 'Back.easeOut'
+    },
+    0.07
+  )
+
+  tl.from(
+    '.decor__img-left',
+    {
+      opacity: 0,
+      left: '-100%',
+      duration: 1
+    },
+    '<1.5'
+  )
+
+  tl.from(
+    '.decor__img-right',
+    {
+      opacity: 0,
+      right: '-100%',
+      duration: 1
+    },
+    '<'
+  )
+
+  ScrollTrigger.create({
+    trigger: title,
+    start: 'top 90%',
+    animation: tl
+  })
+})
 </script>
 
 <template>
@@ -21,7 +84,7 @@ import LogoBrands from './ui/LogoBrands.vue'
             <h3 class="cosmetics__title">
               У нас вы можете приобрести профессиональную косметику для ухода за лицом и телом.
             </h3>
-            <router-link to="сosmetics" class="btn primary-btn">Подробнее</router-link>
+            <router-link to="сosmetics" class="cosmetics__btn btn primary-btn">Подробнее</router-link>
           </div>
           <LogoBrands />
         </div>
