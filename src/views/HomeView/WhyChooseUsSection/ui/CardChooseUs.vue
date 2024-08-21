@@ -10,7 +10,7 @@ defineProps<{
   <div :class="['why-choose-us__img', imgClass]">
     <picture>
       <source :srcset="`/assets/img/chooseUs/${img}.webp`" type="image/webp" />
-      <img :src="`/assets/img/chooseUs/${img}.png`" alt="choose Us" />
+      <img :src="`/assets/img/chooseUs/${img}.png`" alt="choose Us" loading="lazy" />
     </picture>
     <div class="why-choose-us__img__text">
       <p>{{ text }}</p>

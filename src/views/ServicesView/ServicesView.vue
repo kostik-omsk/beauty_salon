@@ -1,7 +1,7 @@
 <template>
   <div class="container mb-5">
     <Breadcrumb />
-    <div class="services" :class="{ 'services-sidebar-off': isServices }">
+    <div class="services mt-3" :class="{ 'services-sidebar-off': isServices }">
       <aside v-if="showSidebar" class="menu-scroll">
         <Sidebar />
       </aside>

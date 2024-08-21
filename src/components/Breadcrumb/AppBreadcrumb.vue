@@ -1,5 +1,5 @@
 <template>
-  <nav class="breadcrumb mb-2">
+  <nav class="breadcrumb mt-2">
     <ul class="breadcrumb__list">
       <li class="breadcrumb__item">
         <router-link class="breadcrumb__link" to="/">

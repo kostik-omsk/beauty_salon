@@ -5,7 +5,7 @@
         <div class="categories__img">
           <picture>
             <source :srcset="getImageUrl(urlName, 'webp')" type="image/webp" />
-            <img :src="getImageUrl(urlName, 'png')" :alt="title" />
+            <img :src="getImageUrl(urlName, 'png')" :alt="title" loading="lazy" width="233" height="233" />
           </picture>
         </div>
         <p class="categories__title mb-2">{{ title }}</p>
@@ -43,6 +43,9 @@ const listServices = props.services
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
     @include myTransitionAll;
 
+    @media screen and (max-width: 552px) {
+      width: 100%;
+    }
     &:hover {
       background: $mygreen;
       box-shadow: 0px 2px 10px rgb(75, 75, 75);
