@@ -127,7 +127,7 @@ const router = createRouter({
       props: true
     }
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to) {
     if (to.hash) {
       return {
         el: to.hash,

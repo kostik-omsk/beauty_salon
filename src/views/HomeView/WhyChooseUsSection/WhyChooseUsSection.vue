@@ -61,13 +61,13 @@ onUnmounted(() => {
             </p>
             <p>Ответ прост — мы предлагаем нечто большее, чем просто услуги красоты.</p>
           </div>
-          <cardChooseUs
+          <CardChooseUs
             v-for="({ text, img }, i) in chooseUs"
             :key="i"
             :text="text"
             :img="img"
             :imgClass="`img-${i + 1}`"
-          ></cardChooseUs>
+          ></CardChooseUs>
         </div>
       </div>
     </template>
