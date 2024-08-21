@@ -10,7 +10,7 @@ const { id, title, description, urlName } = props.service
     <div class="service__img">
       <picture>
         <source :srcset="getImageUrl(urlName, 'webp')" type="image/webp" />
-        <img :src="getImageUrl(urlName, 'png')" :alt="title" />
+        <img :src="getImageUrl(urlName, 'png')" :alt="title" loading="lazy" width="250" height="250" />
       </picture>
     </div>
     <div class="service__info">

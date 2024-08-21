@@ -75,10 +75,10 @@ onMounted(() => {
           <div class="cosmetics__info">
             <div class="cosmetics__decor decor">
               <div class="decor__img decor__img-left">
-                <img src="/assets/decor1.png" alt="cosmetics" />
+                <img src="/assets/decor1.png" alt="cosmetics" loading="lazy" />
               </div>
               <div class="decor__img decor__img-right">
-                <img src="/assets/decor2.png" alt="cosmetics" />
+                <img src="/assets/decor2.png" alt="cosmetics" loading="lazy" />
               </div>
             </div>
             <h3 class="cosmetics__title">
