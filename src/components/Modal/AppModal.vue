@@ -12,7 +12,7 @@ const handleClose = () => {
     <Transition name="fade">
       <div class="dialog" v-if="props.isOpen" @click="handleClose">
         <div class="dialog-content fade-animation" @click.stop>
-          <button type="button" class="close btn-close" @click="handleClose" aria-label="Закрыть"></button>
+          <button type="button" class="btn-close" @click="handleClose" aria-label="Закрыть"></button>
           <h4 class="dialog__title" v-if="$slots.title">
             <slot name="title" />
           </h4>
@@ -86,10 +86,40 @@ const handleClose = () => {
   margin-bottom: 1rem;
 }
 
-.close {
+.btn-close {
   position: absolute;
   top: 9px;
   right: 9px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #5a5a5a;
+    @include myTransitionAll;
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &:hover.btn-close::after,
+  &:hover.btn-close::before {
+    background-color: black;
+  }
 }
 
 .foto {

@@ -15,7 +15,6 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@vkontakte/api-schema-typescript": "^1.5131.2",
-    "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.1",
     "gsap": "^3.12.2",
     "pinia": "^2.1.6",
