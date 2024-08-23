@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import { SplitText } from 'gsap/SplitText'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -8,10 +8,12 @@ import LogoBrands from './ui/LogoBrands.vue'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
+const titleRef = ref<HTMLElement | null>(null)
 onMounted(() => {
-  const title = document.querySelector('.cosmetics__title') as HTMLElement
-  const titleSplit = new SplitText(title, { type: 'words, chars' })
-  gsap.set(title, { perspective: 400 })
+  if (!titleRef.value) return
+
+  const titleSplit = new SplitText(titleRef.value, { type: 'words, chars' })
+  gsap.set(titleRef.value, { perspective: 400 })
 
   const tl = gsap.timeline({
     onComplete: () => titleSplit.revert()
@@ -58,11 +60,29 @@ onMounted(() => {
     '<'
   )
 
+  tl.fromTo(
+    '.cosmetics__btn',
+    {
+      opacity: 0,
+      scale: 0.3
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 0.5
+    },
+    '<'
+  )
+
   ScrollTrigger.create({
-    trigger: title,
+    trigger: titleRef.value,
     start: 'top 90%',
     animation: tl
   })
+})
+
+onUnmounted(() => {
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
 })
 </script>
 
@@ -81,7 +101,7 @@ onMounted(() => {
                 <img src="/assets/decor2.png" alt="cosmetics" loading="lazy" />
               </div>
             </div>
-            <h3 class="cosmetics__title">
+            <h3 class="cosmetics__title" ref="titleRef">
               У нас вы можете приобрести профессиональную косметику для ухода за лицом и телом.
             </h3>
             <router-link to="сosmetics" class="cosmetics__btn btn primary-btn">Подробнее</router-link>
