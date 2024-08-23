@@ -89,11 +89,10 @@ onUnmounted(() => {
     }
 
     @media (max-width: 768px) {
-      height: calc(1850 * (100vw / 1440));
+      height: calc(2600 * (100vw / 1440));
     }
-
-    @media (max-width: 576px) {
-      height: calc(2550 * (100vw / 1440));
+    @media (max-width: 441px) {
+      height: calc(2750 * (100vw / 1440));
     }
   }
 
@@ -109,14 +108,13 @@ onUnmounted(() => {
     border: 1px dashed #d0d0d0;
 
     @media (max-width: 768px) {
-      // position: relative;
-      top: 32%;
+      top: 26%;
       left: 0;
       max-width: 100%;
     }
 
-    @media (max-width: 576px) {
-      top: 26.5%;
+    @media (max-width: 441px) {
+      top: 24.5%;
     }
 
     p {
@@ -131,7 +129,7 @@ onUnmounted(() => {
       }
 
       @media (max-width: 768px) {
-        font-size: calc((100vw / 1440) * 47.5);
+        font-size: calc((100vw / 1440) * 55.5);
       }
     }
   }
