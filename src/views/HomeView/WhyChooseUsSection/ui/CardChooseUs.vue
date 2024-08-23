@@ -43,7 +43,7 @@ defineProps<{
       font-weight: 800;
       font-size: clamp(1rem, 2.3vw, 2rem);
 
-      @media only screen and (max-width: 576px) {
+      @media only screen and (max-width: 768px) {
         padding: 0.5rem;
         text-align: center;
       }
@@ -79,14 +79,9 @@ defineProps<{
 
     @media (max-width: 768px) {
       top: unset;
-      bottom: 0;
-      left: 31%;
-      width: 33%;
-    }
-
-    @media (max-width: 576px) {
       left: unset;
       right: 0;
+      bottom: 0;
       width: 54%;
     }
   }
@@ -101,11 +96,6 @@ defineProps<{
     }
 
     @media (max-width: 768px) {
-      top: 0;
-      width: 39%;
-    }
-
-    @media (max-width: 576px) {
       top: unset;
       bottom: 0;
       right: unset;
@@ -124,11 +114,6 @@ defineProps<{
 
     @media (max-width: 768px) {
       top: 0;
-      left: 35%;
-      width: 22%;
-    }
-
-    @media (max-width: 576px) {
       left: 38%;
       width: 24%;
     }
@@ -142,14 +127,13 @@ defineProps<{
     @media (max-width: 768px) {
       top: unset;
       left: unset;
-      bottom: 3%;
       right: 0;
-      width: 32%;
+      bottom: 19.6%;
+      width: 40%;
     }
 
-    @media (max-width: 576px) {
-      bottom: 21%;
-      width: 40%;
+    @media (max-width: 441px) {
+      bottom: 18%;
     }
   }
 
@@ -158,14 +142,12 @@ defineProps<{
     left: 0;
     width: 20%;
 
-    @media (max-width: 768px) {
-      top: unset;
-      bottom: 2%;
-      left: 0;
-      width: 27%;
+    & img {
+      scale: 1.1;
+      object-fit: fill;
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 768px) {
       top: 0;
       left: unset;
       right: 0;
@@ -185,15 +167,13 @@ defineProps<{
 
     @media (max-width: 768px) {
       top: unset;
-      bottom: 17%;
-      left: 31%;
-      width: 33%;
+      left: 0;
+      bottom: 24%;
+      width: 56%;
     }
 
-    @media (max-width: 576px) {
-      left: 0;
-      bottom: 26%;
-      width: 56%;
+    @media (max-width: 441px) {
+      bottom: 22%;
     }
   }
 
@@ -209,10 +189,6 @@ defineProps<{
     @media (max-width: 768px) {
       top: 0;
       left: 0;
-      width: 31%;
-    }
-
-    @media (max-width: 576px) {
       width: 34%;
     }
   }
