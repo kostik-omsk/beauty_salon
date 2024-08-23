@@ -170,7 +170,9 @@ const handleSubmit = async (): Promise<void> => {
             <option value="Консультация">Консультация</option>
             <option value="Другое">Другое</option>
           </select>
-          <label for="theme" class="fields__label">Выбрать услугу <span>*</span></label>
+          <label for="theme" class="fields__label"
+            >Выбрать услугу <i class="bi bi-arrow-down"></i><span>*</span>
+          </label>
         </div>
       </div>
       <div class="form__checkbox checkbox">
@@ -329,6 +331,9 @@ const handleSubmit = async (): Promise<void> => {
     color: $myprimary;
     background-color: #f9faff;
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 
     @media screen and (max-width: 768px) {
       width: 100%;
