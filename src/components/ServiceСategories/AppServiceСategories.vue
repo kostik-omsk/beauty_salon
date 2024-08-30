@@ -8,7 +8,7 @@
             <img :src="getImageUrl(urlName, 'png')" :alt="title" loading="lazy" width="233" height="233" />
           </picture>
         </div>
-        <p class="categories__title mb-2">{{ title }}</p>
+        <p class="categories__title">{{ title }}</p>
       </router-link>
     </template>
   </div>
@@ -67,19 +67,24 @@ const listServices = props.services
     overflow: hidden;
 
     img {
+      display: block;
       width: 100%;
       height: 100%;
+      transform: scale(1);
       @include myTransitionAll;
     }
   }
 
   &__title {
     text-align: center;
-    margin: 0.5rem 0 0 0;
+    margin: 0.5rem 0 0.3rem 0;
     padding: 0;
     color: $mygreen;
     font-size: $font-size-base;
     font-weight: 700;
+    @media screen and (max-width: 552px) {
+      font-size: $font-size-lg;
+    }
   }
 }
 </style>

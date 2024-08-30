@@ -45,7 +45,8 @@ onMounted(() => {
     {
       opacity: 0,
       left: '-100%',
-      duration: 1
+      duration: 1,
+      clearProps: 'all'
     },
     '<1.5'
   )
@@ -55,7 +56,8 @@ onMounted(() => {
     {
       opacity: 0,
       right: '-100%',
-      duration: 1
+      duration: 1,
+      clearProps: 'all'
     },
     '<'
   )
@@ -69,7 +71,8 @@ onMounted(() => {
     {
       opacity: 1,
       scale: 1,
-      duration: 0.5
+      duration: 0.5,
+      clearProps: 'all'
     },
     '<'
   )
@@ -136,10 +139,41 @@ onUnmounted(() => {
       will-change: auto;
 
       img {
-        width: 7rem;
-        max-width: 60px;
         filter: drop-shadow(0px 0px 1rem rgba(0, 0, 0, 0.2));
+      }
+    }
 
+    &__img-left {
+      top: 0%;
+      left: -10vw;
+
+      img {
+        max-width: 80px;
+        @media screen and (max-width: 768px) {
+          width: 3.7rem;
+        }
+
+        @media screen and (max-width: 425px) {
+          width: 2.9rem;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        left: 5vw;
+        top: 60%;
+      }
+
+      @media screen and (max-width: 425px) {
+        left: 9vw;
+        top: 70%;
+      }
+    }
+
+    &__img-right {
+      right: -9vw;
+
+      img {
+        max-width: 60px;
         @media screen and (max-width: 768px) {
           width: 3rem;
         }
@@ -148,26 +182,6 @@ onUnmounted(() => {
           width: 2rem;
         }
       }
-    }
-
-    &__img-left {
-      top: 10%;
-      left: -8vw;
-      animation: move 10s ease-in-out infinite;
-      @media screen and (max-width: 768px) {
-        left: 5vw;
-        top: 70%;
-      }
-
-      @media screen and (max-width: 425px) {
-        left: 9vw;
-        top: 77%;
-      }
-    }
-
-    &__img-right {
-      right: -8vw;
-      animation: move 7s ease-in-out infinite reverse;
       @media screen and (max-width: 768px) {
         right: 5vw;
         top: 50%;
@@ -175,20 +189,6 @@ onUnmounted(() => {
       @media screen and (max-width: 425px) {
         right: 9vw;
         top: 65%;
-      }
-    }
-
-    @keyframes move {
-      0% {
-        transform: translate(-2%, 2%) scale(0.95) rotate(-5deg);
-      }
-
-      50% {
-        transform: translate(2%, -2%) scale(1.1) rotate(5deg);
-      }
-
-      100% {
-        transform: translate(-2%, 2%) scale(0.95) rotate(-5deg);
       }
     }
   }

@@ -80,8 +80,9 @@ export default {
         </div>
       </div>
       <div class="logo">
-        <router-link to="/">
-          <img src="@/assets/svg/logo.svg" alt="logo" height="55" />
+        <router-link to="/" class="logo-text">
+          <!-- <img src="@/assets/svg/logo.svg" alt="logo" height="55" /> -->
+          Chloe
         </router-link>
       </div>
       <div class="tel">
@@ -155,6 +156,17 @@ export default {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
+
+    .logo-text {
+      font-size: $font-size-xxxl;
+      font-weight: 800;
+      color: $mygreen-dark;
+      background-color: $mygreen-dark;
+      background-image: linear-gradient(-20deg, $mygreen, $mygreen-dark 60%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
     a {
       display: flex;
       flex-direction: column;

@@ -299,6 +299,7 @@ const scrollToTop = () => {
       padding: 0;
       color: $mygreen;
       @include myTransitionAll;
+      font-size: $font-size-base;
 
       &:hover {
         color: #fff;
