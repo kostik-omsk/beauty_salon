@@ -1,6 +1,6 @@
 <template>
   <div class="brands__conveyor conveyor">
-    <div class="conveyor__group">
+    <div class="conveyor__group" ref="conveyorGroup">
       <div class="conveyor__item" v-for="(url, index) in CosmeticsImg" :key="index">
         <img class="img-fluid" :src="`${url}`" alt="logo brand" />
       </div>
@@ -36,10 +36,19 @@ onMounted(() => {
     opacity: 0,
     ease: 'back.out(2)',
     stagger: 0.2,
-    delay: 0.2,
     scrollTrigger: {
       trigger: '.conveyor',
       start: 'top 80%'
+    }
+  })
+
+  gsap.to('.conveyor__group', {
+    x: '-80%',
+    scrollTrigger: {
+      trigger: '.conveyor',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1
     }
   })
 })
@@ -53,6 +62,7 @@ onUnmounted(() => {
 .conveyor {
   display: flex;
   gap: calc(clamp(5.625rem, 1.702rem + 12.553vw, 13rem) / 4);
+  margin: 7rem 0 4rem 0;
   overflow: hidden;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -72,10 +82,10 @@ onUnmounted(() => {
     align-items: center;
     gap: calc(clamp(5.625rem, 1.702rem + 12.553vw, 13rem) / 4);
     min-width: 100%;
-    animation-name: scroll-x;
-    animation-duration: 30s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    // animation-name: scroll-x;
+    // animation-duration: 30s;
+    // animation-timing-function: linear;
+    // animation-iteration-count: infinite;
   }
 
   &__item {

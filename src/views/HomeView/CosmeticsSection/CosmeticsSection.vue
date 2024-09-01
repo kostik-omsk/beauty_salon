@@ -188,7 +188,7 @@ onUnmounted(() => {
       }
       @media screen and (max-width: 425px) {
         right: 9vw;
-        top: 65%;
+        top: 70%;
       }
     }
   }
