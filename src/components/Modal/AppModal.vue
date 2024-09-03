@@ -78,7 +78,7 @@ const handleClose = () => {
   margin-right: calc(var(--margin-x) * 0.5);
   margin-left: calc(var(--margin-x) * 0.5);
   background-color: #fefefe;
-  padding: 35px 20px 20px 20px;
+  padding: 46px 20px 20px 20px;
   border-radius: 1rem;
 }
 
@@ -122,7 +122,8 @@ const handleClose = () => {
   }
 }
 
-.foto {
+.foto,
+.video {
   width: 100%;
   border-radius: 1rem;
   overflow: hidden;

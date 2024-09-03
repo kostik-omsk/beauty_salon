@@ -18,7 +18,9 @@ const scrollToTop = () => {
       <div class="footer__wrapper">
         <div class="footer__content">
           <div class="logo">
-            <img src="@/assets/svg/logo.svg" alt="logo" height="55" />
+            <div class="logo-wrap">
+              <p class="logo-text">Chloe</p>
+            </div>
             <div class="socials">
               <a href="https://vk.com/dankina_a_s" target="_blank">
                 <i class="my-icon">
@@ -114,7 +116,18 @@ const scrollToTop = () => {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+
+    .logo-text {
+      margin: 0;
+      font-size: $font-size-xxxl;
+      font-weight: 800;
+      color: $mygreen-dark;
+      background-color: $mygreen-dark;
+      background-image: linear-gradient(-20deg, $mygreen, $mygreen-dark 60%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
     @media screen and (max-width: 895px) {
       flex-direction: row;
