@@ -290,6 +290,7 @@ onMounted(async () => {
   }
 
   &__video {
+    display: block;
     width: 100%;
     height: 100%;
     aspect-ratio: 9/ 16;
