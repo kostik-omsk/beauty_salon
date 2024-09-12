@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView/HomeView.vue'
-import CosmeticsView from '@/views/CosmeticsView/CosmeticsView.vue'
 
 const ServicesView = () => import('@/views/ServicesView/ServicesView.vue')
 const ServiceView = () => import('@/views/ServiceView/ServiceView.vue')
 const AppServiceInfo = () => import('@/components/ServiceInfo/AppServiceInfo.vue')
+const CosmeticsView = () => import('@/views/CosmeticsView/CosmeticsView.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -121,10 +121,9 @@ const router = createRouter({
       ]
     },
     {
-      path: '/сosmetics',
-      name: 'сosmetics',
-      component: CosmeticsView,
-      props: true
+      path: '/cosmetics',
+      name: 'cosmetics',
+      component: CosmeticsView
     }
   ],
   scrollBehavior(to) {
