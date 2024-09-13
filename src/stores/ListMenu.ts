@@ -25,7 +25,7 @@ export const useListMenuStore = defineStore('listMenu', {
             name: 'epilation',
             subMenuService: [
               { title: 'Воск / Сахар', name: 'Wax/Sugar' },
-              { title: 'Лазер / Элос', name: 'Laser' },
+              { title: 'Лазер', name: 'Laser' },
               { title: 'Электроэпиляция', name: 'Electra' }
             ]
           }
