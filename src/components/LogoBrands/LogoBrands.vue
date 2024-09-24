@@ -1,11 +1,11 @@
 <template>
   <div class="brands__conveyor conveyor">
-    <div class="conveyor__group" ref="conveyorGroup">
+    <div :class="['conveyor__group', { 'css-animation': !useGsap }]">
       <div class="conveyor__item" v-for="(url, index) in CosmeticsImg" :key="index">
         <img class="img-fluid" :src="`${url}`" alt="logo brand" />
       </div>
     </div>
-    <div class="conveyor__group">
+    <div :class="['conveyor__group', { 'css-animation': !useGsap }]">
       <div class="conveyor__item" v-for="(url, index) in CosmeticsImg" :key="index">
         <img class="img-fluid" :src="`${url}`" alt="logo brand" />
       </div>
@@ -17,6 +17,10 @@
 import { onMounted, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+const props = defineProps({
+  useGsap: Boolean
+})
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -30,31 +34,38 @@ const CosmeticsImg = [
   'assets/logo/storyderm.svg'
 ]
 
-onMounted(() => {
-  gsap.from('.conveyor__item', {
-    y: 100,
-    opacity: 0,
-    ease: 'back.out(2)',
-    stagger: 0.2,
-    scrollTrigger: {
-      trigger: '.conveyor',
-      start: 'top 80%'
-    }
-  })
+let ctx: gsap.Context
 
-  gsap.to('.conveyor__group', {
-    x: '-80%',
-    scrollTrigger: {
-      trigger: '.conveyor',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: 1
-    }
-  })
+onMounted(() => {
+  if (props.useGsap) {
+    ctx = gsap.context(() => {
+      gsap.from('.conveyor__item', {
+        y: 100,
+        opacity: 0,
+        ease: 'back.out(2)',
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: '.conveyor',
+          start: 'top 80%'
+        }
+      })
+
+      gsap.to('.conveyor__group', {
+        x: '-80%',
+        scrollTrigger: {
+          trigger: '.conveyor',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1
+        }
+      })
+    })
+  }
 })
 
 onUnmounted(() => {
-  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+  if (!ctx) return
+  ctx.revert()
 })
 </script>
 
@@ -82,10 +93,6 @@ onUnmounted(() => {
     align-items: center;
     gap: calc(clamp(5.625rem, 1.702rem + 12.553vw, 13rem) / 4);
     min-width: 100%;
-    // animation-name: scroll-x;
-    // animation-duration: 30s;
-    // animation-timing-function: linear;
-    // animation-iteration-count: infinite;
   }
 
   &__item {
@@ -93,15 +100,22 @@ onUnmounted(() => {
     place-items: center;
     width: clamp(5.625rem, 1.702rem + 12.553vw, 13rem);
   }
+}
 
-  @keyframes scroll-x {
-    0% {
-      transform: translate(0);
-    }
+.css-animation {
+  animation-name: scroll-x;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
 
-    to {
-      transform: translate(calc(-100% - clamp(5.625rem, 1.702rem + 12.553vw, 13rem) / 4));
-    }
+@keyframes scroll-x {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translate(calc(-100% - clamp(5.625rem, 1.702rem + 12.553vw, 13rem) / 4));
   }
 }
 </style>
