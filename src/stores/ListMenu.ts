@@ -35,7 +35,8 @@ export const useListMenuStore = defineStore('listMenu', {
       { title: 'Статьи и новости', name: 'home', hash: '#news' }
     ],
     show: false,
-    isOpen: false
+    isOpen: false,
+    menuAnimationComplete: true
   }),
   getters: {
     getShow(): boolean {
@@ -57,6 +58,9 @@ export const useListMenuStore = defineStore('listMenu', {
     },
     closeMenu(): void {
       this.show = false
+    },
+    setMenuAnimationComplete(value: boolean): void {
+      this.menuAnimationComplete = value // Обновление флага анимации
     }
   }
 })
