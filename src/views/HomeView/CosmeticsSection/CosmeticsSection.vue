@@ -4,88 +4,92 @@ import { gsap } from 'gsap'
 import { SplitText } from 'gsap/SplitText'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionBlock from '@/components/SectionBlock/SectionBlock.vue'
-import LogoBrands from './ui/LogoBrands.vue'
+import LogoBrands from '../../../components/LogoBrands/LogoBrands.vue'
 
-gsap.registerPlugin(ScrollTrigger, SplitText)
+gsap.registerPlugin(SplitText, ScrollTrigger)
 
 const titleRef = ref<HTMLElement | null>(null)
+let ctx: gsap.Context
+
 onMounted(() => {
   if (!titleRef.value) return
+  ctx = gsap.context(() => {
+    const titleSplit = new SplitText(titleRef.value, { type: 'words, chars' })
+    gsap.set(titleRef.value, { perspective: 400 })
 
-  const titleSplit = new SplitText(titleRef.value, { type: 'words, chars' })
-  gsap.set(titleRef.value, { perspective: 400 })
+    const tl = gsap.timeline({
+      onComplete: () => titleSplit.revert()
+    })
 
-  const tl = gsap.timeline({
-    onComplete: () => titleSplit.revert()
-  })
-
-  tl.from(titleSplit.chars, {
-    y: 80,
-    rotationX: 180,
-    transformOrigin: '0% 50% -50',
-    scale: 0,
-    opacity: 0,
-    color: '#8FE402',
-    stagger: 0.04,
-    ease: 'Back.easeOut'
-  })
-
-  tl.from(
-    titleSplit.chars,
-    {
-      keyframes: [{ color: '#a3dc59' }, { color: '' }],
+    tl.from(titleSplit.chars, {
+      y: 80,
+      rotationX: 180,
+      transformOrigin: '0% 50% -50',
+      scale: 0,
+      opacity: 0,
+      color: '#8FE402',
       stagger: 0.04,
       ease: 'Back.easeOut'
-    },
-    0.07
-  )
+    })
 
-  tl.from(
-    '.decor__img-left',
-    {
-      opacity: 0,
-      left: '-100%',
-      duration: 1,
-      clearProps: 'all'
-    },
-    '<1.5'
-  )
+    tl.from(
+      titleSplit.chars,
+      {
+        keyframes: [{ color: '#a3dc59' }, { color: '' }],
+        stagger: 0.04,
+        ease: 'Back.easeOut'
+      },
+      0.07
+    )
 
-  tl.from(
-    '.decor__img-right',
-    {
-      opacity: 0,
-      right: '-100%',
-      duration: 1,
-      clearProps: 'all'
-    },
-    '<'
-  )
+    tl.from(
+      '.decor__img-left',
+      {
+        opacity: 0,
+        left: '-100%',
+        duration: 1,
+        clearProps: 'all'
+      },
+      '<1.5'
+    )
 
-  tl.fromTo(
-    '.cosmetics__btn',
-    {
-      opacity: 0,
-      scale: 0.3
-    },
-    {
-      opacity: 1,
-      scale: 1,
-      duration: 0.5,
-      clearProps: 'all'
-    },
-    '<'
-  )
+    tl.from(
+      '.decor__img-right',
+      {
+        opacity: 0,
+        right: '-100%',
+        duration: 1,
+        clearProps: 'all'
+      },
+      '<'
+    )
 
-  ScrollTrigger.create({
-    trigger: titleRef.value,
-    start: 'top 90%',
-    animation: tl
+    tl.fromTo(
+      '.cosmetics__btn',
+      {
+        opacity: 0,
+        scale: 0.3
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.5,
+        clearProps: 'all'
+      },
+      '<'
+    )
+
+    ScrollTrigger.create({
+      trigger: titleRef.value,
+      start: 'top 90%',
+      animation: tl
+    })
   })
 })
 
 onUnmounted(() => {
-  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+  if (!ctx) return
+  ctx.revert()
 })
 </script>
 
@@ -105,11 +109,11 @@ onUnmounted(() => {
               </div>
             </div>
             <h3 class="cosmetics__title" ref="titleRef">
-              У нас вы можете приобрести профессиональную косметику для ухода за лицом и телом.
+              Ваша красота - наша забота: Профессиональная косметика и индивидуальные комплексы ухода.
             </h3>
-            <router-link to="сosmetics" class="cosmetics__btn btn primary-btn">Подробнее</router-link>
+            <router-link to="cosmetics" class="cosmetics__btn btn primary-btn">Подробнее</router-link>
           </div>
-          <LogoBrands />
+          <LogoBrands :useGsap="true" />
         </div>
       </div>
     </template>

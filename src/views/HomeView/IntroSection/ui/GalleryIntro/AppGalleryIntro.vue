@@ -17,79 +17,84 @@ interface PhotoBoxElement extends HTMLElement {
   tl: gsap.core.Timeline
 }
 
+let ctx: gsap.Context
+
 onMounted(() => {
-  const box = gsap.utils.toArray('.photoBox') as PhotoBoxElement[]
+  ctx = gsap.context(() => {
+    const box = gsap.utils.toArray('.photoBox') as PhotoBoxElement[]
 
-  function playBoxes() {
-    for (let i = 0; i < box.length; i++) {
-      const tl = box[i].tl
-      tl.play()
-      gsap.to(tl, {
-        duration: 0.4,
-        timeScale: 1,
-        ease: 'sine.in',
-        overwrite: true
+    function playBoxes() {
+      for (let i = 0; i < box.length; i++) {
+        const tl = box[i].tl
+        tl.play()
+        gsap.to(tl, {
+          duration: 0.4,
+          timeScale: 1,
+          ease: 'sine.in',
+          overwrite: true
+        })
+      }
+    }
+
+    function pauseBoxes() {
+      for (let i = 0; i < box.length; i++) {
+        const tl = box[i].tl
+        tl.pause()
+      }
+    }
+
+    box.forEach((el, i) => {
+      const column = photeBoxes[i].column
+
+      gsap.set(el, {
+        backgroundImage: `url(${photeBoxes[i].name})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        overflow: 'hidden',
+        x: [60, 280, 500][column],
+        width: 400,
+        height: 640,
+        borderRadius: 20,
+        scale: 0.5,
+        zIndex: 1
       })
-    }
-  }
 
-  function pauseBoxes() {
-    for (let i = 0; i < box.length; i++) {
-      const tl = box[i].tl
-      tl.pause()
-    }
-  }
-
-  box.forEach((el, i) => {
-    const column = photeBoxes[i].column
-
-    gsap.set(el, {
-      backgroundImage: `url(${photeBoxes[i].name})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      overflow: 'hidden',
-      x: [60, 280, 500][column],
-      width: 400,
-      height: 640,
-      borderRadius: 20,
-      scale: 0.5,
-      zIndex: 1
+      el.tl = gsap
+        .timeline({ paused: true, repeat: -1 })
+        .fromTo(
+          el,
+          { y: [-575, 800, 800][column], rotation: -0.05 },
+          {
+            duration: [40, 35, 26][column],
+            y: [800, -575, -575][column],
+            rotation: 0.05,
+            ease: 'none'
+          }
+        )
+        .progress((i % 4) / 4)
     })
 
-    el.tl = gsap
-      .timeline({ paused: true, repeat: -1 })
-      .fromTo(
-        el,
-        { y: [-575, 800, 800][column], rotation: -0.05 },
-        {
-          duration: [40, 35, 26][column],
-          y: [800, -575, -575][column],
-          rotation: 0.05,
-          ease: 'none'
-        }
-      )
-      .progress((i % 4) / 4)
-  })
+    ScrollTrigger.create({
+      trigger: '.gallery',
+      start: 'top bottom',
+      end: 'bottom top',
+      onEnter: playBoxes,
+      onLeave: pauseBoxes,
+      onEnterBack: playBoxes,
+      onLeaveBack: pauseBoxes
+    })
 
-  ScrollTrigger.create({
-    trigger: '.gallery',
-    start: 'top bottom',
-    end: 'bottom top',
-    onEnter: playBoxes,
-    onLeave: pauseBoxes,
-    onEnterBack: playBoxes,
-    onLeaveBack: pauseBoxes
+    gsap
+      .timeline()
+      .set('.gallery', { perspective: 800 })
+      .set('.photoBox', { opacity: 1 })
+      .fromTo('.gallery', { autoAlpha: 0 }, { duration: 0.6, ease: 'power2.inOut', autoAlpha: 1 }, 0.2)
   })
-
-  gsap
-    .timeline()
-    .set('.gallery', { perspective: 800 })
-    .set('.photoBox', { opacity: 1 })
-    .fromTo('.gallery', { autoAlpha: 0 }, { duration: 0.6, ease: 'power2.inOut', autoAlpha: 1 }, 0.2)
 })
 
 onUnmounted(() => {
-  ScrollTrigger.killAll()
+  if (!ctx) return
+  ctx.revert()
 })
 </script>
 

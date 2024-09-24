@@ -6,6 +6,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionBlock from '@/components/SectionBlock/SectionBlock.vue'
 import CardChooseUs from './ui/CardChooseUs.vue'
 
+gsap.registerPlugin(ScrollTrigger)
+
 const chooseUs = [
   { img: 'img-1', text: 'Профессионализм', translateX: '-11%' },
   { img: 'img-2', text: 'Индивидуальный подход', translateX: '11%' },
@@ -28,22 +30,25 @@ const createAnimation = (selector: string, properties: object) => {
   })
 }
 
+let ctx: gsap.Context
+
 onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger)
+  ctx = gsap.context(() => {
+    chooseUs.forEach(({ img, translateX, translateY, scale }) => {
+      const animationProperties = {
+        translateX,
+        translateY,
+        scale
+      }
 
-  chooseUs.forEach(({ img, translateX, translateY, scale }) => {
-    const animationProperties = {
-      translateX,
-      translateY,
-      scale
-    }
-
-    createAnimation(`.${img} img`, animationProperties)
+      createAnimation(`.${img} img`, animationProperties)
+    })
   })
 })
 
 onUnmounted(() => {
-  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+  if (!ctx) return
+  ctx.revert()
 })
 </script>
 
