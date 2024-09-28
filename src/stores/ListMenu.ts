@@ -25,17 +25,18 @@ export const useListMenuStore = defineStore('listMenu', {
             name: 'epilation',
             subMenuService: [
               { title: 'Воск / Сахар', name: 'Wax/Sugar' },
-              { title: 'Лазер / Элос', name: 'Laser' },
+              { title: 'Лазер', name: 'Laser' },
               { title: 'Электроэпиляция', name: 'Electra' }
             ]
           }
         ]
       },
-      { title: 'Косметика', name: 'сosmetics' },
+      { title: 'Косметика', name: 'cosmetics' },
       { title: 'Статьи и новости', name: 'home', hash: '#news' }
     ],
     show: false,
-    isOpen: false
+    isOpen: false,
+    menuAnimationComplete: true
   }),
   getters: {
     getShow(): boolean {
@@ -57,6 +58,9 @@ export const useListMenuStore = defineStore('listMenu', {
     },
     closeMenu(): void {
       this.show = false
+    },
+    setMenuAnimationComplete(value: boolean): void {
+      this.menuAnimationComplete = value // Обновление флага анимации
     }
   }
 })

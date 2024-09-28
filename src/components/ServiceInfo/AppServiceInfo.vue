@@ -30,7 +30,13 @@ watch(route, () => {
       </div>
       <p class="service__description">{{ service.description }}</p>
     </div>
-    <AppPriceList v-if="service.priceList" :priceList="service.priceList" :title="service.title" />
+    <AppPriceList
+      v-if="service.priceList"
+      :priceList="service.priceList"
+      :priceList2="service.priceList2"
+      :title="service.title"
+      :info="service.priceInfo"
+    />
     <div class="service__list-info mt-5">
       <AppInfoList v-if="service.preparation" :list="service.preparation" title="Подготовка" />
       <AppInfoList v-if="service.contraindications" :list="service.contraindications" title="Противопоказания*" />
@@ -63,7 +69,7 @@ watch(route, () => {
 
   @media screen and (max-width: 576px) {
     float: none;
-    width: 300px;
+    max-width: 300px;
     margin: 0 auto 1rem;
   }
 
