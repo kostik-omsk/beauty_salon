@@ -1,15 +1,22 @@
 <template>
-  <section class="cosmetics my-5">
+  <section class="cosmetics">
     <div class="container">
       <div class="intro">
-        <h1 class="intro__title mt-5">Откройте для себя мир профессиональной косметики</h1>
+        <h1 class="intro__title">Профессиональная косметика и индивидуальные комплексы ухода.</h1>
       </div>
       <ScrollGallery />
+      <div class="record mb-5">
+        <div class="record__head">
+          <h2 class="record__title mb-5">Получите индивидуальные рекомендации по уходу за кожей!</h2>
+        </div>
+        <AppForm />
+      </div>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
+import AppForm from '@/components/Form/AppForm.vue'
 import ScrollGallery from './ui/ScrollGallery.vue'
 </script>
 
@@ -18,19 +25,34 @@ import ScrollGallery from './ui/ScrollGallery.vue'
 @import '@/assets/style/mixins.scss';
 
 .intro {
-  padding: 5rem 0;
   text-align: center;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
 
+  @media only screen and (max-width: 768px) {
+    padding: 2rem 0;
+  }
+
   &__title {
+    margin-top: 5rem;
     font-size: $font-size-xxxl;
     @media only screen and (max-width: 768px) {
+      margin-top: 0rem;
       font-size: $font-size-xxl;
     }
     @media only screen and (max-width: 576px) {
       font-size: $font-size-xl;
     }
+  }
+}
+
+.record {
+  &__head {
+    margin: 0 auto;
+    max-width: 680px;
+  }
+  &__title {
+    text-align: center;
   }
 }
 </style>
