@@ -1,7 +1,7 @@
 <script lang="ts">
 import { storeToRefs } from 'pinia'
 import { gsap } from 'gsap'
-import { onMounted, provide, watch } from 'vue'
+import { onMounted, onUnmounted, provide, watch } from 'vue'
 import AppNavbarListMenu from './ui/AppNavbarListMenu.vue'
 import { useListMenuStore } from '@/stores/ListMenu'
 
@@ -12,9 +12,16 @@ export default {
     //pinia.register
     const menuStore = useListMenuStore()
     const { listMenu, show, getShow } = storeToRefs(menuStore)
+    let ctx: gsap.Context
     //animation menu
     let aniMenu = gsap.timeline({
-      paused: true
+      paused: true,
+      onComplete: () => {
+        menuStore.setMenuAnimationComplete(true) // Флаг анимации завершен
+      },
+      onReverseComplete: () => {
+        menuStore.setMenuAnimationComplete(true) // Флаг анимации завершен
+      }
     })
     //убить остатки динамического стиля
     const killTimeline = (timeline: any) => {
@@ -32,35 +39,47 @@ export default {
     const showMenu = () => {
       show.value = !show.value
     }
+
     watch(getShow, () => {
       if (show.value) {
         aniMenu.play()
+        menuStore.setMenuAnimationComplete(false)
       } else {
         aniMenu.reverse()
-        gsap.delayedCall(0.6, () => killTimeline(aniMenu))
+        gsap.delayedCall(0.6, () => {
+          killTimeline(aniMenu)
+          menuStore.setMenuAnimationComplete(false)
+        })
       }
     })
+
     onMounted(() => {
-      aniMenu
-        .set('#app', { height: '90%', overflow: 'hidden', borderRadius: '1rem ' })
-        .set('body', { overflow: 'hidden' })
-        .set('html', { overflow: 'hidden' })
-        .to('#app', {
-          scale: 0.88,
-          x: '380px',
-          duration: 0.6,
-          ease: 'power1.inOut'
-        })
-        .from('.menu-list', { x: 150, duration: 0.6 }, 0)
-      // Закрытие мену при нажатии на слайд страници
-      let sub = document.querySelector('#app')
-      if (sub) {
-        sub.addEventListener('click', () => {
-          if (show.value == true) {
-            showMenu()
-          }
-        })
-      }
+      ctx = gsap.context(() => {
+        aniMenu
+          .set('#app', { height: '90%', overflow: 'hidden', borderRadius: '1rem ' })
+          .set('body', { overflow: 'hidden' })
+          .set('html', { overflow: 'hidden' })
+          .to('#app', {
+            scale: 0.88,
+            x: '380px',
+            duration: 0.6,
+            ease: 'power1.inOut'
+          })
+          .from('.menu-list', { x: 150, duration: 0.6 }, 0)
+        // Закрытие мену при нажатии на слайд страници
+        let sub = document.querySelector('#app')
+        if (sub) {
+          sub.addEventListener('click', () => {
+            if (show.value == true) {
+              showMenu()
+            }
+          })
+        }
+      })
+    })
+
+    onUnmounted(() => {
+      ctx.revert()
     })
 
     provide('aniMenu', aniMenu)

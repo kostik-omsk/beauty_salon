@@ -158,7 +158,8 @@ ul {
 
 .img-fluid {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .mb-1 {
@@ -296,4 +297,22 @@ h6,
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+
+.bold {
+  font-weight: 700;
+  margin: 0;
+}
+
+.info__list {
+  margin-left: 1.2rem;
+  z-index: 2;
+}
+
+.info__item {
+  margin-bottom: 0.5rem;
+  font-size: $font-size-base;
+  &::marker {
+    color: $mygreen-dark;
+  }
 }

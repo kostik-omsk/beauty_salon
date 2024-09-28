@@ -76,6 +76,7 @@ onBeforeUnmount(() => {
   }
 
   &__btn {
+    flex: 0 0 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,19 +98,6 @@ onBeforeUnmount(() => {
     margin-top: 4px;
 
     font-size: $font-size-base;
-  }
-
-  &__list {
-    margin-left: 1.2rem;
-    z-index: 2;
-  }
-
-  &__item {
-    margin-bottom: 0.5rem;
-    font-size: $font-size-base;
-    &::marker {
-      color: $mygreen-dark;
-    }
   }
 }
 </style>
