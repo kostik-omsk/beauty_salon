@@ -1,7 +1,13 @@
 @font-face {
-  font-family: 'Nunito';
-  src: url('/assets/fonts/Nunito-VariableFont.ttf') format('truetype');
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'PlayfairDisplay-Italic';
+  src: url('/assets/fonts/PlayfairDisplay-Italic.ttf') format('truetype');
+}
+
 // Import all of Bootstrap's CSS
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -14,5 +20,5 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 100%;
-  background: #f9faff;
+  background: $backgroundLight;
 }

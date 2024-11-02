@@ -25,7 +25,7 @@ export default {
       <div class="menu-container">
         <a class="item-menu" href="tel:+79133851386">
           <i class="bi bi-telephone me-2"></i>
-          <strong>+7 (913) 385-13-86</strong>
+          <span>+7 (913) 385-13-86</span>
         </a>
       </div>
       <div class="menu-container">
@@ -59,9 +59,10 @@ export default {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: $backgroundLight;
     opacity: 0.8;
     @include myTransitionAll;
+    cursor: pointer;
     &:before,
     &:after {
       content: '';
@@ -69,7 +70,7 @@ export default {
       width: 80%;
       height: 4px;
       border-radius: 3px;
-      background-color: #3c3c3c;
+      background-color: $dark;
       left: 50%;
       top: 50%;
       @include myTransitionAll;
@@ -81,12 +82,24 @@ export default {
       transform: translate(-50%, -50%) rotate(-45deg);
     }
 
-    &:hover::after,
-    &:hover::before {
-      background-color: $mygreen-dark;
+    @media (hover: hover) {
+      &:hover::after,
+      &:hover::before {
+        background-color: $highlightAccent;
+      }
+      &:hover {
+        box-shadow: 0 0 0.2rem $highlightAccent;
+      }
     }
-    &:hover {
-      box-shadow: 0 0 0.5rem $mygreen;
+
+    @media (hover: none) {
+      &:active::after,
+      &:active::before {
+        background-color: $highlightAccent;
+      }
+      &:active {
+        box-shadow: 0 0 0.2rem $highlightAccent;
+      }
     }
   }
 
@@ -127,12 +140,14 @@ export default {
           width: 100%;
           transition: transform 0.5s cubic-bezier(0.52, 0.01, 0.16, 1);
           transform: scaleX(0);
-          border-top: 4px solid #a3dc59;
+          border-top: 4px solid $highlightAccent;
           padding-bottom: inherit;
         }
 
-        &:hover::after {
-          transform: scaleX(1);
+        @media (hover: hover) {
+          &:hover::after {
+            transform: scaleX(1);
+          }
         }
       }
     }

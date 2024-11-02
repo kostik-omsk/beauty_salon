@@ -58,34 +58,34 @@ function isActiveLink(name: string) {
   @include myTransitionAll;
   cursor: pointer;
   &:hover {
-    border-left: 3px solid $mygreen;
-    background-color: $myprimary;
+    border-left: 3px solid $highlightAccent;
+    background-color: $dark;
     border-radius: 0 1rem 1rem 0;
     .sidebar__link {
-      color: $secondary;
+      color: $backgroundLight;
     }
   }
 
   &.sidebar__link-active {
-    border-left: 3px solid $mygreen;
-    background-color: $myprimary;
+    border-left: 3px solid $highlightAccent;
+    background-color: $dark;
     border-radius: 0 1rem 1rem 0;
 
     .sidebar__link {
-      color: $mygreen;
+      color: $highlightAccent;
     }
 
     .sidebar__link-sub-menu {
-      color: $secondary;
+      color: $backgroundLight;
       padding-left: 1.5rem;
 
       &:hover {
-        color: $mygreen;
+        color: $highlightAccent;
       }
     }
 
     .sidebar__link-sub-menu-active {
-      color: $mygreen;
+      color: $highlightAccent;
     }
   }
 }
@@ -94,7 +94,7 @@ function isActiveLink(name: string) {
   display: inline-block;
   padding: 0.5rem 0;
   width: 100%;
-  color: $myprimary;
+  color: $dark;
   font-weight: 500;
 }
 </style>

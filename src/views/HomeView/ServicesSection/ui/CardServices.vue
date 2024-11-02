@@ -104,7 +104,7 @@ const { id, title, description, urlName } = props.service
     gap: 0.5rem;
     align-items: center;
     bottom: 0;
-    color: $myprimary;
+    color: $dark;
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     opacity: 0.8;
 
@@ -116,7 +116,7 @@ const { id, title, description, urlName } = props.service
       width: 0;
       left: 0;
       bottom: 3px;
-      background: $mygreen-dark;
+      background: $dark;
       height: 2px;
       @include myTransitionAll;
     }
@@ -131,13 +131,13 @@ const { id, title, description, urlName } = props.service
       content: 'Подробней';
       width: 0%;
       inset: 0;
-      color: $mygreen-dark;
+      color: $dark;
       overflow: hidden;
       @include myTransitionAll;
     }
 
     & svg {
-      color: $myprimary;
+      color: $dark;
       transition: 0.2s;
       position: relative;
       width: 15px;
@@ -146,7 +146,7 @@ const { id, title, description, urlName } = props.service
 
     &:hover svg {
       transform: translateX(4px);
-      color: $mygreen-dark;
+      color: $dark;
     }
 
     &:hover::after {
@@ -158,7 +158,7 @@ const { id, title, description, urlName } = props.service
     }
 
     &:hover {
-      color: $mygreen-dark;
+      color: $dark;
       opacity: 1;
     }
   }

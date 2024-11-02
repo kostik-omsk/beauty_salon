@@ -1,10 +1,12 @@
-$myprimary: #3f3f3f;
-// $myprimary: #4c4c4c;
-$secondary: #ebebeb;
+$backgroundLight: #fafafa;
+$borderNeutral: #a5a3a4;
+$primaryAccent: #72b4ce;
+$secondaryAccent: #466a78;
+$highlightAccent: #e4be8d;
 $warning: #da0f41;
-$mygreen: #a3dc59;
-$mygreen-dark: #5aa900;
-$mygreen-300: hsl(86, 100%, 80%);
+$dark: #4b494c;
+$white: #fff;
+// Основной светлый фон
 
 $font-size-sm: clamp(0.83rem, 0.44vw + 0.72rem, 1rem);
 $font-size-base: clamp(1rem, 0.916rem + 0.232vw, 1.125rem);

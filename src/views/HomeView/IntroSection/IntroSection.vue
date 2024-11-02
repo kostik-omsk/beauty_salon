@@ -58,8 +58,8 @@ import AppGalleryIntro from './ui/GalleryIntro/AppGalleryIntro.vue'
     }
 
     @media (max-width: 1400px) {
-      box-shadow: 0 0 3px #00000095;
       background: rgba(255, 255, 255, 0.8);
+      @include myBorder;
     }
 
     .block-title {
@@ -82,7 +82,7 @@ import AppGalleryIntro from './ui/GalleryIntro/AppGalleryIntro.vue'
 
       a {
         font-size: 2rem;
-        color: $myprimary;
+        color: $dark;
 
         .bi-instagram,
         .bi-telegram,
@@ -123,7 +123,7 @@ import AppGalleryIntro from './ui/GalleryIntro/AppGalleryIntro.vue'
           vertical-align: -0.19em;
           width: 36px;
           height: 36px;
-          fill: $myprimary;
+          fill: $dark;
         }
       }
     }

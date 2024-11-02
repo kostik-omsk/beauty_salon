@@ -37,7 +37,7 @@ const listServices = props.services
     padding: 5px;
     width: 243px;
     border-radius: 25px;
-    background-color: $myprimary;
+    background-color: $dark;
     overflow: hidden;
     box-sizing: border-box;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
@@ -47,11 +47,11 @@ const listServices = props.services
       width: 100%;
     }
     &:hover {
-      background: $mygreen;
+      background: $highlightAccent;
       box-shadow: 0px 2px 10px rgb(75, 75, 75);
 
       & .categories__title {
-        color: $myprimary;
+        color: $dark;
       }
 
       & .categories__img {
@@ -79,7 +79,7 @@ const listServices = props.services
     text-align: center;
     margin: 0.5rem 0 0.3rem 0;
     padding: 0;
-    color: $mygreen;
+    color: $highlightAccent;
     font-size: $font-size-base;
     font-weight: 700;
     @media screen and (max-width: 552px) {

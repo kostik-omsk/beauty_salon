@@ -122,7 +122,7 @@ const handleSubmit = async (): Promise<void> => {
 
 <template>
   <div class="contact">
-    <h3 class="contact__title">Запись в Chloe</h3>
+    <h3 class="contact__title">Запись в <span>Chloé</span></h3>
     <p class="contact__subtitle">
       Напишите нам в
       <a class="contact__link" href="https://api.whatsapp.com/send?phone=79133851386" target="_blank">WhatsApp</a> или
@@ -210,10 +210,13 @@ const handleSubmit = async (): Promise<void> => {
   @include myBorder;
 
   &__title {
-    color: $myprimary;
+    color: $dark;
     font-size: $font-size-xxxl;
     margin-bottom: 1rem;
 
+    span {
+      font-family: 'PlayfairDisplay-Italic', sans-serif;
+    }
     @media screen and (max-width: 768px) {
       text-align: center;
       font-size: $font-size-xxl;
@@ -221,7 +224,7 @@ const handleSubmit = async (): Promise<void> => {
   }
 
   &__subtitle {
-    color: $myprimary;
+    color: $dark;
     font-size: $font-size-lg;
     margin-bottom: 2rem;
 
@@ -232,8 +235,8 @@ const handleSubmit = async (): Promise<void> => {
   }
 
   &__link {
-    color: $mygreen-dark;
-    text-decoration: solid underline $mygreen-dark;
+    color: $highlightAccent;
+    text-decoration: solid underline $highlightAccent;
   }
 }
 
@@ -269,7 +272,7 @@ const handleSubmit = async (): Promise<void> => {
       margin: 0em;
       margin-left: 1.3em;
       padding: 0 0.5em;
-      background-color: #f9faff;
+      background-color: $backgroundLight;
     }
 
     & :is(input:focus, input:valid) ~ label {
@@ -277,11 +280,11 @@ const handleSubmit = async (): Promise<void> => {
       margin: 0em;
       margin-left: 1.3em;
       padding: 0 0.5em;
-      background-color: #f9faff;
+      background-color: $backgroundLight;
     }
 
     & :is(input:focus) {
-      border-color: $mygreen-dark;
+      border-color: $highlightAccent;
     }
   }
 
@@ -289,11 +292,11 @@ const handleSubmit = async (): Promise<void> => {
     font-size: 100%;
     padding: 0.8em;
     outline: none;
-    border: 2px solid $myprimary;
+    border: 2px solid $dark;
     background-color: transparent;
     border-radius: 20px;
     width: 100%;
-    color: $myprimary;
+    color: $dark;
 
     @media screen and (max-width: 768px) {
       width: 100%;
@@ -309,7 +312,7 @@ const handleSubmit = async (): Promise<void> => {
     margin-left: 0.5em;
     pointer-events: none;
     transition: all 0.3s ease;
-    color: $myprimary;
+    color: $dark;
 
     @media screen and (max-width: 576px) {
       top: 4px;
@@ -325,11 +328,11 @@ const handleSubmit = async (): Promise<void> => {
     font-size: 100%;
     padding: 0.8em;
     outline: none;
-    border: 2px solid $myprimary;
+    border: 2px solid $dark;
     border-radius: 20px;
     width: 100%;
-    color: $myprimary;
-    background-color: #f9faff;
+    color: $dark;
+    background-color: $backgroundLight;
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -339,22 +342,22 @@ const handleSubmit = async (): Promise<void> => {
       width: 100%;
     }
     &:focus {
-      border-color: $mygreen-dark;
+      border-color: $highlightAccent;
     }
   }
 
   input:-webkit-autofill {
-    color: $myprimary;
-    -webkit-box-shadow: 0 0 0px 1000px #f9faff inset;
-    -webkit-text-fill-color: $myprimary;
-    box-shadow: 0 0 0px 1000px #f9faff inset;
+    color: $dark;
+    -webkit-box-shadow: 0 0 0px 1000px $backgroundLight inset;
+    -webkit-text-fill-color: $dark;
+    box-shadow: 0 0 0px 1000px $backgroundLight inset;
   }
 
   input:autofill {
-    color: $myprimary;
-    -webkit-box-shadow: 0 0 0px 1000px #f9faff inset;
-    -webkit-text-fill-color: $myprimary;
-    box-shadow: 0 0 0px 1000px #f9faff inset;
+    color: $dark;
+    -webkit-box-shadow: 0 0 0px 1000px $backgroundLight inset;
+    -webkit-text-fill-color: $dark;
+    box-shadow: 0 0 0px 1000px $backgroundLight inset;
   }
 
   input:-internal-autofill-selected {
@@ -400,7 +403,7 @@ const handleSubmit = async (): Promise<void> => {
     }
 
     &:checked ~ .checkbox__checkmark {
-      background-color: $mygreen;
+      background-color: $highlightAccent;
     }
   }
 
@@ -410,7 +413,7 @@ const handleSubmit = async (): Promise<void> => {
     left: 0;
     height: 25px;
     width: 25px;
-    border: 1px solid $myprimary;
+    border: 1px solid $dark;
     border-radius: 4px;
     transition: background-color 0.3s;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -425,7 +428,7 @@ const handleSubmit = async (): Promise<void> => {
       top: 7px;
       width: 5px;
       height: 10px;
-      border: solid $myprimary;
+      border: solid $dark;
       border-width: 0 3px 3px 0;
       transform: rotate(45deg);
     }
@@ -442,7 +445,7 @@ const handleSubmit = async (): Promise<void> => {
   }
 
   &__text {
-    color: $myprimary;
+    color: $dark;
   }
 }
 
@@ -488,6 +491,6 @@ const handleSubmit = async (): Promise<void> => {
 
 .fields__input--valid,
 .fields__select--valid {
-  border-color: $myprimary;
+  border-color: $dark;
 }
 </style>

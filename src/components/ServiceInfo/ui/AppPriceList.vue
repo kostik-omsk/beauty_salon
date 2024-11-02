@@ -114,7 +114,7 @@ const closeDialog = () => {
   cursor: pointer;
 
   &:hover {
-    color: $mygreen-dark;
+    color: $secondaryAccent;
   }
 }
 </style>

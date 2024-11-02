@@ -19,7 +19,7 @@ const scrollToTop = () => {
         <div class="footer__content">
           <div class="logo">
             <div class="logo-wrap">
-              <p class="logo-text">Chloe</p>
+              <router-link to="/" class="logo-text"> Chloé </router-link>
             </div>
             <div class="socials">
               <a href="https://vk.com/dankina_a_s" target="_blank">
@@ -51,12 +51,12 @@ const scrollToTop = () => {
               <p class="contacts__subtitle">Тел:</p>
               <a class="contacts__link" href="tel:+79133851386">
                 <i class="bi bi-telephone"></i>
-                <strong class="ms-1 text-nowrap">+7 (913) 385-13-86</strong>
+                <span class="ms-1 text-nowrap">+7 (913) 385-13-86</span>
               </a>
             </div>
             <div class="contacts__address">
               <p class="contacts__subtitle">Адрес:</p>
-              <strong class="contacts__link"><i class="bi bi-geo-alt me-1"></i>Кольцово, Никольский прос., 13</strong>
+              <span class="contacts__link"><i class="bi bi-geo-alt me-1"></i>Кольцово, Никольский прос., 13</span>
             </div>
           </div>
           <div class="map">
@@ -77,7 +77,7 @@ const scrollToTop = () => {
       </div>
       <div class="footer__line"></div>
       <div class="footer__copyright">
-        <p class="footer__copyright-text">© «Chloe» {{ currentYear }}</p>
+        <p class="footer__copyright-text">© «Chloé» {{ currentYear }}</p>
         <button class="footer__copyright-up" @click="scrollToTop">Наверх ↥</button>
       </div>
     </div>
@@ -87,8 +87,8 @@ const scrollToTop = () => {
 @import '@/assets/style/var.scss';
 @import '@/assets/style/mixins.scss';
 .footer {
-  color: $mygreen;
-  background: $myprimary;
+  color: $highlightAccent;
+  background: $dark;
   padding: 1rem 0;
 
   &__content {
@@ -118,15 +118,16 @@ const scrollToTop = () => {
     align-items: flex-start;
 
     .logo-text {
+      font-family: 'PlayfairDisplay-Italic', sans-serif;
       margin: 0;
       font-size: $font-size-xxxl;
-      font-weight: 800;
-      color: $mygreen-dark;
-      background-color: $mygreen-dark;
-      background-image: linear-gradient(-20deg, $mygreen, $mygreen-dark 60%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-weight: 500;
+      color: $highlightAccent;
+      // background-color: $mygreen-dark;
+      // background-image: linear-gradient(-20deg, $mygreen, $mygreen-dark 60%);
+      // background-clip: text;
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
     }
 
     @media screen and (max-width: 895px) {
@@ -147,7 +148,7 @@ const scrollToTop = () => {
 
       a {
         font-size: 35px;
-        color: $mygreen;
+        color: $highlightAccent;
 
         &:hover {
           .my-icon svg {
@@ -183,7 +184,7 @@ const scrollToTop = () => {
           vertical-align: -0.19em;
           width: 38px;
           height: 38px;
-          fill: $mygreen;
+          fill: $highlightAccent;
         }
       }
     }
@@ -237,7 +238,7 @@ const scrollToTop = () => {
     &__link {
       display: flex;
       align-items: center;
-      color: $mygreen;
+      color: $highlightAccent;
       font-size: $font-size-md;
       @include myTransitionAll;
 
@@ -281,7 +282,7 @@ const scrollToTop = () => {
     }
 
     &__link {
-      color: $mygreen;
+      color: $highlightAccent;
       font-size: $font-size-md;
       @include myTransitionAll;
       &:hover {
@@ -293,7 +294,7 @@ const scrollToTop = () => {
   &__line {
     width: 100%;
     height: 1px;
-    background: $mygreen;
+    background: $highlightAccent;
   }
 
   &__copyright {
@@ -310,7 +311,7 @@ const scrollToTop = () => {
       background: none;
       border: none;
       padding: 0;
-      color: $mygreen;
+      color: $highlightAccent;
       @include myTransitionAll;
       font-size: $font-size-base;
 

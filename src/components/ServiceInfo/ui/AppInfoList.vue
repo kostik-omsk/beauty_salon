@@ -85,8 +85,8 @@ onBeforeUnmount(() => {
     padding: 0;
     border-radius: 50%;
     border: none;
-    background: $myprimary;
-    color: $mygreen;
+    background: $dark;
+    color: $primaryAccent;
     transition: transform 0.5s ease;
 
     &.rotate {

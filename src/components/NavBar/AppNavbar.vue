@@ -101,13 +101,13 @@ export default {
       <div class="logo">
         <router-link to="/" class="logo-text">
           <!-- <img src="@/assets/svg/logo.svg" alt="logo" height="55" /> -->
-          Chloe
+          Chloé
         </router-link>
       </div>
       <div class="tel">
         <a href="tel:+79133851386">
           <i class="bi bi-telephone me-2"></i>
-          <strong>+7 (913) 385-13-86</strong>
+          <span>+7 (913) 385-13-86</span>
         </a>
       </div>
     </nav>
@@ -141,7 +141,6 @@ export default {
       align-content: space-evenly;
       position: relative;
       overflow: hidden;
-      background: white;
 
       span {
         position: relative;
@@ -149,24 +148,15 @@ export default {
         width: 100%;
         height: 5px;
         border-radius: 3px;
-        background: $myprimary;
-      }
+        background: $dark;
 
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 10px;
-        height: 150%;
-        mix-blend-mode: screen;
-        background: $mygreen;
         @include myTransitionAll;
-        transform: translate(-27px, -15px) rotate(45deg);
       }
-
-      &:hover::after {
-        transform: translate(70px, -5px) rotate(45deg);
+      @media (hover: hover) {
+        &:hover span {
+          background: $highlightAccent;
+          box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+        }
       }
     }
   }
@@ -177,37 +167,38 @@ export default {
     transform: translate(-50%, 0);
 
     .logo-text {
+      font-family: 'PlayfairDisplay-Italic', sans-serif;
       font-size: $font-size-xxxl;
-      font-weight: 800;
-      color: $mygreen-dark;
-      background-color: $mygreen-dark;
-      background-image: linear-gradient(-20deg, $mygreen, $mygreen-dark 60%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-weight: 500;
+      color: $dark;
+      // background-color: $mygreen-dark;
+      // background-image: linear-gradient(-20deg, $mygreen, $mygreen-dark 60%);
+      // background-clip: text;
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
     }
     a {
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: $myprimary;
+      color: $dark;
     }
   }
 
   .tel {
     a {
       font-size: 22px;
-      strong,
+      span,
       i {
-        font-weight: 800;
-        color: $myprimary;
+        font-weight: 600;
+        color: $dark;
         @include myTransitionAll;
       }
 
       &:hover {
-        strong,
+        span,
         i {
-          color: $mygreen-dark;
+          text-shadow: 0 0 2px $highlightAccent;
         }
       }
     }
