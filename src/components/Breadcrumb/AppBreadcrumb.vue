@@ -56,7 +56,7 @@ const matchedCrumbs = computed(() => {
 
   @media screen and (max-width: 576px) {
     padding: 0.2rem 1rem;
-    background: $mygreen-300;
+    background: $highlightAccent;
     border-radius: 1rem;
   }
 }
@@ -71,7 +71,7 @@ const matchedCrumbs = computed(() => {
 
   @media (hover: hover) {
     &:hover {
-      color: $mygreen-dark;
+      color: $secondaryAccent;
     }
   }
 }

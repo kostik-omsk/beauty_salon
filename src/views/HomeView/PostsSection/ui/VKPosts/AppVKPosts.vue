@@ -112,7 +112,7 @@ onMounted(async () => {
       :slidesPerView="'auto'"
       :centeredSlides="true"
       :style="{
-        '--swiper-pagination-color': '#5aa900'
+        '--swiper-pagination-color': '#e4be8d'
       }"
       :space-between="50"
       @slideChange="hideSwipeMove"
@@ -135,7 +135,7 @@ onMounted(async () => {
             :navigation="true"
             :space-between="50"
             :style="{
-              '--swiper-navigation-color': '#5aa900'
+              '--swiper-navigation-color': '#e4be8d'
             }"
           >
             <template v-for="(attachment, index) in post.attachments" :key="index">
@@ -227,6 +227,7 @@ onMounted(async () => {
     background-color: white;
     cursor: move;
     @include boxShadow;
+    @include myBorder;
 
     &:hover .post__info::before {
       background: none;
@@ -310,7 +311,7 @@ onMounted(async () => {
     i {
       display: block;
       position: relative;
-      top: 4%;
+      top: 0%;
       left: 3%;
       transform: scale(2.5);
       transition: all 0.3s ease-in-out;

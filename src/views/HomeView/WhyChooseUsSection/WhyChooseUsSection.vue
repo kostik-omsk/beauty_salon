@@ -110,8 +110,8 @@ onUnmounted(() => {
     overflow: hidden;
     border-radius: 1rem;
     box-shadow: 0px 0px 16px rgba(209, 209, 209, 0.5);
-    border: 1px dashed #d0d0d0;
 
+    @include myBorder;
     @media (max-width: 768px) {
       top: 26%;
       left: 0;
@@ -124,7 +124,6 @@ onUnmounted(() => {
 
     p {
       font-size: 1.73rem;
-      font-weight: 600;
       &:last-child {
         margin: 0;
       }

@@ -39,7 +39,7 @@ defineProps<{
 
     p {
       z-index: 10;
-      color: $secondary;
+      color: $backgroundLight;
       font-weight: 800;
       font-size: clamp(1rem, 2.3vw, 2rem);
 

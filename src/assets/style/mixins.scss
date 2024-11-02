@@ -7,5 +7,5 @@
 }
 
 @mixin myBorder() {
-  border: 1px dashed #d0d0d0;
+  border: 1px dashed $highlightAccent;
 }

@@ -27,7 +27,7 @@ onMounted(() => {
       transformOrigin: '0% 50% -50',
       scale: 0,
       opacity: 0,
-      color: '#8FE402',
+      color: '#e4be8d',
       stagger: 0.04,
       ease: 'Back.easeOut'
     })
@@ -35,7 +35,7 @@ onMounted(() => {
     tl.from(
       titleSplit.chars,
       {
-        keyframes: [{ color: '#a3dc59' }, { color: '' }],
+        keyframes: [{ color: '#e4be8d' }, { color: '' }],
         stagger: 0.04,
         ease: 'Back.easeOut'
       },
@@ -201,6 +201,10 @@ onUnmounted(() => {
     position: relative;
     margin-bottom: 3rem;
     z-index: 2;
+
+    @media only screen and (max-width: 576px) {
+      padding: 0 1rem;
+    }
   }
 }
 </style>

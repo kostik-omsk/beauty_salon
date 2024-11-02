@@ -14,11 +14,11 @@
 <style lang="scss" scoped>
 @import '@/assets/style/var.scss';
 .header {
-  background: $myprimary;
+  background: $dark;
   margin-bottom: 3rem;
 
   h2 {
-    color: $secondary;
+    color: $highlightAccent;
     font-weight: 800;
     text-shadow: 0px 0px 5px #000000;
   }
