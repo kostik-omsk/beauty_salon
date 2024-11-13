@@ -5,6 +5,7 @@ import CosmeticsSection from './CosmeticsSection/CosmeticsSection.vue'
 import PostsSection from './PostsSection/PostsSection.vue'
 import FormSection from './FormSection/FormSection.vue'
 import WhyChooseUsSection from './WhyChooseUsSection/WhyChooseUsSection.vue'
+import ReviewsSection from './ReviewsSection/ReviewsSection.vue'
 </script>
 
 <template>
@@ -13,6 +14,7 @@ import WhyChooseUsSection from './WhyChooseUsSection/WhyChooseUsSection.vue'
   <CosmeticsSection />
   <PostsSection />
   <WhyChooseUsSection />
+  <ReviewsSection />
   <FormSection />
 </template>
 
