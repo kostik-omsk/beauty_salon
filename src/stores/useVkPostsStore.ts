@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import type { WallWallpostFull } from '@vkontakte/api-schema-typescript'
+const phpUrl = 'http://localhost/dev-test/'
 
 export const useVkPostsStore = defineStore({
   id: 'vkPosts',
@@ -18,7 +19,7 @@ export const useVkPostsStore = defineStore({
       this.isLoading = true
       try {
         const count = 10
-        const response = await fetch(`vkpost.php?offset=${this.offset}&count=${count}`)
+        const response = await fetch(`${phpUrl}vkpost.php?offset=${this.offset}&count=${count}`)
         const data = await response.json()
 
         if (data.response.items.length > 0) {
