@@ -77,9 +77,9 @@ const hideSwipeMove = () => {
 }
 
 const loadMorePosts = () => {
-  // if (hasMore && !isLoading) {
-  //   loadPosts()
-  // }
+  if (hasMore && !isLoading) {
+    loadPosts()
+  }
 }
 
 const formattedText = (text: string): string => {
@@ -92,9 +92,9 @@ const formattedText = (text: string): string => {
   return newText.substring(0, index).trim()
 }
 
-// onMounted(async () => {
-//   await loadPosts()
-// })
+onMounted(async () => {
+  await loadPosts()
+})
 </script>
 
 <template>
