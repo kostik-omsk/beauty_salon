@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { defineStore } from 'pinia'
 
-const phpUrl = 'http://localhost/dev-test/dikidi_reviews.php'
+const phpUrl = 'dikidi_reviews.php'
 
 export const useReviewsStore = defineStore('reviews', {
   state: () => ({
