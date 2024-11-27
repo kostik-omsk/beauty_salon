@@ -58,6 +58,14 @@ const router = createRouter({
           ]
         },
         {
+          path: 'laserfive',
+          name: 'laserfive',
+          component: ServiceView,
+          meta: {
+            breadcrumb: 'Лазерная эпиляция'
+          }
+        },
+        {
           path: 'makeup',
           name: 'makeup',
           component: ServiceView,
