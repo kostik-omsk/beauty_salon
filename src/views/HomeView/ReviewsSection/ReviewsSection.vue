@@ -22,7 +22,7 @@ const loadMoreReviews = () => {
 </script>
 
 <template>
-  <SectionBlock>
+  <SectionBlock class="my-5">
     <template #title>Отзывы</template>
     <template #content>
       <div class="container">
@@ -31,7 +31,13 @@ const loadMoreReviews = () => {
           <div class="showmore" v-if="hasMore">
             <button @click="loadMoreReviews" class="btn primary-btn" :disabled="isLoading">
               <span v-if="!isLoading">Показать ещё</span>
-              <span v-else>Загрузка...</span>
+              <span v-else>
+                <div class="spinner">
+                  <div class="dot1"></div>
+                  <div class="dot2"></div>
+                  <div class="dot3"></div>
+                </div>
+              </span>
             </button>
           </div>
         </div>
@@ -62,6 +68,7 @@ const loadMoreReviews = () => {
   padding: 1rem;
   border-radius: 1rem;
   @include myBorder;
+  @include boxShadow;
 }
 
 .review .header {
@@ -111,5 +118,55 @@ const loadMoreReviews = () => {
 .review .details .date {
   opacity: 0.5;
   font-size: 0.8rem;
+}
+.showmore .btn {
+  width: 193px;
+}
+
+.spinner {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot1,
+.dot2,
+.dot3 {
+  width: 12px;
+  height: 12px;
+  border: double;
+  border-color: $dark;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.dot1 {
+  animation: jump765 1.6s -0.32s linear infinite;
+  background: $highlightAccent;
+}
+
+.dot2 {
+  animation: jump765 1.6s -0.16s linear infinite;
+  background: $highlightAccent;
+}
+
+.dot3 {
+  animation: jump765 1.6s linear infinite;
+  background: $highlightAccent;
+}
+
+@keyframes jump765 {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  40% {
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+  }
 }
 </style>

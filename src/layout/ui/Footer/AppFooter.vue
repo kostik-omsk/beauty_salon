@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import { useServicesStore } from '@/stores/ListServices'
-
-const ListServices = useServicesStore()
-const { listServices } = storeToRefs(ListServices)
 const currentYear = new Date().getFullYear()
 const scrollToTop = () => {
   window.scrollTo({
@@ -65,13 +60,6 @@ const scrollToTop = () => {
               src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa3b5d4573e3554d77c8e1c3f0daa1427fae8e1b2db52fddbe82754e2ee16c92e&amp;source=constructor"
               frameborder="0"
             ></iframe>
-          </div>
-          <div class="navigation">
-            <ul class="navigation__list">
-              <li class="navigation__item" v-for="service in listServices" :key="service.id">
-                <router-link class="navigation__link" :to="{ name: service.id }">{{ service.title }}</router-link>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
@@ -254,40 +242,6 @@ const scrollToTop = () => {
       border-radius: 1rem;
       width: 100%;
       height: 400px;
-    }
-  }
-
-  .navigation {
-    grid-area: navigation;
-    margin-bottom: 1rem;
-
-    @media screen and (max-width: 1120px) {
-      align-self: center;
-    }
-
-    &__list {
-      display: flex;
-      justify-content: space-evenly;
-      gap: 1rem;
-      list-style: none;
-
-      @media only screen and (max-width: 1120px) {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-      }
-
-      @media only screen and (max-width: 645px) {
-        flex-direction: column;
-      }
-    }
-
-    &__link {
-      color: $highlightAccent;
-      font-size: $font-size-md;
-      @include myTransitionAll;
-      &:hover {
-        color: #fff;
-      }
     }
   }
 

@@ -214,6 +214,11 @@ ul {
   padding-bottom: 1rem !important;
 }
 
+.my-3 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
 .my-5 {
   margin-top: 3rem !important;
   margin-bottom: 3rem !important;
@@ -304,6 +309,10 @@ h6,
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+
+.clear {
+  clear: left;
 }
 
 .bold {

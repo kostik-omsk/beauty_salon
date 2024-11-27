@@ -28,15 +28,15 @@ watch(route, () => {
           <img :src="getImageUrl(service.urlName, 'png')" :alt="service.title" />
         </picture>
       </div>
-      <p class="service__description">{{ service.description }}</p>
+      <template v-if="service.info">
+        <div v-html="service.info"></div>
+      </template>
+      <template v-else>
+        <p class="service__description">{{ service.description }}</p>
+      </template>
     </div>
-    <AppPriceList
-      v-if="service.priceList"
-      :priceList="service.priceList"
-      :priceList2="service.priceList2"
-      :title="service.title"
-      :info="service.priceInfo"
-    />
+
+    <AppPriceList v-if="service.priceList" :priceList="service.priceList" :title="service.title" />
     <div class="service__list-info mt-5">
       <AppInfoList v-if="service.preparation" :list="service.preparation" title="Подготовка" />
       <AppInfoList v-if="service.contraindications" :list="service.contraindications" title="Противопоказания*" />

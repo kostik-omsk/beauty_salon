@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import AppModal from '@/components/Modal/AppModal.vue'
 
-const { priceList, priceList2, title, info } = defineProps(['priceList', 'priceList2', 'title', 'info'])
+const { priceList, title } = defineProps(['priceList', 'title'])
 
 const isDialogOpen = ref(false)
 const currentItemIndex = ref(-1)
@@ -34,16 +34,6 @@ const closeDialog = () => {
         </span>
         <span class="prices__price">{{ item.price }}</span>
       </div>
-      <div class="prices__item prices__item-info" v-if="info" v-html="info"></div>
-      <template v-if="priceList2">
-        <div class="prices__item" v-for="(item, index) in priceList2" :key="index">
-          <span class="prices__subtitle">
-            {{ item.name }}
-            <i class="prices__info bi bi-question-circle" v-if="item.info" @click="openDialog(index)"></i>
-          </span>
-          <span class="prices__price">{{ item.price }}</span>
-        </div>
-      </template>
     </div>
   </div>
   <AppModal :isOpen="isDialogOpen" @close-dialog="closeDialog">
@@ -93,10 +83,6 @@ const closeDialog = () => {
 
   &:nth-child(odd) {
     background-color: #eeeeee;
-  }
-
-  &-info {
-    flex-direction: column;
   }
 }
 .prices__subtitle {
