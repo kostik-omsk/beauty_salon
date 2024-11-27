@@ -1,8 +1,9 @@
 <script lang="ts">
-import { computed, inject } from 'vue'
+import { computed, inject, ref, nextTick } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useListMenuStore } from '@/stores/ListMenu'
 import { useRouter } from 'vue-router'
+import gsap from 'gsap'
 
 export default {
   name: 'AppNavbarListMenuDrop',
@@ -14,19 +15,23 @@ export default {
     const router = useRouter()
     const aniMenu = inject('aniMenu') as gsap.core.Timeline
 
-    const isFolder = computed(() => {
-      return props.menu.subMenu !== undefined
-    })
-    const submenuStyle = computed(() => ({
-      'submenu-open': isOpen.value,
-      'submenu-closed': !isOpen.value
-    }))
+    const isFolder = computed(() => props.menu.subMenu !== undefined)
+    const subMenuRef = ref<HTMLElement | null>(null)
 
     const toggle = () => {
       if (isFolder.value) {
+        if (isOpen.value) {
+          gsap.to(subMenuRef.value, { height: 0, duration: 0.5, ease: 'power1.inOut' })
+        } else {
+          nextTick(() => {
+            const scrollHeight = subMenuRef.value?.scrollHeight || 0
+            gsap.to(subMenuRef.value, { height: scrollHeight, duration: 0.5, ease: 'power1.inOut' })
+          })
+        }
         menuStore.toggleMenu()
       }
     }
+
     const close = () => {
       menuStore.closeMenu()
 
@@ -41,7 +46,7 @@ export default {
       }
     }
 
-    return { isOpen, isFolder, toggle, close, submenuStyle }
+    return { isOpen, isFolder, toggle, close, subMenuRef }
   }
 }
 </script>
@@ -49,12 +54,11 @@ export default {
 <template>
   <li v-if="isFolder" @click="toggle">
     <span class="item-menu">{{ menu.title }}</span>
-    <ul class="sub-menu" :class="submenuStyle">
+    <ul class="sub-menu" ref="subMenuRef">
       <AppNavbarListMenuDrop
         v-for="(dropMenu, index) in menu.subMenu"
         :key="dropMenu.name + '_' + index"
         :menu="dropMenu"
-        @click="toggle"
       />
     </ul>
   </li>
@@ -64,20 +68,14 @@ export default {
     </li>
   </template>
 </template>
+
 <style lang="scss" scoped>
 @import '@/assets/style/mixins.scss';
+
 .sub-menu {
   padding-left: 20px;
   overflow: hidden;
+  height: 0;
   @include myTransitionAll;
-}
-.submenu-open {
-  height: 178px;
-  @media (max-width: 500px) {
-    height: 172px;
-  } /* Установить высоту блока в 100px, когда isOpen === true */
-}
-.submenu-closed {
-  height: 0; /* Установить высоту блока в 0px, когда isOpen === false */
 }
 </style>
