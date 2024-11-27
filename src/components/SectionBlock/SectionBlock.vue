@@ -19,8 +19,9 @@
 
   h2 {
     color: $highlightAccent;
-    font-weight: 800;
-    text-shadow: 0px 0px 5px #000000;
+    font-weight: 600;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
   }
 }
 </style>

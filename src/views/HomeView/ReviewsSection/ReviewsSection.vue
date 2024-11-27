@@ -22,7 +22,7 @@ const loadMoreReviews = () => {
 </script>
 
 <template>
-  <SectionBlock>
+  <SectionBlock class="my-5">
     <template #title>Отзывы</template>
     <template #content>
       <div class="container">
@@ -62,6 +62,7 @@ const loadMoreReviews = () => {
   padding: 1rem;
   border-radius: 1rem;
   @include myBorder;
+  @include boxShadow;
 }
 
 .review .header {
