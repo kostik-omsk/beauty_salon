@@ -126,8 +126,8 @@ const handleSubmit = async (): Promise<void> => {
     <p class="contact__subtitle">Вы можете записаться любым удобным способом:</p>
     <div class="contact__options">
       <p>
-        ▪ Воспользуйтесь -
-        <a class="contact__link dikidi" href="https://dikidi.ru/#widget=173285">Онлайн записью</a>
+        ▪
+        <a class="contact__link dikidi" href="https://dikidi.ru/#widget=173285">Онлайн Запись</a>
       </p>
       <p>
         ▪ Напишите нам в -
@@ -247,17 +247,17 @@ const handleSubmit = async (): Promise<void> => {
   }
 
   &__link {
-    color: $highlightAccent;
-    text-decoration: solid underline $highlightAccent;
+    color: $secondaryAccent;
+    text-decoration: solid underline $secondaryAccent;
     font-weight: 600;
     &.dikidi {
       white-space: nowrap;
-      text-transform: uppercase;
     }
 
     &:hover {
-      color: $secondaryAccent;
-      text-decoration: solid underline $secondaryAccent;
+      color: $primaryAccent;
+      text-decoration: solid underline $primaryAccent;
+      text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.4);
     }
   }
 
