@@ -123,11 +123,19 @@ const handleSubmit = async (): Promise<void> => {
 <template>
   <div class="contact">
     <h3 class="contact__title">Запись в <span>Chloé</span></h3>
-    <p class="contact__subtitle">
-      Напишите нам в
-      <a class="contact__link" href="https://api.whatsapp.com/send?phone=79133851386" target="_blank">WhatsApp</a> или
-      заполните форму ниже и мы с вами свяжемся.
-    </p>
+    <p class="contact__subtitle">Вы можете записаться любым удобным способом:</p>
+    <div class="contact__options">
+      <p>
+        ▪ Воспользуйтесь -
+        <a class="contact__link dikidi" href="https://dikidi.ru/#widget=173285">Онлайн записью</a>
+      </p>
+      <p>
+        ▪ Напишите нам в -
+        <a class="contact__link" href="https://api.whatsapp.com/send?phone=79133851386" target="_blank">WhatsApp</a>
+      </p>
+      <p>▪ Или заполните форму ниже, и мы с вами свяжемся.</p>
+    </div>
+
     <form class="contact__form form" @submit.prevent="handleSubmit">
       <div class="form__fields fields">
         <div class="fields__group">
@@ -226,7 +234,6 @@ const handleSubmit = async (): Promise<void> => {
   &__subtitle {
     color: $dark;
     font-size: $font-size-lg;
-    margin-bottom: 2rem;
 
     @media screen and (max-width: 768px) {
       font-size: $font-size-md;
@@ -234,9 +241,30 @@ const handleSubmit = async (): Promise<void> => {
     }
   }
 
+  &__options {
+    font-size: $font-size-lg;
+    margin-bottom: 1rem;
+  }
+
   &__link {
     color: $highlightAccent;
     text-decoration: solid underline $highlightAccent;
+    font-weight: 600;
+    &.dikidi {
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    &:hover {
+      color: $secondaryAccent;
+      text-decoration: solid underline $secondaryAccent;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    height: 2px;
+    background-color: $highlightAccent;
   }
 }
 
