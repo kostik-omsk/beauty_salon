@@ -153,13 +153,23 @@ ul {
     transform: translate(-100%, 35%) rotate(10deg);
     z-index: -1;
   }
-  &:hover::before {
-    transform: translate(0);
+  @media (hover: hover) {
+    &:hover::before {
+      transform: translate(0);
+    }
+
+    &:hover {
+      color: $dark;
+      border: 1px solid $dark;
+    }
   }
 
-  &:hover {
-    color: $dark;
-    border: 1px solid $dark;
+  @media (hover: none) {
+    &:active {
+      color: $dark;
+      border: 1px solid $dark;
+      background-color: $highlightAccent;
+    }
   }
 }
 
