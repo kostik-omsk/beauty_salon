@@ -14,6 +14,14 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+let ctx: gsap.Context
+
 const CosmeticsImg = [
   'assets/logo/city.svg',
   'assets/logo/angi.svg',
@@ -23,6 +31,25 @@ const CosmeticsImg = [
   'assets/logo/gigi.svg',
   'assets/logo/storyderm.svg'
 ]
+
+onMounted(() => {
+  ctx = gsap.context(() => {
+    gsap.from('.conveyor__item', {
+      x: '200px',
+      opacity: 0,
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: '.conveyor',
+        start: 'top 80%'
+      }
+    })
+  })
+})
+
+onUnmounted(() => {
+  if (!ctx) return
+  ctx.revert()
+})
 </script>
 
 <style lang="scss" scoped>
