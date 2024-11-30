@@ -35,7 +35,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="service__info info" @click="toggleList">
     <div class="info__header">
-      <h4 class="info__title">{{ title }}:</h4>
+      <h4 class="info__title">{{ title }}<span v-if="title === 'Противопоказания'" class="attention">*</span>:</h4>
       <button class="info__btn" :class="{ rotate: isOpenList }">
         <i class="info__arrow bi bi-chevron-down"></i>
       </button>
@@ -44,8 +44,9 @@ onBeforeUnmount(() => {
       <ul class="info__list">
         <li class="info__item" v-for="(item, index) in list" :key="index">{{ item }}</li>
       </ul>
-      <p v-if="title === 'Противопоказания*'" class="mt-3">
-        * Количество противопоказаний может быть больше, необходима консультация специалиста.
+      <p v-if="title === 'Противопоказания'" class="mt-3">
+        <span class="attention">*</span> Количество противопоказаний может быть больше, необходима консультация
+        специалиста.
       </p>
     </div>
   </div>

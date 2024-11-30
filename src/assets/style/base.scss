@@ -1,5 +1,6 @@
 /* base styles  */
 @import './var.scss';
+@import './mixins.scss';
 
 * {
   margin: 0;
@@ -340,5 +341,77 @@ p {
   font-size: $font-size-base;
   &::marker {
     color: $secondaryAccent;
+  }
+}
+
+.attention {
+  color: $warning;
+  font-size: clamp(1.2rem, 0.64vw + 1.04rem, 1.44rem);
+}
+
+.service__details-btn {
+  position: relative;
+  display: flex;
+  font-weight: 600;
+  font-size: 20px;
+  gap: 0.5rem;
+  align-items: center;
+  bottom: 0;
+  color: $dark;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  opacity: 0.8;
+
+  @include myTransitionAll;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    left: 0;
+    bottom: 3px;
+    background: $dark;
+    height: 2px;
+    @include myTransitionAll;
+  }
+  & p {
+    margin: 0;
+    position: relative;
+    font-size: 20px;
+  }
+
+  & p::before {
+    position: absolute;
+    content: 'Подробней';
+    width: 0%;
+    inset: 0;
+    color: $dark;
+    overflow: hidden;
+    @include myTransitionAll;
+  }
+
+  & svg {
+    color: $dark;
+    transition: 0.2s;
+    position: relative;
+    width: 15px;
+    transition-delay: 0.2s;
+  }
+
+  &:hover svg {
+    transform: translateX(4px);
+    color: $dark;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &:hover p::before {
+    width: 100%;
+  }
+
+  &:hover {
+    color: $dark;
+    opacity: 1;
   }
 }
