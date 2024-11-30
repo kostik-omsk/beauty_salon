@@ -18,7 +18,7 @@ const closeDialog = () => {
 </script>
 
 <template>
-  <div class="service__prices prices mt-5">
+  <div class="service__prices prices" v-bind="$attrs">
     <div class="prices__list">
       <div class="prices__header">
         <span class="prices__col">Услуга</span>

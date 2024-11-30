@@ -26,8 +26,8 @@ import AppGalleryIntro from './ui/GalleryIntro/AppGalleryIntro.vue'
           <a href="https://www.t.me/chloe_dankina" target="_blank"><i class="bi bi-telegram"></i></a>
           <a href="https://api.whatsapp.com/send?phone=79133851386" target="_blank"><i class="bi bi-whatsapp"></i></a>
         </div>
-        <router-link class="btn primary-btn" :to="{ path: '/', hash: '#form' }">Записаться</router-link>
-        <!-- <a class="btn primary-btn" href="https://dikidi.ru/#widget=173285">Записаться</a> -->
+        <!-- <router-link class="btn primary-btn" :to="{ path: '/', hash: '#form' }">Записаться</router-link> -->
+        <a class="btn primary-btn" href="https://dikidi.ru/#widget=173285">Записаться</a>
       </div>
       <AppGalleryIntro />
     </template>

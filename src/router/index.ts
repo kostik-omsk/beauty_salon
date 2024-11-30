@@ -5,6 +5,7 @@ const ServicesView = () => import('@/views/ServicesView/ServicesView.vue')
 const ServiceView = () => import('@/views/ServiceView/ServiceView.vue')
 const AppServiceInfo = () => import('@/components/ServiceInfo/AppServiceInfo.vue')
 const CosmeticsView = () => import('@/views/CosmeticsView/CosmeticsView.vue')
+const PriceView = () => import('@/views/PriceView/PriceView.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -132,6 +133,15 @@ const router = createRouter({
       path: '/cosmetics',
       name: 'cosmetics',
       component: CosmeticsView
+    },
+    {
+      path: '/price',
+      name: 'price',
+      component: PriceView
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/' //TODO 404
     }
   ],
   scrollBehavior(to) {

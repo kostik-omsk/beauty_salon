@@ -8,15 +8,16 @@
       <div class="record mb-5">
         <div class="record__head">
           <h2 class="record__title mb-5">Получите индивидуальные рекомендации по уходу за кожей!</h2>
+          <div class="record__btn">
+            <a class="btn primary-btn" href="https://dikidi.ru/#widget=173285">Записаться</a>
+          </div>
         </div>
-        <AppForm />
       </div>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-import AppForm from '@/components/Form/AppForm.vue'
 import ScrollGallery from './ui/ScrollGallery.vue'
 </script>
 
@@ -52,6 +53,10 @@ import ScrollGallery from './ui/ScrollGallery.vue'
     max-width: 680px;
   }
   &__title {
+    text-align: center;
+  }
+
+  &__btn {
     text-align: center;
   }
 }

@@ -6,7 +6,6 @@ import { useServicesStore } from '@/stores/ListServices'
 import getImageUrl from '@/utils/getImagesUrl'
 import AppPriceList from './ui/AppPriceList.vue'
 import AppInfoList from './ui/AppInfoList.vue'
-import AppForm from '../Form/AppForm.vue'
 
 const route = useRoute()
 const services = useServicesStore()
@@ -21,7 +20,7 @@ watch(route, () => {
 
 <template>
   <div class="service__content" v-if="service">
-    <div class="service__info">
+    <div class="service__info mb-5">
       <div class="service__img">
         <picture>
           <source :srcset="getImageUrl(service.urlName, 'webp')" type="image/webp" />
@@ -34,19 +33,21 @@ watch(route, () => {
       <template v-else>
         <p class="service__description">{{ service.description }}</p>
       </template>
+      <div class="service__btn clear">
+        <a class="btn primary-btn" href="https://dikidi.ru/#widget=173285">Записаться</a>
+      </div>
     </div>
 
     <AppPriceList v-if="service.priceList" :priceList="service.priceList" :title="service.title" />
     <div class="service__list-info mt-5">
       <AppInfoList v-if="service.preparation" :list="service.preparation" title="Подготовка" />
-      <AppInfoList v-if="service.contraindications" :list="service.contraindications" title="Противопоказания*" />
+      <AppInfoList v-if="service.contraindications" :list="service.contraindications" title="Противопоказания" />
       <AppInfoList
         v-if="service.recommendations"
         :list="service.recommendations"
         title="Рекомендации после процедуры"
       />
     </div>
-    <AppForm class="mt-5" />
   </div>
 </template>
 
@@ -54,6 +55,7 @@ watch(route, () => {
 @import '@/assets/style/var.scss';
 @import '@/assets/style/mixins.scss';
 .service__info {
+  position: relative;
   padding: 1.5rem;
   overflow: hidden;
   border-radius: 1rem;
@@ -79,6 +81,14 @@ watch(route, () => {
     height: 100%;
     object-fit: cover;
   }
+}
+
+.service__btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 1.5rem;
 }
 
 .service__description {
