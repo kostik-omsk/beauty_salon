@@ -36,18 +36,34 @@ let service = getFlattenedServices
             </router-link>
           </div>
         </div>
-        <AppPriceList v-if="priceList" :priceList="priceList" :title="title" />
+        <AppPriceList class="mb-5 border-top-left" v-if="priceList" :priceList="priceList" :title="title" />
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/style/var.scss';
+
+.price {
+  &__title {
+    text-align: center;
+  }
+}
+
 .item {
   &__header {
+    position: relative;
+    top: 1px;
     display: flex;
     align-items: center;
     gap: 1rem;
+    background: #eeeeee;
+
+    border-radius: 1rem 1rem 0 0;
+    padding: 1rem;
+    border: 1px dashed $dark;
+    border-bottom: 1px solid #eeeeee;
   }
 
   &__img {
@@ -69,5 +85,9 @@ let service = getFlattenedServices
     align-items: flex-start;
     gap: 0.5rem;
   }
+}
+
+:global(.border-top-left) {
+  border-radius: 0 0rem 1rem 1rem !important;
 }
 </style>

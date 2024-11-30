@@ -20,7 +20,7 @@ watch(route, () => {
 
 <template>
   <div class="service__content" v-if="service">
-    <div class="service__info">
+    <div class="service__info mb-5">
       <div class="service__img">
         <picture>
           <source :srcset="getImageUrl(service.urlName, 'webp')" type="image/webp" />
