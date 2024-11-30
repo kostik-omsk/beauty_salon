@@ -20,7 +20,7 @@ const { id, title, description, urlName } = props.service
       </div>
       <div class="service__btn">
         <router-link class="service__details-btn" :to="{ name: id }">
-          <p>Подробней</p>
+          <p>Подробнее</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
@@ -32,7 +32,8 @@ const { id, title, description, urlName } = props.service
             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
           </svg>
         </router-link>
-        <router-link class="btn primary-btn" :to="{ path: '/', hash: '#form' }">Записаться</router-link>
+        <!-- <router-link class="btn primary-btn" :to="{ path: '/', hash: '#form' }">Записаться</router-link> -->
+        <a class="btn primary-btn" href="https://dikidi.ru/#widget=173285">Записаться</a>
       </div>
     </div>
   </div>
@@ -94,73 +95,6 @@ const { id, title, description, urlName } = props.service
   &__btn {
     display: flex;
     gap: 1.5rem;
-  }
-
-  &__details-btn {
-    position: relative;
-    display: flex;
-    font-weight: 600;
-    font-size: 20px;
-    gap: 0.5rem;
-    align-items: center;
-    bottom: 0;
-    color: $dark;
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    opacity: 0.8;
-
-    @include myTransitionAll;
-
-    &::after {
-      position: absolute;
-      content: '';
-      width: 0;
-      left: 0;
-      bottom: 3px;
-      background: $dark;
-      height: 2px;
-      @include myTransitionAll;
-    }
-    & p {
-      margin: 0;
-      position: relative;
-      font-size: 20px;
-    }
-
-    & p::before {
-      position: absolute;
-      content: 'Подробней';
-      width: 0%;
-      inset: 0;
-      color: $dark;
-      overflow: hidden;
-      @include myTransitionAll;
-    }
-
-    & svg {
-      color: $dark;
-      transition: 0.2s;
-      position: relative;
-      width: 15px;
-      transition-delay: 0.2s;
-    }
-
-    &:hover svg {
-      transform: translateX(4px);
-      color: $dark;
-    }
-
-    &:hover::after {
-      width: 100%;
-    }
-
-    &:hover p::before {
-      width: 100%;
-    }
-
-    &:hover {
-      color: $dark;
-      opacity: 1;
-    }
   }
 }
 </style>
