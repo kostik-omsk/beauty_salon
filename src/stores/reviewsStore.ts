@@ -58,9 +58,14 @@ function cleanReviewsHtml(reviewsHtml: string): string {
 
   // Находим все элементы с классом .response внутри временного контейнера
   const responses = tempDiv.querySelectorAll('.response')
+  const modal = tempDiv.querySelectorAll('.modal')
 
   // Удаляем каждый из этих элементов
   responses.forEach((response) => {
+    response.remove()
+  })
+
+  modal.forEach((response) => {
     response.remove()
   })
 
@@ -79,6 +84,8 @@ function cleanReviewsHtml(reviewsHtml: string): string {
   // Заменяем все такие блоки на пустую строку
 
   const cleanShowMore = clearHtml.replace(/<div class="show-more">[\s\S]*?<\/div>/g, '')
+
+  // Заменяем все такие блоки на пустую строку
 
   const finalHtml = cleanShowMore.replace(/\/assets\/images\/profile\/client\.png/g, '/assets/img/client.png')
   // Возвращаем объект с очищенной строкой и флагом наличия "Show more"
