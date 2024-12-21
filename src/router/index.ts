@@ -75,6 +75,14 @@ const router = createRouter({
           }
         },
         {
+          path: 'eyelashes',
+          name: 'eyelashes',
+          component: ServiceView,
+          meta: {
+            breadcrumb: 'Наращивание ресниц'
+          }
+        },
+        {
           path: 'bodyshaping',
           name: 'bodyshaping',
           component: ServiceView,
@@ -83,11 +91,11 @@ const router = createRouter({
           }
         },
         {
-          path: 'eyelashes',
-          name: 'eyelashes',
+          path: 'relax',
+          name: 'relax',
           component: ServiceView,
           meta: {
-            breadcrumb: 'Наращивание ресниц'
+            breadcrumb: 'Релакс'
           }
         },
         {

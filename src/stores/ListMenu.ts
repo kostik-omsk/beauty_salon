@@ -19,8 +19,9 @@ export const useListMenuStore = defineStore('listMenu', {
           },
           { title: 'Лазерная эпиляция', name: 'laserfive' },
           { title: 'Перманентный макияж', name: 'makeup' },
-          { title: 'Коррекция фигуры', name: 'bodyshaping' },
           { title: 'Наращивание ресниц', name: 'eyelashes' },
+          { title: 'Коррекция фигуры', name: 'bodyshaping' },
+          { title: 'Релакс', name: 'relax' },
           {
             title: 'Эпиляция',
             name: 'epilation',
