@@ -107,7 +107,7 @@ const scrollToTop = () => {
             </div>
             <div class="contacts__address">
               <p class="contacts__subtitle">Адрес:</p>
-              <span class="contacts__link"><i class="bi bi-geo-alt me-1"></i>Кольцово, Никольский прос., 13</span>
+              <span class="contacts__link"><i class="bi bi-geo-alt me-1"></i>Кольцово, Никольский пр-кт, 13</span>
             </div>
           </div>
           <div class="map">

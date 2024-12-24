@@ -10,7 +10,7 @@ import AppGalleryIntro from './ui/GalleryIntro/AppGalleryIntro.vue'
         <h1 class="block-title mb-3">Совершенство доступно</h1>
         <div class="block-text block-text-green mb-3">
           <i class="bi bi-geo-alt"></i>
-          Кольцово, Никольский проспект 13
+          Кольцово, Никольский пр-кт, 13
         </div>
         <div class="block-icons mt-1 mb-3">
           <a href="https://vk.com/dankina_a_s" target="_blank">
