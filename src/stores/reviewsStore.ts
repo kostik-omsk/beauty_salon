@@ -56,41 +56,31 @@ function cleanReviewsHtml(reviewsHtml: string): string {
   const tempDiv = document.createElement('div')
   tempDiv.innerHTML = reviewsHtml
 
-  // Находим все элементы с классом .response внутри временного контейнера
-  const responses = tempDiv.querySelectorAll('.response')
-  const modal = tempDiv.querySelectorAll('.modal')
-
-  // Удаляем каждый из этих элементов
-  responses.forEach((response) => {
-    response.remove()
+  // Удаляем все элементы, не относящиеся к .review
+  Array.from(tempDiv.children).forEach((child) => {
+    if (!child.classList.contains('review')) {
+      child.remove()
+    }
   })
 
-  modal.forEach((response) => {
-    response.remove()
-  })
+  // Удаляем все элементы с классом .response
+  tempDiv.querySelectorAll('.response').forEach((response) => response.remove())
 
-  const reviews = tempDiv.querySelectorAll('.review')
-
-  reviews.forEach((review) => {
+  // Удаляем пустые отзывы
+  tempDiv.querySelectorAll('.review').forEach((review) => {
     const text = review.querySelector('.text > div')
-    if (text?.innerHTML === '') {
+    if (!text || text.innerHTML.trim() === '') {
       review.remove()
     }
   })
 
-  // Возвращаем обратно модифицированную строку HTML
-  const clearHtml = tempDiv.innerHTML
+  // Убираем блоки с классом .show-more
+  tempDiv.querySelectorAll('.show-more').forEach((showMore) => showMore.remove())
 
-  // Заменяем все такие блоки на пустую строку
+  // Заменяем ссылки на изображения
+  tempDiv.innerHTML = tempDiv.innerHTML.replace(/\/assets\/images\/profile\/client\.png/g, '/assets/img/client.png')
 
-  const cleanShowMore = clearHtml.replace(/<div class="show-more">[\s\S]*?<\/div>/g, '')
-
-  // Заменяем все такие блоки на пустую строку
-
-  const finalHtml = cleanShowMore.replace(/\/assets\/images\/profile\/client\.png/g, '/assets/img/client.png')
-  // Возвращаем объект с очищенной строкой и флагом наличия "Show more"
-
-  return finalHtml
+  return tempDiv.innerHTML
 }
 
 function isShowMore(html: string): boolean {

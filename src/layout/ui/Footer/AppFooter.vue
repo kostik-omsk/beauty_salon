@@ -119,7 +119,6 @@ const scrollToTop = () => {
           </div>
         </div>
       </div>
-      <div class="footer__line"></div>
       <div class="footer__copyright">
         <p class="footer__copyright-text">© «Chloé» {{ currentYear }}</p>
         <button class="footer__copyright-up" @click="scrollToTop">Наверх ↥</button>
@@ -307,12 +306,6 @@ const scrollToTop = () => {
       width: 100%;
       height: 400px;
     }
-  }
-
-  &__line {
-    width: 100%;
-    height: 1px;
-    background: $highlightAccent;
   }
 
   &__copyright {
