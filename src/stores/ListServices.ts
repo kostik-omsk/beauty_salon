@@ -768,7 +768,7 @@ export const useServicesStore = defineStore('Services', {
             ]
           },
           {
-            id: 'Electra',
+            id: 'Electro',
             title: 'Электроэпиляцию',
             urlName: 'electra',
             description:
