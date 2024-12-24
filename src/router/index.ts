@@ -26,7 +26,7 @@ const router = createRouter({
         keywords: 'салон красоты, услуги, Chloe, Кольцово',
         ogTitle: 'Услуги в Chloe',
         ogDescription: 'Салон красоты Chloe предлагает широкий спектр услуг для вашего ухода.',
-        ogImage: 'favicon/android-icon-192x192.png',
+        ogImage: 'https://chloe-dankina.ru/favicon/android-icon-192x192.png',
         ogUrl: 'https://chloe-dankina.ru/services'
       },
       children: [
@@ -41,7 +41,7 @@ const router = createRouter({
             keywords: 'косметология, уход за лицом, уход за телом, Chloe, салон красоты, Кольцово',
             ogTitle: 'Косметология в Chloe',
             ogDescription: 'Косметологические услуги в студии красоты Chloe. Запишитесь на консультацию!',
-            ogImage: '/assets/img/card/cosmetology.png',
+            ogImage: 'https://chloe-dankina.ru/assets/img/card/cosmetology.png',
             ogUrl: 'https://chloe-dankina.ru/services/cosmetology'
           },
           children: [
@@ -56,7 +56,7 @@ const router = createRouter({
                 keywords: 'омоложение, уход за кожей, Chloe, салон красоты, Кольцово',
                 ogTitle: 'Омоложение кожи в Chloe',
                 ogDescription: 'Делайте вашу кожу молодой и здоровой с помощью процедур Chloe.',
-                ogImage: '/assets/img/card/rejuvenation.png',
+                ogImage: 'https://chloe-dankina.ru/assets/img/card/rejuvenation.png',
                 ogUrl: 'https://chloe-dankina.ru/services/cosmetology/rejuvenation'
               },
               props: true
@@ -72,7 +72,7 @@ const router = createRouter({
                 keywords: 'проблемная кожа, уход, Chloe, салон красоты, Кольцово',
                 ogTitle: 'Борьба с проблемами кожи в Chloe',
                 ogDescription: 'Запишитесь на процедуры для восстановления кожи в студии Chloe.',
-                ogImage: '/assets/img/card/therapy.png',
+                ogImage: 'https://chloe-dankina.ru/assets/img/card/therapy.png',
                 ogUrl: 'https://chloe-dankina.ru/services/cosmetology/therapy'
               }
             },
@@ -87,7 +87,7 @@ const router = createRouter({
                 keywords: 'чистка лица, уход за лицом, Chloe, салон красоты, Кольцово',
                 ogTitle: 'Чистка лица в Chloe',
                 ogDescription: 'Запишитесь на чистку лица в студии Chloe. Здоровая кожа — залог красоты!',
-                ogImage: '/assets/img/card/cleaning.png',
+                ogImage: 'https://chloe-dankina.ru/assets/img/card/cleaning.png',
                 ogUrl: 'https://chloe-dankina.ru/services/cosmetology/cleaning'
               }
             }
@@ -104,7 +104,7 @@ const router = createRouter({
             keywords: 'лазерная эпиляция, эпиляция, уход за кожей, Chloe, салон красоты, Кольцово',
             ogTitle: 'Лазерная эпиляция в Chloe',
             ogDescription: 'Эффективная лазерная эпиляция в студии Chloe. Запишитесь сейчас!',
-            ogImage: '/assets/img/card/laserfive.png',
+            ogImage: 'https://chloe-dankina.ru/assets/img/card/laserfive.png',
             ogUrl: 'https://chloe-dankina.ru/services/laserfive'
           }
         },
@@ -119,7 +119,7 @@ const router = createRouter({
             keywords: 'перманентный макияж, татуаж, удаление макияжа, удаление тату, Chloe, салон красоты, Кольцово',
             ogTitle: 'Перманентный макияж в Chloe',
             ogDescription: 'Сделайте свой макияж идеальным каждый день. Услуги Chloe.',
-            ogImage: '/assets/img/card/makeup.png',
+            ogImage: 'https://chloe-dankina.ru/assets/img/card/makeup.png',
             ogUrl: 'https://chloe-dankina.ru/services/makeup'
           }
         },
@@ -136,7 +136,7 @@ const router = createRouter({
               'наращивание ресниц, уход за ресницами, Chloe, салон красоты, Кольцово, ламинирование ресниц, ботокс ресниц',
             ogTitle: 'Наращивание ресниц в Chloe',
             ogDescription: 'Запишитесь на профессиональное наращивание ресниц в студии красоты Chloe.',
-            ogImage: '/assets/img/card/eyelashes.png',
+            ogImage: 'https://chloe-dankina.ru/assets/img/card/eyelashes.png',
             ogUrl: 'https://chloe-dankina.ru/services/eyelashes'
           }
         },
@@ -151,7 +151,7 @@ const router = createRouter({
             keywords: 'коррекция фигуры, уход за телом, Chloe, салон красоты, Кольцово',
             ogTitle: 'Коррекция фигуры в Chloe',
             ogDescription: 'Идеальные формы с помощью современных процедур в Chloe.',
-            ogImage: '/assets/img/card/body_shaping.png',
+            ogImage: 'https://chloe-dankina.ru/assets/img/card/body_shaping.png',
             ogUrl: 'https://chloe-dankina.ru/services/bodyshaping'
           }
         },
@@ -166,7 +166,7 @@ const router = createRouter({
             keywords: 'релакс, массаж, уход, Chloe, салон красоты, Кольцово',
             ogTitle: 'Релакс в Chloe',
             ogDescription: 'Насладитесь процедурами для расслабления и восстановления в Chloe.',
-            ogImage: '/assets/img/card/relax.png',
+            ogImage: 'https://chloe-dankina.ru/assets/img/card/relax.png',
             ogUrl: 'https://chloe-dankina.ru/services/relax'
           }
         },
@@ -181,7 +181,7 @@ const router = createRouter({
             keywords: 'эпиляция, лазерная эпиляция, восковая эпиляция, электроэпиляция, Chloe, салон красоты, Кольцово',
             ogTitle: 'Эпиляция в Chloe',
             ogDescription: 'Выберите подходящий метод эпиляции в студии красоты Chloe. Удобство и качество.',
-            ogImage: '/assets/img/card/epilation.png',
+            ogImage: 'https://chloe-dankina.ru/assets/img/card/epilation.png',
             ogUrl: 'https://chloe-dankina.ru/services/epilation'
           },
           children: [
@@ -196,7 +196,7 @@ const router = createRouter({
                 keywords: 'восковая эпиляция, сахарная эпиляция, Chloe, салон красоты, Кольцово',
                 ogTitle: 'Восковая и сахарная эпиляция в Chloe',
                 ogDescription: 'Попробуйте восковую или сахарную эпиляцию в студии Chloe. Гладкая кожа надолго!',
-                ogImage: '/assets/img/card/wax.png',
+                ogImage: 'https://chloe-dankina.ru/assets/img/card/wax.png',
                 ogUrl: 'https://chloe-dankina.ru/services/epilation/waxsugar'
               },
               props: true
@@ -212,7 +212,7 @@ const router = createRouter({
                 keywords: 'лазерная эпиляция, эпиляция, Chloe, салон красоты, Кольцово',
                 ogTitle: 'Лазерная эпиляция в Chloe',
                 ogDescription: 'Эффективное удаление волос с помощью лазера. Запишитесь на лазерную эпиляцию в Chloe.',
-                ogImage: '/assets/img/card/laser.png',
+                ogImage: 'https://chloe-dankina.ru/assets/img/card/laser.png',
                 ogUrl: 'https://chloe-dankina.ru/services/epilation/laser'
               },
               props: true
@@ -228,7 +228,7 @@ const router = createRouter({
                 keywords: 'электроэпиляция, эпиляция, Chloe, салон красоты, Кольцово',
                 ogTitle: 'Электроэпиляция в Chloe',
                 ogDescription: 'Избавьтесь от нежелательных волос навсегда с помощью электроэпиляции в Chloe.',
-                ogImage: '/assets/img/card/electra.png',
+                ogImage: 'https://chloe-dankina.ru/assets/img/card/electra.png',
                 ogUrl: 'https://chloe-dankina.ru/services/epilation/electra'
               },
               props: true
@@ -247,7 +247,7 @@ const router = createRouter({
         keywords: 'косметика, комплексы ухода, Chloe, салон красоты, Кольцово',
         ogTitle: 'Косметика в Chloe',
         ogDescription: 'Профессиональная косметика и индивидуальные комплексы ухода.',
-        ogImage: '/assets/img/gallery/9.png',
+        ogImage: 'https://chloe-dankina.ru/assets/img/gallery/9.png',
         ogUrl: 'https://chloe-dankina.ru/cosmetics'
       }
     },
@@ -262,7 +262,7 @@ const router = createRouter({
         ogTitle: 'Цены на услуги студии Chloe',
         ogDescription:
           'Посмотрите прайс-лист на услуги студии красоты Chloe. Найдите подходящую услугу по доступной цене.',
-        ogImage: 'favicon/android-icon-192x192.png',
+        ogImage: 'https://chloe-dankina.ru/favicon/android-icon-192x192.png',
         ogUrl: 'https://chloe-dankina.ru/price'
       }
     },
@@ -328,7 +328,7 @@ router.afterEach((to) => {
 
   updateOgTag('og:title', (to.meta.ogTitle as string) || metaTitle)
   updateOgTag('og:description', (to.meta.ogDescription as string) || metaDescription)
-  updateOgTag('og:image', (to.meta.ogImage as string) || 'favicon/android-icon-192x192.png')
+  updateOgTag('og:image', (to.meta.ogImage as string) || 'https://chloe-dankina.ru/favicon/android-icon-192x192.png')
   updateOgTag('og:url', (to.meta.ogUrl as string) || window.location.href)
 })
 
