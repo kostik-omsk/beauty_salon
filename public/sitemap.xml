@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Главная страница -->
+  <url>
+    <loc>https://chloe-dankina.ru/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Услуги -->
+  <url>
+    <loc>https://chloe-dankina.ru/services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Косметология -->
+  <url>
+    <loc>https://chloe-dankina.ru/services/cosmetology</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chloe-dankina.ru/services/cosmetology/rejuvenation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://chloe-dankina.ru/services/cosmetology/therapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://chloe-dankina.ru/services/cosmetology/cleaning</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Лазерная эпиляция -->
+  <url>
+    <loc>https://chloe-dankina.ru/services/laserfive</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Перманентный макияж -->
+  <url>
+    <loc>https://chloe-dankina.ru/services/makeup</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Наращивание ресниц -->
+  <url>
+    <loc>https://chloe-dankina.ru/services/eyelashes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Коррекция фигуры -->
+  <url>
+    <loc>https://chloe-dankina.ru/services/bodyshaping</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Релакс -->
+  <url>
+    <loc>https://chloe-dankina.ru/services/relax</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Эпиляция -->
+  <url>
+    <loc>https://chloe-dankina.ru/services/epilation</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chloe-dankina.ru/services/epilation/waxsugar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://chloe-dankina.ru/services/epilation/laser</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://chloe-dankina.ru/services/epilation/electro</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Косметика -->
+  <url>
+    <loc>https://chloe-dankina.ru/cosmetics</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Прайс-лист -->
+  <url>
+    <loc>https://chloe-dankina.ru/price</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
