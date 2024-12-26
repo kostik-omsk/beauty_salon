@@ -1,6 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView/HomeView.vue'
 
+declare global {
+  interface Window {
+    ym?: (id: number, event: string, ...params: any[]) => void
+  }
+}
+
 const ServicesView = () => import('@/views/ServicesView/ServicesView.vue')
 const ServiceView = () => import('@/views/ServiceView/ServiceView.vue')
 const AppServiceInfo = () => import('@/components/ServiceInfo/AppServiceInfo.vue')
@@ -330,6 +336,11 @@ router.afterEach((to) => {
   updateOgTag('og:description', (to.meta.ogDescription as string) || metaDescription)
   updateOgTag('og:image', (to.meta.ogImage as string) || 'https://chloe-dankina.ru/favicon/android-icon-192x192.png')
   updateOgTag('og:url', (to.meta.ogUrl as string) || window.location.href)
+
+  // Отслеживание маршрутов для Яндекс.Метрики
+  if (window.ym) {
+    window.ym(99322589, 'hit', to.fullPath)
+  }
 })
 
 export default router
