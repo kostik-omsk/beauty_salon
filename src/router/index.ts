@@ -1,5 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView/HomeView.vue'
+import NotFoundView from '@/views/NoFont/NotFoundView.vue'
+
+declare global {
+  interface Window {
+    ym?: (id: number, event: string, ...params: any[]) => void
+  }
+}
 
 declare global {
   interface Window {
@@ -273,8 +280,22 @@ const router = createRouter({
       }
     },
     {
+      path: '/not-found',
+      name: 'not-found',
+      component: NotFoundView,
+      meta: {
+        title: 'Страница не найдена - Chloe',
+        description: 'Страница не найдена',
+        keywords: '404, Chloe, салон красоты, Кольцово',
+        ogTitle: 'Страница не найдена - Chloe',
+        ogDescription: 'Страница не найдена',
+        ogImage: 'https://chloe-dankina.ru/favicon/android-icon-192x192.png',
+        ogUrl: 'https://chloe-dankina.ru/not-found'
+      }
+    },
+    {
       path: '/:pathMatch(.*)*',
-      redirect: '/' //TODO 404
+      redirect: '/not-found' //TODO 404
     }
   ],
   scrollBehavior(to) {
