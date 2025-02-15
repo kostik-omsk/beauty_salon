@@ -78,14 +78,21 @@ const loadMoreReviews = () => {
 }
 
 .review .rating {
-  display: block;
-  content: '';
-  background-image: url(/assets/img//stars-small.png);
-  background-size: 72px;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  width: var(--stars);
-  height: 12px;
+  background-image: url(/assets/star-light-gray.svg);
+  background-size: 26px;
+  background-position: 0 -2px;
+  width: 130px;
+  height: 25px;
+
+  &:after {
+    display: block;
+    content: '';
+    background-image: url(/assets/star-orange.svg);
+    background-size: 26px;
+    background-position: 0 -2px;
+    width: var(--stars);
+    height: 25px;
+  }
 }
 
 .review .client {
@@ -112,13 +119,30 @@ const loadMoreReviews = () => {
 
 .review .details .name {
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .review .details .date {
-  opacity: 0.5;
-  font-size: 0.8rem;
+  opacity: 0.7;
+  font-size: 0.9rem;
 }
+
+.review .master-service {
+  font-size: 0.9rem;
+}
+
+.review .master-service .service {
+  color: $dark;
+  opacity: 0.7;
+}
+
+.review .master-service .master {
+  color: $secondaryAccent;
+  &::before {
+    content: 'Мастер:';
+  }
+}
+
 .showmore .btn {
   width: 193px;
 }

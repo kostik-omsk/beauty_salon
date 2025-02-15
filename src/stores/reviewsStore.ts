@@ -65,6 +65,7 @@ function cleanReviewsHtml(reviewsHtml: string): string {
 
   // Удаляем все элементы с классом .response
   tempDiv.querySelectorAll('.response').forEach((response) => response.remove())
+  tempDiv.querySelectorAll('.toolbar').forEach((toolbar) => toolbar.remove())
 
   // Удаляем пустые отзывы
   tempDiv.querySelectorAll('.review').forEach((review) => {
@@ -76,9 +77,6 @@ function cleanReviewsHtml(reviewsHtml: string): string {
 
   // Убираем блоки с классом .show-more
   tempDiv.querySelectorAll('.show-more').forEach((showMore) => showMore.remove())
-
-  // Заменяем ссылки на изображения
-  tempDiv.innerHTML = tempDiv.innerHTML.replace(/\/assets\/images\/profile\/client\.png/g, '/assets/img/client.png')
 
   return tempDiv.innerHTML
 }
