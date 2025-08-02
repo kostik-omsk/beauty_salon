@@ -11,7 +11,7 @@ let service = getFlattenedServices
   <div class="container">
     <div class="price">
       <h1 class="price__title my-5">Цены на услуги</h1>
-      <div class="price__item item" v-for="{ id, title, urlName, priceList } in service" :key="id">
+      <div class="price__item item" v-for="{ id, title, urlName, priceList, priceFormat } in service" :key="id">
         <div class="item__header">
           <div class="item__img">
             <picture>
@@ -36,7 +36,7 @@ let service = getFlattenedServices
             </router-link>
           </div>
         </div>
-        <AppPriceList class="mb-5 border-top-left" v-if="priceList" :priceList="priceList" :title="title" />
+        <AppPriceList class="mb-5 border-top-left" v-if="priceList" :priceList="priceList" :priceFormat="priceFormat" />
       </div>
     </div>
   </div>
