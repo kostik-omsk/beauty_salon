@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import AppModal from '@/components/Modal/AppModal.vue'
 
-const { priceList, title } = defineProps(['priceList', 'title'])
+const { priceList, priceFormat } = defineProps(['priceList', 'priceFormat'])
 
 const isDialogOpen = ref(false)
 const currentItemIndex = ref(-1)
@@ -24,14 +24,17 @@ const closeDialog = () => {
         <span class="prices__col">Услуга</span>
         <div class="prices__col">
           Цена &#8381;
-          <span class="price-format">{{ title.includes('/') ? `(${title})` : '' }}</span>
+          <span class="price-format" v-if="priceFormat">{{ priceFormat }}</span>
         </div>
       </div>
       <div class="prices__item" v-for="(item, index) in priceList" :key="index">
-        <span class="prices__subtitle">
-          {{ item.name }}
-          <i class="prices__info bi bi-question-circle" v-if="item.info" @click="openDialog(index)"></i>
-        </span>
+        <div class="prices__title">
+          <span class="prices__name"
+            >{{ item.name }}
+            <i class="prices__info bi bi-question-circle" v-if="item.info" @click="openDialog(index)"></i>
+          </span>
+          <span class="prices__subname" v-if="item.subName">{{ item.subName }}</span>
+        </div>
         <span class="prices__price">{{ item.price }}</span>
       </div>
     </div>
@@ -68,7 +71,7 @@ const closeDialog = () => {
 }
 
 .prices__col {
-  text-align: center;
+  text-align: end;
   font-size: $font-size-base;
   font-weight: 700;
 }
@@ -85,11 +88,21 @@ const closeDialog = () => {
     background-color: #eeeeee;
   }
 }
-.prices__subtitle {
+.prices__title {
+  margin-bottom: 0;
+}
+.prices__name {
   display: block;
+}
+.prices__subname {
+  display: block;
+  font-size: $font-size-sm;
+  font-weight: 400;
+  opacity: 0.8;
 }
 .prices__price {
   text-align: end;
+  align-self: center;
   flex-grow: 0;
   flex-shrink: 1;
   font-weight: 800;
