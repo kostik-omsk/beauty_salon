@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { useCookieConsentStore } from '@/stores/cookieConsent'
+
 const currentYear = new Date().getFullYear()
+const consentStore = useCookieConsentStore()
+
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
@@ -112,16 +116,28 @@ const scrollToTop = () => {
           </div>
           <div class="map">
             <iframe
+              v-if="consentStore.functional"
               class="yandex-map"
               src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa3b5d4573e3554d77c8e1c3f0daa1427fae8e1b2db52fddbe82754e2ee16c92e&amp;source=constructor"
               frameborder="0"
             ></iframe>
+            <div v-else class="map__placeholder">
+              <p>Карта доступна только при включенных функциональных cookie.</p>
+              <button class="map__btn" type="button" @click="consentStore.openSettings">
+                Настроить cookie
+              </button>
+            </div>
           </div>
         </div>
       </div>
       <div class="footer__copyright">
         <p class="footer__copyright-text">© «Chloé» {{ currentYear }}</p>
-        <button class="footer__copyright-up" @click="scrollToTop">Наверх ↥</button>
+        <div class="footer__actions">
+          <button class="footer__cookies" type="button" @click="consentStore.openSettings">
+            Настройки cookie
+          </button>
+          <button class="footer__copyright-up" @click="scrollToTop">Наверх ↥</button>
+        </div>
       </div>
     </div>
   </footer>
@@ -306,6 +322,34 @@ const scrollToTop = () => {
       width: 100%;
       height: 400px;
     }
+
+    &__placeholder {
+      height: 400px;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+
+    &__btn {
+      border: 1px solid $highlightAccent;
+      background: transparent;
+      color: $highlightAccent;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      @include myTransitionAll;
+
+      &:hover {
+        background: $highlightAccent;
+        color: $dark;
+      }
+    }
   }
 
   &__copyright {
@@ -329,6 +373,26 @@ const scrollToTop = () => {
       &:hover {
         color: #fff;
       }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__cookies {
+    background: none;
+    border: none;
+    color: $highlightAccent;
+    text-decoration: underline;
+    padding: 0;
+    font-size: $font-size-base;
+    @include myTransitionAll;
+
+    &:hover {
+      color: #fff;
     }
   }
 }

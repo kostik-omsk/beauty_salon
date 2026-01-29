@@ -1,10 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView/HomeView.vue'
 import NotFoundView from '@/views/NoFont/NotFoundView.vue'
+import { COOKIE_CONSENT_STORAGE_KEY } from '@/stores/cookieConsent'
 
 declare global {
   interface Window {
     ym?: (id: number, event: string, ...params: any[]) => void
+  }
+}
+
+const isAnalyticsAllowed = (): boolean => {
+  try {
+    const raw = localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY)
+    if (!raw) return false
+    const parsed = JSON.parse(raw) as { analytics?: boolean }
+    return parsed.analytics === true
+  } catch (error) {
+    console.warn('Cookie consent read error:', error)
+    return false
   }
 }
 
@@ -13,6 +26,7 @@ const ServiceView = () => import('@/views/ServiceView/ServiceView.vue')
 const AppServiceInfo = () => import('@/components/ServiceInfo/AppServiceInfo.vue')
 const CosmeticsView = () => import('@/views/CosmeticsView/CosmeticsView.vue')
 const PriceView = () => import('@/views/PriceView/PriceView.vue')
+const PrivacyPolicyView = () => import('@/views/PrivacyPolicyView/PrivacyPolicyView.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -274,6 +288,20 @@ const router = createRouter({
       }
     },
     {
+      path: '/privacy-policy',
+      name: 'privacy-policy',
+      component: PrivacyPolicyView,
+      meta: {
+        title: 'Политика обработки данных - Chloe',
+        description: 'Политика обработки данных и cookie.',
+        keywords: 'политика, данные, cookie, Chloe',
+        ogTitle: 'Политика обработки данных - Chloe',
+        ogDescription: 'Политика обработки данных и cookie.',
+        ogImage: 'https://chloe-dankina.ru/favicon/android-icon-192x192.png',
+        ogUrl: 'https://chloe-dankina.ru/privacy-policy'
+      }
+    },
+    {
       path: '/not-found',
       name: 'not-found',
       component: NotFoundView,
@@ -353,7 +381,7 @@ router.afterEach((to) => {
   updateOgTag('og:url', (to.meta.ogUrl as string) || window.location.href)
 
   // Отслеживание маршрутов для Яндекс.Метрики
-  if (window.ym) {
+  if (window.ym && isAnalyticsAllowed()) {
     window.ym(99322589, 'hit', to.fullPath)
   }
 })
