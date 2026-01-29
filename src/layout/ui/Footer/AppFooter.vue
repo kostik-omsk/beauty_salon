@@ -19,7 +19,7 @@ const scrollToTop = () => {
           <div class="logo">
             <div class="logo-wrap">
               <router-link to="/" class="logo-text">
-                Chloé
+                Хлоя
                 <svg
                   fill="#000000"
                   height="800px"
@@ -123,19 +123,15 @@ const scrollToTop = () => {
             ></iframe>
             <div v-else class="map__placeholder">
               <p>Карта доступна только при включенных функциональных cookie.</p>
-              <button class="map__btn" type="button" @click="consentStore.openSettings">
-                Настроить cookie
-              </button>
+              <button class="map__btn" type="button" @click="consentStore.openSettings">Настроить cookie</button>
             </div>
           </div>
         </div>
       </div>
       <div class="footer__copyright">
-        <p class="footer__copyright-text">© «Chloé» {{ currentYear }}</p>
+        <p class="footer__copyright-text">© «Хлоя» {{ currentYear }}</p>
         <div class="footer__actions">
-          <button class="footer__cookies" type="button" @click="consentStore.openSettings">
-            Настройки cookie
-          </button>
+          <button class="footer__cookies" type="button" @click="consentStore.openSettings">Настройки cookie</button>
           <button class="footer__copyright-up" @click="scrollToTop">Наверх ↥</button>
         </div>
       </div>
