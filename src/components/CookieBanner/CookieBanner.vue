@@ -138,6 +138,11 @@ watch(
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    flex-direction: column;
+  }
 }
 
 .cookie-btn {
@@ -255,8 +260,12 @@ watch(
 .cookie-modal__actions {
   display: flex;
   gap: 0.6rem;
-  flex-wrap: wrap;
+
   margin-bottom: 1rem;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    flex-direction: column;
+  }
 }
 
 .cookie-modal__policy {
