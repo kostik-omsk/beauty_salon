@@ -100,7 +100,7 @@ export default {
       </div>
       <div class="logo">
         <router-link to="/" class="logo-text">
-          Chloé
+          Хлоя
           <svg
             fill="#000000"
             height="800px"
