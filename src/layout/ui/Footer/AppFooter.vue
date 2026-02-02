@@ -128,6 +128,10 @@ const scrollToTop = () => {
           </div>
         </div>
       </div>
+      <div class="footer__links">
+        <router-link to="/user-agreement" class="footer__user-agreement">Пользовательское соглашение</router-link>
+        <router-link to="/privacy-policy" class="footer__privacy-policy">Политика о персональных данных</router-link>
+      </div>
       <div class="footer__copyright">
         <p class="footer__copyright-text">© «Хлоя» {{ currentYear }}</p>
         <div class="footer__actions">
@@ -348,11 +352,27 @@ const scrollToTop = () => {
     }
   }
 
+  &__links {
+    display: flex;
+    gap: 1rem;
+
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+
   &__copyright {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.8rem 0;
+    @media screen and (max-width: 480px) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
 
     &-text {
       margin: 0;
@@ -376,6 +396,13 @@ const scrollToTop = () => {
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    @media screen and (max-width: 480px) {
+      width: 100%;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
   }
 
   &__cookies {
@@ -387,6 +414,25 @@ const scrollToTop = () => {
     font-size: $font-size-base;
     @include myTransitionAll;
 
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__user-agreement {
+    text-decoration: none;
+    color: $highlightAccent;
+    font-size: $font-size-base;
+    @include myTransitionAll;
+    &:hover {
+      color: #fff;
+    }
+  }
+  &__privacy-policy {
+    text-decoration: none;
+    color: $highlightAccent;
+    font-size: $font-size-base;
+    @include myTransitionAll;
     &:hover {
       color: #fff;
     }

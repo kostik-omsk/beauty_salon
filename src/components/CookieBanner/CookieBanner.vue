@@ -53,7 +53,10 @@ watch(
         <button class="btn cookie-btn" type="button" @click="handleRejectAll">Отклонить все</button>
         <button class="btn cookie-btn" type="button" @click="handleOpenSettings">Настроить</button>
       </div>
-      <router-link class="cookie-banner__link" to="/privacy-policy">Политика обработки данных и cookie</router-link>
+      <div class="cookie-banner__links">
+        <router-link class="cookie-banner__link" to="/privacy-policy">Политика о персональных данных</router-link>
+        <router-link class="cookie-banner__link" to="/user-agreement">Пользовательское соглашение</router-link>
+      </div>
     </div>
   </div>
 
@@ -90,7 +93,10 @@ watch(
           <button class="btn cookie-btn" type="button" @click="handleRejectAll">Отклонить все</button>
           <button class="btn cookie-btn" type="button" @click="handleAcceptAll">Принять все</button>
         </div>
-        <a class="cookie-modal__policy" href="/privacy-policy">Политика обработки данных и cookie</a>
+        <div class="cookie-modal__links">
+          <router-link class="cookie-modal__policy" to="/privacy-policy">Политика о персональных данных</router-link>
+          <router-link class="cookie-modal__policy" to="/user-agreement">Пользовательское соглашение</router-link>
+        </div>
       </div>
     </div>
   </teleport>
@@ -129,6 +135,17 @@ watch(
   line-height: 1.4;
 }
 
+.cookie-banner__links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
 .cookie-banner__link {
   color: $highlightAccent;
   text-decoration: underline;
@@ -265,6 +282,20 @@ watch(
   @media screen and (max-width: 480px) {
     width: 100%;
     flex-direction: column;
+  }
+}
+
+.cookie-modal__links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 480px) {
+  .cookie-modal__links {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
   }
 }
 
