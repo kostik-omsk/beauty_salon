@@ -27,6 +27,7 @@ const AppServiceInfo = () => import('@/components/ServiceInfo/AppServiceInfo.vue
 const CosmeticsView = () => import('@/views/CosmeticsView/CosmeticsView.vue')
 const PriceView = () => import('@/views/PriceView/PriceView.vue')
 const PrivacyPolicyView = () => import('@/views/PrivacyPolicyView/PrivacyPolicyView.vue')
+const UserAgreementView = () => import('@/views/UserAgreementView/UserAgreementView.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -299,6 +300,20 @@ const router = createRouter({
         ogDescription: 'Политика обработки данных и cookie.',
         ogImage: 'https://chloe-dankina.ru/favicon/android-icon-192x192.png',
         ogUrl: 'https://chloe-dankina.ru/privacy-policy'
+      }
+    },
+    {
+      path: '/user-agreement',
+      name: 'user-agreement',
+      component: UserAgreementView,
+      meta: {
+        title: 'Пользовательское соглашение - Хлоя',
+        description: 'Пользовательское соглашение сайта.',
+        keywords: 'пользовательское соглашение, условия использования, Хлоя',
+        ogTitle: 'Пользовательское соглашение - Хлоя',
+        ogDescription: 'Пользовательское соглашение сайта.',
+        ogImage: 'https://chloe-dankina.ru/favicon/android-icon-192x192.png',
+        ogUrl: 'https://chloe-dankina.ru/user-agreement'
       }
     },
     {
