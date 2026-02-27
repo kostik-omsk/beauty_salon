@@ -122,7 +122,7 @@ const handleSubmit = async (): Promise<void> => {
 
 <template>
   <div class="contact">
-    <h3 class="contact__title">Запись в <span>Хлоя</span></h3>
+    <h3 class="contact__title">Запись в <span>студию красоты Анастасии Данькиной</span></h3>
     <p class="contact__subtitle">Вы можете записаться любым удобным способом:</p>
     <div class="contact__options">
       <p>

@@ -17,9 +17,10 @@ const scrollToTop = () => {
       <div class="footer__wrapper">
         <div class="footer__content">
           <div class="logo">
-            <div class="logo-wrap">
-              <router-link to="/" class="logo-text">
-                Хлоя
+            <div class="logo__wrap">
+              <router-link to="/" class="logo__link" />
+              <div class="logo__block">
+                <p class="logo__name">Студия красоты</p>
                 <svg
                   fill="#000000"
                   height="800px"
@@ -35,8 +36,8 @@ const scrollToTop = () => {
                     <g>
                       <path
                         d="M132.885,252.461c0-7.365,0.397-14.632,1.138-21.784c-20.264-11.958-42.114-20.036-62.894-25.465
-			c-0.435-0.096-0.863-0.21-1.289-0.33C42.578,197.889,17.27,195.395,0,194.58c1.896,38.848,12.204,118.399,62.793,168.987
-			c39.046,39.046,94.956,54.11,136.356,59.825C168.874,384.184,132.885,322.788,132.885,252.461z"
+      c-0.435-0.096-0.863-0.21-1.289-0.33C42.578,197.889,17.27,195.395,0,194.58c1.896,38.848,12.204,118.399,62.793,168.987
+      c39.046,39.046,94.956,54.11,136.356,59.825C168.874,384.184,132.885,322.788,132.885,252.461z"
                       />
                     </g>
                   </g>
@@ -44,7 +45,7 @@ const scrollToTop = () => {
                     <g>
                       <path
                         d="M394.52,116.126c-11.802,5.564-27.47,13.751-44.093,24.669c6.44,12.797,12.254,26.49,16.94,40.908
-			c13.504-6.875,27.295-12.441,40.894-16.934C404.228,145.288,398.936,128.415,394.52,116.126z"
+      c13.504-6.875,27.295-12.441,40.894-16.934C404.228,145.288,398.936,128.415,394.52,116.126z"
                       />
                     </g>
                   </g>
@@ -52,7 +53,7 @@ const scrollToTop = () => {
                     <g>
                       <path
                         d="M255.974,88.608c-26.136,28.829-75.054,92.341-75.054,163.852c0,71.502,48.906,135.008,75.055,163.848
-			c26.149-28.84,75.055-92.346,75.055-163.848S282.124,117.45,255.974,88.608z"
+      c26.149-28.84,75.055-92.346,75.055-163.848S282.124,117.45,255.974,88.608z"
                       />
                     </g>
                   </g>
@@ -60,8 +61,8 @@ const scrollToTop = () => {
                     <g>
                       <path
                         d="M377.929,230.681c0.741,7.152,1.138,14.417,1.138,21.779c0,70.263-35.924,131.61-66.183,170.823
-			c41.464-5.767,97.412-20.854,136.274-59.717c50.797-50.794,61.013-130.137,62.841-168.942
-			C481.28,196.116,425.109,202.884,377.929,230.681z"
+      c41.464-5.767,97.412-20.854,136.274-59.717c50.797-50.794,61.013-130.137,62.841-168.942
+      C481.28,196.116,425.109,202.884,377.929,230.681z"
                       />
                     </g>
                   </g>
@@ -69,12 +70,12 @@ const scrollToTop = () => {
                     <g>
                       <path
                         d="M117.429,116.128c-4.414,12.286-9.705,29.161-13.74,48.644c13.599,4.493,27.39,10.059,40.894,16.932
-			c4.687-14.42,10.499-28.112,16.94-40.908C144.902,129.88,129.236,121.692,117.429,116.128z"
+      c4.687-14.42,10.499-28.112,16.94-40.908C144.902,129.88,129.236,121.692,117.429,116.128z"
                       />
                     </g>
                   </g>
                 </svg>
-              </router-link>
+              </div>
             </div>
             <div class="socials">
               <a href="https://vk.com/dankina_a_s" target="_blank">
@@ -92,13 +93,28 @@ const scrollToTop = () => {
                   </svg>
                 </i>
               </a>
-              <a href="https://www.instagram.com/anastasiya__dankina/" target="_blank"
-                ><i class="bi bi-instagram"></i
-              ></a>
               <a href="https://www.t.me/chloe_dankina" target="_blank"><i class="bi bi-telegram"></i></a>
-              <a href="https://api.whatsapp.com/send?phone=79133851386" target="_blank"
-                ><i class="bi bi-whatsapp"></i
-              ></a>
+              <a href="https://max.ru/u/f9LHodD0cOLwN72GRueDtBktF6ehHTWVvUh7kvu97dM4z94QBIBedLzwd1s" target="_blank">
+                <i class="my-icon">
+                  <svg class="max" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1000 1000">
+                    <defs>
+                      <linearGradient id="maxGradient" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#4282cf" />
+                        <stop offset="40%" stop-color="#3b51da" />
+                        <stop offset="100%" stop-color="#782ab7" />
+                      </linearGradient>
+                    </defs>
+                    <rect width="1000" height="1000" fill="url(#c)" ry="249.681" />
+                    <rect width="1000" height="1000" fill="url(#d)" ry="249.681" />
+                    <path
+                      class="icon-path"
+                      fill-rule="evenodd"
+                      d="M508.211 878.328c-75.007 0-109.864-10.95-170.453-54.75-38.325 49.275-159.686 87.783-164.979 21.9 0-49.456-10.95-91.248-23.36-136.873-14.782-56.21-31.572-118.807-31.572-209.508 0-216.626 177.754-379.597 388.357-379.597 210.785 0 375.947 171.001 375.947 381.604.707 207.346-166.595 376.118-373.94 377.224m3.103-571.585c-102.564-5.292-182.499 65.7-200.201 177.024-14.6 92.162 11.315 204.398 33.397 210.238 10.585 2.555 37.23-18.98 53.837-35.587a189.8 189.8 0 0 0 92.71 33.032c106.273 5.112 197.08-75.794 204.215-181.95 4.154-106.382-77.67-196.486-183.958-202.574Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </i>
+              </a>
             </div>
           </div>
           <div class="contacts">
@@ -133,7 +149,7 @@ const scrollToTop = () => {
         <router-link to="/privacy-policy" class="footer__privacy-policy">Политика о персональных данных</router-link>
       </div>
       <div class="footer__copyright">
-        <p class="footer__copyright-text">© «Хлоя» {{ currentYear }}</p>
+        <p class="footer__copyright-text">© «Студия красоты Анастасии Данькиной» {{ currentYear }}</p>
         <div class="footer__actions">
           <button class="footer__cookies" type="button" @click="consentStore.openSettings">Настройки cookie</button>
           <button class="footer__copyright-up" @click="scrollToTop">Наверх ↥</button>
@@ -176,24 +192,35 @@ const scrollToTop = () => {
     flex-direction: column;
     align-items: flex-start;
 
-    .logo-text {
-      font-family: 'PlayfairDisplay-Italic', sans-serif;
+    &__wrap {
+      position: relative;
+    }
+    &__link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+    }
+
+    &__block {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    &__name {
       margin: 0;
-      font-size: $font-size-xxxl;
+      font-family: 'PlayfairDisplay-Italic', sans-serif;
       font-weight: 500;
       color: $highlightAccent;
-      // background-color: $mygreen-dark;
-      // background-image: linear-gradient(-20deg, $mygreen, $mygreen-dark 60%);
-      // background-clip: text;
-      // -webkit-background-clip: text;
-      // -webkit-text-fill-color: transparent;
+
+      font-size: $font-size-xl;
     }
 
     #lotus {
       position: relative;
-      top: 5px;
-      width: 45px;
-      height: 45px;
+
+      width: 40px;
+      height: 40px;
       fill: $highlightAccent;
     }
 
@@ -221,27 +248,12 @@ const scrollToTop = () => {
           .my-icon svg {
             fill: #0077ff;
           }
-
-          .bi-instagram {
-            background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
-              radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
-              radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
-              radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
-              radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
-              radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
-              radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
-              linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+          .my-icon .max .icon-path {
+            fill: url(#maxGradient);
           }
 
           .bi-telegram {
             color: #0088cc;
-          }
-
-          .bi-whatsapp {
-            color: #25d366;
           }
         }
       }
@@ -252,6 +264,16 @@ const scrollToTop = () => {
           width: 38px;
           height: 38px;
           fill: $highlightAccent;
+        }
+
+        .max {
+          width: 47px;
+          height: 47px;
+        }
+
+        .icon-path {
+          fill: $highlightAccent;
+          transition: fill 0.3s ease;
         }
       }
     }
