@@ -100,7 +100,6 @@ export default {
       </div>
       <div class="logo">
         <router-link to="/" class="logo-text">
-          Хлоя
           <svg
             fill="#000000"
             height="800px"
@@ -235,8 +234,8 @@ export default {
     #lotus {
       position: relative;
       top: 5px;
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
       fill: $dark;
     }
   }
