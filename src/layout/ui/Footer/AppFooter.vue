@@ -134,9 +134,10 @@ const scrollToTop = () => {
             <iframe
               v-if="consentStore.functional"
               class="yandex-map"
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa3b5d4573e3554d77c8e1c3f0daa1427fae8e1b2db52fddbe82754e2ee16c92e&amp;source=constructor"
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa3b5d4573e3554d77c8e1c3f0daa1427fae8e1b2db52fddbe82754e2ee16c92e&amp;source=constructor&scroll=false"
               frameborder="0"
             ></iframe>
+
             <div v-else class="map__placeholder">
               <p>Карта доступна только при включенных функциональных cookie.</p>
               <button class="map__btn" type="button" @click="consentStore.openSettings">Настроить cookie</button>
